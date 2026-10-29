@@ -86,6 +86,25 @@ run("PostgreSQL API workflows", () => {
       ).status,
     ).toBe(403);
   });
+  it("accepts the local hostname alias but rejects other ports", async () => {
+    if (config.production) return;
+    const alias = new URL(config.origin);
+    alias.hostname = alias.hostname === "localhost" ? "127.0.0.1" : "localhost";
+    const accepted = await request(app)
+      .post("/api/auth/login")
+      .set("Origin", alias.origin)
+      .send({ email: "missing@example.test", password: "not-a-real-password" });
+    expect(accepted.status).toBe(401);
+    alias.port = String(Number(alias.port || 80) + 1);
+    expect(
+      (
+        await request(app)
+          .post("/api/auth/login")
+          .set("Origin", alias.origin)
+          .send({})
+      ).status,
+    ).toBe(403);
+  });
   it("authenticates staff and issues HttpOnly session cookies", async () => {
     const r = await admin
       .post("/api/auth/login")

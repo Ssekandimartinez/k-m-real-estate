@@ -11,7 +11,7 @@ import sharp from "sharp";
 import { v2 as cloudinary } from "cloudinary";
 import { Prisma } from "@prisma/client";
 import { db } from "./db.js";
-import { config } from "./config.js";
+import { config, allowedOrigins } from "./config.js";
 import {
   authenticate,
   adminOnly,
@@ -56,7 +56,13 @@ app.use(
     },
   }),
 );
-app.use(cors({ origin: config.origin, credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) =>
+      callback(null, Boolean(origin && allowedOrigins.has(origin))),
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: "350kb" }));
 app.use(cookieParser());
 app.use(
@@ -72,7 +78,7 @@ app.use(
 app.use("/api", (req, res, next) => {
   if (
     !["GET", "HEAD", "OPTIONS"].includes(req.method) &&
-    req.get("origin") !== config.origin
+    !allowedOrigins.has(req.get("origin") || "")
   ) {
     res.status(403).json({ error: "Request origin is not allowed" });
     return;
