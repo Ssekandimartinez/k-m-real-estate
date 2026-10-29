@@ -1,0 +1,39 @@
+name: Application checks
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: km_test
+          POSTGRES_PASSWORD: ci_test_database_only
+          POSTGRES_DB: km_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U km_test -d km_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://km_test:ci_test_database_only@127.0.0.1:5432/km_test
+      APP_ORIGIN: http://localhost:4000
+      SITE_URL: http://localhost:4000
+      RUN_DATABASE_TESTS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run db:generate
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: node node_modules/@playwright/test/cli.js install --with-deps chromium
+      - run: npm run test:e2e

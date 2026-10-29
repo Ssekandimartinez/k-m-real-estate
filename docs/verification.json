@@ -1,0 +1,50 @@
+{
+  "counts": [
+    {
+      "_count": 85,
+      "kind": "product"
+    },
+    {
+      "_count": 47,
+      "kind": "service"
+    }
+  ],
+  "categories": 28,
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "serverTests": 16,
+    "clientTests": 2,
+    "browserTests": 6
+  },
+  "performance": {
+    "profile": "Lighthouse default mobile simulation on localhost",
+    "scores": {
+      "performance": 94,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "fcp": "0.8 s",
+      "lcp": "2.9 s",
+      "tbt": "100 ms",
+      "cls": "0"
+    }
+  },
+  "measuredDate": "2026-10-29",
+  "servicePage": {
+    "path": "/services/plumbing-installation",
+    "scores": {
+      "performance": 87,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "lcp": "3.4 s",
+      "cls": "0.037"
+    }
+  }
+}
