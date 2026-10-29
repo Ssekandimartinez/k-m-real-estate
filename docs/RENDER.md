@@ -52,6 +52,23 @@ Render regions cannot be changed on an existing resource. The Oregon service
 replaces the failed Frankfurt service without deleting the database.
 Development database records and uploads are not migrated by this setup.
 
+## Existing content and staff accounts
+
+The initial seed creates approved company, service, catalogue and media metadata;
+it does not copy a development database. Existing published properties, projects,
+articles, images, edited settings and staff password hashes require a separate
+database transfer. Back up both databases first, preserve existing production
+records and foreign-key relationships, verify the import in a transaction, and
+restore database network restrictions afterward. Migration snapshots are encrypted
+under the ignored `.local/render-cli/migration-backups` directory; their keys are
+protected by the Windows account that created them. Do not commit these files.
+Browser sessions and password reset tokens should not be copied between hosts.
+
+Publish future content through `https://k-and-m-realestate.netlify.app/admin`.
+Local database edits do not automatically synchronize with production. Existing
+records with `specs.demo=true` retain their illustrative/concept labels; copying
+them does not verify availability or establish completed company work.
+
 ## External services and domain
 
 Add `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` in the

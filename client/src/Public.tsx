@@ -182,6 +182,14 @@ export function Card({ item }: { item: Entry }) {
             {item.title}
           </Link>
         </h3>
+        {item.specs.demo === true &&
+          ["property", "project"].includes(item.kind) && (
+            <p className="muted">
+              {item.kind === "property"
+                ? "Illustrative property — availability not confirmed"
+                : "Design concept — not a completed company project"}
+            </p>
+          )}
         {item.kind === "property" ? (
           <>
             <p className="price">
@@ -1352,6 +1360,14 @@ export function Detail() {
       />
       <section className="section container detail-grid">
         <div>
+          {item.specs.demo === true &&
+            ["property", "project"].includes(item.kind) && (
+              <p className="notice">
+                {item.kind === "property"
+                  ? "Illustrative property. Availability and specifications have not been verified. Contact K&M Real Estate to confirm current options."
+                  : "Design concept. This presentation does not represent a completed K&M Real Estate project."}
+              </p>
+            )}
           {photos.length > 0 && (
             <div className="gallery">
               <img

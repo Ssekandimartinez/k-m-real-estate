@@ -17,7 +17,9 @@ import {
   HeroSlideshow,
   PageHero,
   Services,
+  Card,
 } from "./Public";
+import type { Entry } from "./api";
 afterEach(() => {
   cleanup();
   vi.useRealTimers();
@@ -34,6 +36,36 @@ function wrap(node: React.ReactNode) {
     </QueryClientProvider>,
   );
 }
+
+it.each([
+  ["property", true, "Illustrative property — availability not confirmed"],
+  ["project", true, "Design concept — not a completed company project"],
+  ["property", false, null],
+] as const)(
+  "discloses illustrative %s content when demo is %s",
+  (kind, demo, disclosure) => {
+    const item = {
+      id: "published-record",
+      kind,
+      slug: "published-record",
+      title: "Published record",
+      images: [],
+      specs: { demo },
+      price: null,
+      transaction: null,
+      bedrooms: null,
+      bathrooms: null,
+      area: null,
+      summary: "Published description",
+    } as unknown as Entry;
+    wrap(<Card item={item} />);
+    if (disclosure) expect(screen.getByText(disclosure)).toBeInTheDocument();
+    else
+      expect(
+        screen.queryByText(/Illustrative property/),
+      ).not.toBeInTheDocument();
+  },
+);
 describe("Customer request flow", () => {
   it("automatically changes slide content and can pause and resume", () => {
     vi.useFakeTimers();
