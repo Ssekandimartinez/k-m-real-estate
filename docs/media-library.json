@@ -490,9 +490,9 @@
       "id": "image-055",
       "type": "image",
       "source": "images/pexels-artbovich-8135112.jpg",
-      "url": "/media/library/image-055.webp",
+      "url": "/images/home-interior-hero.webp",
       "alt": "Living room with purple seating",
-      "placement": "home-inspiration-0",
+      "placement": "home-hero-1",
       "category": "Property & design"
     },
     {
@@ -1734,7 +1734,7 @@
       "source": "images/property 9.webp",
       "url": "/media/library/image-193.webp",
       "alt": "House beside a swimming pool",
-      "placement": "home-hero-1",
+      "placement": "home-inspiration-0",
       "category": "Property & design"
     },
     {

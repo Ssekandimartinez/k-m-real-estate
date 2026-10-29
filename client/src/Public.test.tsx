@@ -42,7 +42,7 @@ it.each([
   ["project", true, "Design concept — not a completed company project"],
   ["property", false, null],
 ] as const)(
-  "discloses illustrative %s content when demo is %s",
+  "renders published %s content when demo is %s without extra notices",
   (kind, demo, disclosure) => {
     const item = {
       id: "published-record",
@@ -59,11 +59,11 @@ it.each([
       summary: "Published description",
     } as unknown as Entry;
     wrap(<Card item={item} />);
-    if (disclosure) expect(screen.getByText(disclosure)).toBeInTheDocument();
-    else
-      expect(
-        screen.queryByText(/Illustrative property/),
-      ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Published record" }),
+    ).toBeInTheDocument();
+    if (disclosure)
+      expect(screen.queryByText(disclosure)).not.toBeInTheDocument();
   },
 );
 describe("Customer request flow", () => {
