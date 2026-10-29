@@ -121,14 +121,10 @@ function Header() {
       <header className="header">
         <Link
           to="/"
-          className="brand"
-          aria-label="K&M Real Estate. Real Estate. Real Results. Home"
+          className="brand brand-logo"
+          aria-label="K&M Real Estate home"
         >
           <img src={c?.logo || "/branding/logo.webp"} alt="" />
-          <span>
-            K&M <strong>REAL ESTATE</strong>
-            <small>Real Estate. Real Results.</small>
-          </span>
         </Link>
         <button
           className="mobile-toggle"
@@ -197,14 +193,11 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-top">
         <div>
-          <Link to="/" className="brand footer-brand">
+          <Link to="/" className="brand brand-logo footer-brand">
             <img
               src={c?.logo || "/branding/logo.webp"}
               alt="K&M Real Estate logo"
             />
-            <span>
-              K&M <strong>REAL ESTATE</strong>
-            </span>
           </Link>
           <p>{c?.footer || "Real Estate. Real Results."}</p>
         </div>
