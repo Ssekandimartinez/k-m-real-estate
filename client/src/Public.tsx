@@ -40,6 +40,7 @@ import {
 import { useCompany } from "./App";
 import { standalone } from "./staticContent";
 import { Inspiration } from "./Inspiration";
+import TeamSection from "./TeamSection";
 import { ServicePageGuide } from "./ServicePageGuide";
 import { CollectionGuide, EnquiryGuide } from "./PageContent";
 import {
@@ -887,35 +888,7 @@ export function About() {
       <section className="container">
         <SlotVideo slot="about-video" />
       </section>
-      {!!data?.items.length && (
-        <section className="section container">
-          <SectionTitle
-            eyebrow="THE PEOPLE BEHIND K&M"
-            title="Meet our team."
-          />
-          <div className="grid three">
-            {data.items.map((v) => (
-              <article className="card" key={v.id}>
-                {v.images[0] && (
-                  <img
-                    src={v.images[0].url}
-                    alt={v.images[0].alt}
-                    loading="lazy"
-                  />
-                )}
-                <div className="card-content">
-                  {v.specs.sample === true && (
-                    <p className="eyebrow">Sample team profile</p>
-                  )}
-                  <h3>{v.title}</h3>
-                  <p>{v.specs.jobTitle}</p>
-                  <p>{v.summary}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+      <TeamSection members={data?.items || []} />
       <CTA />
     </>
   );
