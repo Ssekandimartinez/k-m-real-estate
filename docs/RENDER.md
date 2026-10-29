@@ -1,8 +1,13 @@
 # Render deployment
 
 The root `render.yaml` provisions a Node web service and PostgreSQL database in
-Frankfurt. Express serves the API and built React website together, preserving
-relative API URLs, server-rendered metadata and secure administration cookies.
+Oregon, matching the existing `km-real-estate-db` database. The active backend is
+`km-real-estate-oregon` at `https://km-real-estate-oregon.onrender.com`.
+The frontend is hosted at `https://k-and-m-realestate.netlify.app`.
+Netlify proxies `/api/*` and `/media/*` to Render before its SPA fallback.
+`VITE_STANDALONE=false` enables real API requests. Browser API requests and
+session cookies remain on the Netlify origin. `APP_ORIGIN` and `SITE_URL` both
+use the public Netlify URL, including for password reset links.
 The Blueprint selects only Free web and database compute. Do not upgrade either
 resource or enable paid features. Free web services sleep after 15 idle minutes;
 the next request can take about one minute to wake them. The Free database has a
@@ -34,8 +39,10 @@ provider before expiry if the application must continue running without payment.
    seed against production as part of administrator setup.
 
 The database URL is supplied through a private database reference. Public database
-access is disabled. Render supplies `PORT`, and the two origin variables reference
-the service's assigned HTTPS URL rather than guessing an available hostname.
+access is disabled. Render supplies `PORT`. Both the service and database must
+remain in Oregon; internal database addresses do not work across regions.
+Render regions cannot be changed on an existing resource. The Oregon service
+replaces the failed Frankfurt service without deleting the database.
 Development database records and uploads are not migrated by this setup.
 
 ## External services and domain
@@ -49,15 +56,17 @@ save to PostgreSQL. Free Render web services block SMTP ports 25, 465 and 587,
 so the default SMTP configuration will not work. Email needs a supported provider
 connection on an allowed port or a separate HTTPS email integration.
 
-`VITE_STANDALONE=false` ensures the deployed client uses the real API rather than
-the optional static preview. Existing separately hosted frontends are not
-automatically connected by this Blueprint; this service also provides the built
-frontend and `/admin` on the API's own origin.
+The Netlify configuration must be deployed along with this Blueprint. Verify
+`https://k-and-m-realestate.netlify.app/api/health` returns JSON after deployment.
+Do not set `VITE_STANDALONE=true` in Netlify environment overrides. A sleeping
+free Render instance can take longer to wake than Netlify's 26-second proxy
+timeout; the first request after inactivity may fail and need a retry.
 
 When attaching a custom domain, replace both `APP_ORIGIN` and `SITE_URL` in the
 Blueprint with that exact HTTPS origin (no trailing slash), apply the change,
 and verify login, inquiry submission, metadata and password reset links.
-Keep the frontend and API on the same origin with this configuration.
+Update both the Render origin values and Netlify proxy target when moving either
+host. Keep browser API requests on the frontend origin with this configuration.
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for backups and maintenance. A successful local
 build does not establish that the live Render service, database, SMTP or Cloudinary

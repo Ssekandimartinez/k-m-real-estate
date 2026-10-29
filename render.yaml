@@ -1,9 +1,9 @@
 # Free resources only. Render's free PostgreSQL expires after 30 days.
 services:
   - type: web
-    name: km-real-estate
+    name: km-real-estate-oregon
     runtime: node
-    region: frankfurt
+    region: oregon
     plan: free
     buildCommand: npm ci --include=dev && npm run db:generate && npm run build
     # Free web services do not support pre-deploy commands or dashboard Shell.
@@ -24,20 +24,14 @@ services:
           name: km-real-estate-db
           property: connectionString
       - key: APP_ORIGIN
-        fromService:
-          type: web
-          name: km-real-estate
-          envVarKey: RENDER_EXTERNAL_URL
+        value: https://k-and-m-realestate.netlify.app
       - key: SITE_URL
-        fromService:
-          type: web
-          name: km-real-estate
-          envVarKey: RENDER_EXTERNAL_URL
+        value: https://k-and-m-realestate.netlify.app
 
 databases:
   - name: km-real-estate-db
-    region: frankfurt
+    region: oregon
     plan: free
-    databaseName: km
-    user: km
+    databaseName: km_real_estate_db
+    user: km_real_estate_db_user
     ipAllowList: []
