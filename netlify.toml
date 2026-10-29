@@ -4,7 +4,13 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  VITE_STANDALONE = "true"
+  VITE_STANDALONE = "false"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://km-real-estate-oregon.onrender.com/api/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/content/*"

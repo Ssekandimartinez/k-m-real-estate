@@ -6,6 +6,36 @@ const data = buildStaticContent(process.cwd()) as unknown as StaticContent;
 afterEach(() => vi.unstubAllEnvs());
 
 describe("standalone public website", () => {
+  it("uses the live API for published content and submissions when standalone mode is disabled", async () => {
+    vi.stubEnv("VITE_STANDALONE", "false");
+    vi.resetModules();
+    const response = {
+      items: [{ slug: "existing-published-record" }],
+      total: 1,
+    };
+    const fetch = vi
+      .fn()
+      .mockResolvedValue({ ok: true, json: async () => response });
+    vi.stubGlobal("fetch", fetch);
+    try {
+      const { api } = await import("./api");
+      expect(await api("/content/property")).toEqual(response);
+      await api("/requests", { method: "POST", body: "{}" });
+      expect(fetch).toHaveBeenNthCalledWith(
+        1,
+        "/api/content/property",
+        expect.objectContaining({ credentials: "same-origin" }),
+      );
+      expect(fetch).toHaveBeenNthCalledWith(
+        2,
+        "/api/requests",
+        expect.objectContaining({ method: "POST" }),
+      );
+    } finally {
+      vi.unstubAllGlobals();
+      vi.resetModules();
+    }
+  });
   it("includes approved company content and all curated media without fabricated inventory", () => {
     expect(data.company.name).toBe("K&M Real Estate");
     expect(data.visualMedia.assets).toHaveLength(317);

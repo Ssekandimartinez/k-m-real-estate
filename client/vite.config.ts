@@ -8,9 +8,6 @@ import {
 } from "../scripts/static-content";
 const repository = fileURLToPath(new URL("..", import.meta.url));
 export default defineConfig({
-  // Public website content is always bundled; hosting environment settings
-  // cannot reconnect it to an API or admin-managed database.
-  define: { "import.meta.env.VITE_STANDALONE": JSON.stringify("true") },
   plugins: [
     react(),
     tailwindcss(),
@@ -33,4 +30,7 @@ export default defineConfig({
     },
   ],
   preview: { proxy: {} },
+  server: {
+    proxy: { "/api": "http://127.0.0.1:4000" },
+  },
 });

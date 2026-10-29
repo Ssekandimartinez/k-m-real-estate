@@ -1,24 +1,23 @@
-# Frontend-only Netlify website
+# Netlify frontend with the Render backend
 
-The public website bundles its approved company details, service and supply
-catalogue, and curated image/video placements directly into the frontend code.
-It does not fetch public content from Express, PostgreSQL, or a separate JSON
-endpoint. The Vite configuration always selects this mode, even if a hosting
-environment has an old VITE_STANDALONE=false setting.
+Production uses `VITE_STANDALONE=false`. Public content, staff authentication,
+editing and customer submissions use the Express API and PostgreSQL database.
+Do not hardcode standalone mode in Vite: that disconnects published database
+records from the public website and disables staff sign-in and submissions.
 
-`netlify.toml` builds the client workspace, publishes `client/dist`, and routes
-direct page URLs through React. There is no Render API redirect. Admin changes
-do not affect public content. Update `server/prisma/approved-content.ts`, the
-approved catalogue source, or the curated media manifests and redeploy to change
-public content. Vite validates media files and posters when building. It also
-emits `content/site.json` as a build inspection artifact; the website does not
-request it.
+`netlify.toml` builds the client workspace and publishes `client/dist`. The
+`/api/*` proxy to `https://km-real-estate-oregon.onrender.com/api/:splat` must
+precede the React route fallback. Media remains served by Netlify; browser API
+requests and secure session cookies remain on the Netlify origin. Render's
+`APP_ORIGIN` and `SITE_URL` must both be `https://k-and-m-realestate.netlify.app`.
+Publish and edit production content at that site's `/admin` address.
 
-Catalogue search, filtering, detail pages and gallery pagination run locally.
-Enquiry links open the visitor's email application or telephone dialler. No
-submission is saved by the website, and staff sign-in is unavailable. Genuine
-properties, projects, posts and testimonials are not invented or copied from
-development demonstration inventory. No customer records or secrets are bundled.
+The bundled company/service catalogue remains available as an optional preview
+with `VITE_STANDALONE=true`. Preview mode does not use the database, allow sign-in
+or save submissions; it must not be used for the connected production site.
+Bundled content excludes customer records, credentials and secrets. Published
+records marked `specs.demo=true` are identified as illustrative properties or
+design concepts when displayed from the live API.
 
 All original media files are preserved. The collection is approximately 5 GB;
 videos load on playback and may require substantial bandwidth.
@@ -32,5 +31,8 @@ node ../node_modules/vite/bin/vite.js build
 node ../node_modules/vite/bin/vite.js preview --host 127.0.0.1
 ```
 
-The retained backend can be operated separately, but it does not supply or edit
-the public website content.
+Verify `/api/health` on Netlify returns JSON, then verify content totals and
+staff access. A successful static build alone does not verify the API connection.
+See [RENDER.md](RENDER.md) for database transfer, free-plan expiry, Cloudinary
+uploads and email configuration. A sleeping free backend can take longer to wake
+than Netlify's proxy timeout; a first request after inactivity can require retry.

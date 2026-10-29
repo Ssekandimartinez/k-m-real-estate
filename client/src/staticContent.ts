@@ -2,7 +2,7 @@ import type { Category, Company, Entry } from "./api";
 import type { VisualAsset } from "./visualMedia";
 import bundledContent from "virtual:km-content";
 
-export const standalone = import.meta.env.VITE_STANDALONE !== "false";
+export const standalone = import.meta.env.VITE_STANDALONE === "true";
 export const publicContent = bundledContent;
 export interface StaticContent {
   company: Company;
