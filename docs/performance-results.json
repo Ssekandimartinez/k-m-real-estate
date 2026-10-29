@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-29",
+  "site": "https://k-and-m-realestate.netlify.app",
+  "profile": "Lighthouse 13.6 default simulated mobile; browser storage reset for each page",
+  "pages": [
+    {
+      "path": "/",
+      "before": {
+        "measuredAt": "2026-10-29T17:55:45.590Z",
+        "score": 49,
+        "cpuBenchmarkIndex": 1159.5,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1788.038,
+            "display": "1.8 s"
+          },
+          "largest-contentful-paint": {
+            "value": 7402.0380000000005,
+            "display": "7.4 s"
+          },
+          "total-blocking-time": {
+            "value": 671,
+            "display": "670 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0.002533738784669715,
+            "display": "0.003"
+          },
+          "speed-index": {
+            "value": 10729.05180281188,
+            "display": "10.7 s"
+          }
+        }
+      },
+      "final": {
+        "measuredAt": "2026-10-29T18:22:41.439Z",
+        "score": 70,
+        "cpuBenchmarkIndex": 1136.5,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1108.5455,
+            "display": "1.1 s"
+          },
+          "largest-contentful-paint": {
+            "value": 2592.5455,
+            "display": "2.6 s"
+          },
+          "total-blocking-time": {
+            "value": 1099.5000000000002,
+            "display": "1,100 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0.0001754921139627159,
+            "display": "0"
+          },
+          "speed-index": {
+            "value": 5045.592784760737,
+            "display": "5.0 s"
+          }
+        }
+      }
+    },
+    {
+      "path": "/properties",
+      "before": {
+        "measuredAt": "2026-10-29T17:56:09.534Z",
+        "score": 83,
+        "cpuBenchmarkIndex": 1269.5,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1754.0808,
+            "display": "1.8 s"
+          },
+          "largest-contentful-paint": {
+            "value": 3790.0807999999997,
+            "display": "3.8 s"
+          },
+          "total-blocking-time": {
+            "value": 157.99999999999977,
+            "display": "160 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0,
+            "display": "0"
+          },
+          "speed-index": {
+            "value": 4439.279352430154,
+            "display": "4.4 s"
+          }
+        }
+      },
+      "final": {
+        "measuredAt": "2026-10-29T18:22:57.438Z",
+        "score": 85,
+        "cpuBenchmarkIndex": 1155.5,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1882.7993,
+            "display": "1.9 s"
+          },
+          "largest-contentful-paint": {
+            "value": 3011.7992999999997,
+            "display": "3.0 s"
+          },
+          "total-blocking-time": {
+            "value": 267.9999999999998,
+            "display": "270 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0,
+            "display": "0"
+          },
+          "speed-index": {
+            "value": 4409.562241789385,
+            "display": "4.4 s"
+          }
+        }
+      }
+    },
+    {
+      "path": "/services",
+      "before": {
+        "measuredAt": "2026-10-29T17:56:25.729Z",
+        "score": 87,
+        "cpuBenchmarkIndex": 1288.5,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1853.3175,
+            "display": "1.9 s"
+          },
+          "largest-contentful-paint": {
+            "value": 3027.3175,
+            "display": "3.0 s"
+          },
+          "total-blocking-time": {
+            "value": 113,
+            "display": "110 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0.117861482381531,
+            "display": "0.118"
+          },
+          "speed-index": {
+            "value": 3783.1080219971673,
+            "display": "3.8 s"
+          }
+        }
+      },
+      "final": {
+        "measuredAt": "2026-10-29T18:23:09.404Z",
+        "score": 91,
+        "cpuBenchmarkIndex": 1360,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 1772.6256,
+            "display": "1.8 s"
+          },
+          "largest-contentful-paint": {
+            "value": 2605.6256000000003,
+            "display": "2.6 s"
+          },
+          "total-blocking-time": {
+            "value": 162.00000000000023,
+            "display": "160 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0,
+            "display": "0"
+          },
+          "speed-index": {
+            "value": 4256.065787591,
+            "display": "4.3 s"
+          }
+        }
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "path": "/",
+      "beforeBytes": 1878361,
+      "afterBytes": 468496,
+      "cls": 0,
+      "lcp": 8448,
+      "errors": []
+    },
+    {
+      "path": "/about",
+      "beforeBytes": 510789,
+      "afterBytes": 280038,
+      "cls": 0,
+      "lcp": 4356,
+      "errors": []
+    },
+    {
+      "path": "/properties",
+      "beforeBytes": 1055474,
+      "afterBytes": 349740,
+      "cls": 0,
+      "lcp": 3456,
+      "errors": []
+    },
+    {
+      "path": "/services",
+      "beforeBytes": 585767,
+      "afterBytes": 327839,
+      "cls": 0,
+      "lcp": 4808,
+      "errors": []
+    },
+    {
+      "path": "/gallery",
+      "beforeBytes": 1209806,
+      "afterBytes": 413783,
+      "cls": 0.03909952606635071,
+      "lcp": 6504,
+      "errors": []
+    },
+    {
+      "path": "/contact",
+      "beforeBytes": 420912,
+      "afterBytes": 299082,
+      "cls": 0,
+      "lcp": 6772,
+      "errors": []
+    }
+  ]
+}
