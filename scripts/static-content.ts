@@ -1,6 +1,20 @@
 import { readFileSync, accessSync } from "node:fs";
 import path from "node:path";
+import type { Plugin } from "vite";
 import { company, groups, slug } from "../server/prisma/approved-content";
+
+export function staticContentPlugin(root: string): Plugin {
+  return {
+    name: "bundled-public-content",
+    resolveId(id) {
+      if (id === "virtual:km-content") return "\0virtual:km-content";
+    },
+    load(id) {
+      if (id === "\0virtual:km-content")
+        return `export default ${JSON.stringify(buildStaticContent(root))};`;
+    },
+  };
+}
 
 // Publish only the approved company catalogue and curated illustrative media.
 // Development database records, customer information and demo inventory stay out.

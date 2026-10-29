@@ -1,27 +1,17 @@
 import type { Category, Company, Entry } from "./api";
 import type { VisualAsset } from "./visualMedia";
+import bundledContent from "virtual:km-content";
 
-export const standalone = import.meta.env.VITE_STANDALONE === "true";
+export const standalone = import.meta.env.VITE_STANDALONE !== "false";
+export const publicContent = bundledContent;
 export interface StaticContent {
   company: Company;
   categories: Category[];
   entries: Entry[];
   visualMedia: { assets: VisualAsset[] };
 }
-let content: Promise<StaticContent> | undefined;
 export function loadStaticContent() {
-  return (content ||= fetch("/content/site.json")
-    .then(async (response) => {
-      if (!response.ok)
-        throw new Error(
-          "Website content could not be loaded. Please refresh or call +211 924 265 999.",
-        );
-      return response.json() as Promise<StaticContent>;
-    })
-    .catch((error) => {
-      content = undefined;
-      throw error;
-    }));
+  return Promise.resolve(publicContent);
 }
 export function readStaticContent(data: StaticContent, path: string): unknown {
   const url = new URL(path, "https://static.invalid");

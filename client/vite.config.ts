@@ -1,13 +1,20 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { buildStaticContent } from "../scripts/static-content";
+import {
+  buildStaticContent,
+  staticContentPlugin,
+} from "../scripts/static-content";
 const repository = fileURLToPath(new URL("..", import.meta.url));
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
+  // Public website content is always bundled; hosting environment settings
+  // cannot reconnect it to an API or admin-managed database.
+  define: { "import.meta.env.VITE_STANDALONE": JSON.stringify("true") },
   plugins: [
     react(),
     tailwindcss(),
+    staticContentPlugin(repository),
     {
       name: "approved-static-content",
       configureServer(server) {
@@ -26,14 +33,4 @@ export default defineConfig(({ mode }) => ({
     },
   ],
   preview: { proxy: {} },
-  server: {
-    proxy:
-      loadEnv(mode, process.cwd()).VITE_STANDALONE === "true" ||
-      process.env.VITE_STANDALONE === "true"
-        ? undefined
-        : {
-            "/api": "http://127.0.0.1:4000",
-            "/media": "http://127.0.0.1:4000",
-          },
-  },
-}));
+});

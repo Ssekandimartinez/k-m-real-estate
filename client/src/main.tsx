@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App";
 import SiteInteractions from "./SiteInteractions";
+import { standalone, publicContent } from "./staticContent";
 import "@fontsource/dm-sans/latin-400.css";
 import "@fontsource/dm-sans/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";
@@ -14,7 +15,11 @@ import "./styles.css";
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30000 } },
 });
-const bootstrap = document.getElementById("km-company");
+if (standalone) {
+  queryClient.setQueryData(["company"], publicContent.company);
+  queryClient.setQueryData(["visual-media"], publicContent.visualMedia);
+}
+const bootstrap = standalone ? null : document.getElementById("km-company");
 if (bootstrap?.textContent) {
   try {
     queryClient.setQueryData(["company"], JSON.parse(bootstrap.textContent));
@@ -22,7 +27,7 @@ if (bootstrap?.textContent) {
     /* Fetch live settings when bootstrap is unavailable. */
   }
 }
-const visuals = document.getElementById("km-visual-media");
+const visuals = standalone ? null : document.getElementById("km-visual-media");
 if (visuals?.textContent) {
   try {
     queryClient.setQueryData(["visual-media"], JSON.parse(visuals.textContent));
@@ -30,7 +35,7 @@ if (visuals?.textContent) {
     /* Fetch the current library through the API. */
   }
 }
-const detail = document.getElementById("km-detail");
+const detail = standalone ? null : document.getElementById("km-detail");
 if (detail?.textContent) {
   try {
     const entry = JSON.parse(detail.textContent);

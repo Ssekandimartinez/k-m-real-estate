@@ -35,7 +35,7 @@ const Admin = lazy(() => import("./Admin"));
 const CompanyContext = createContext<Company | null>(null);
 export const useCompany = () => useContext(CompanyContext);
 export default function App() {
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["company"],
     queryFn: () => api<Company>("/settings"),
   });
@@ -74,12 +74,6 @@ export default function App() {
             Skip to content
           </a>
           <Header />
-          {error && (
-            <div className="notice error" role="alert">
-              We couldn’t load the latest company content. Please try again or
-              call +211 924 265 999.
-            </div>
-          )}
           <main id="main">
             <Routes>
               <Route path="/" element={<Home />} />

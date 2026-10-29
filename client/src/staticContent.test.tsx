@@ -57,7 +57,7 @@ describe("standalone public website", () => {
     ).toThrow("Content not found");
   });
 
-  it("serves public content through one static file and refuses writes without sending them", async () => {
+  it("serves bundled public content and refuses writes without any network request", async () => {
     vi.stubEnv("VITE_STANDALONE", "true");
     vi.resetModules();
     const fetch = vi
@@ -71,8 +71,7 @@ describe("standalone public website", () => {
       await expect(
         api("/requests", { method: "POST", body: "{}" }),
       ).rejects.toThrow("email or telephone");
-      expect(fetch).toHaveBeenCalledTimes(1);
-      expect(fetch).toHaveBeenCalledWith("/content/site.json");
+      expect(fetch).not.toHaveBeenCalled();
     } finally {
       vi.unstubAllGlobals();
       vi.resetModules();
