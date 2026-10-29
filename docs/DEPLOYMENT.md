@@ -43,7 +43,7 @@ The website-wide company settings editor is removed from the staff dashboard. PU
 
 ## Staff access and recovery
 
-Roles are ADMIN and STAFF. Staff can manage editorial records, categories, media and customer requests. Only administrators manage company settings, staff accounts and audit history. Role changes revoke the affected user's sessions. A user cannot deactivate or demote their own account.
+Roles are ADMIN and STAFF. Staff can manage editorial records, categories, media and customer requests. Only administrators manage staff accounts and audit history. Website-wide company settings are maintained by the developer. Role changes revoke the affected user's sessions. A user cannot deactivate or demote their own account.
 
 Staff can change passwords from the dashboard. Forgotten-password links require SMTP, expire after 30 minutes, are stored only as hashes and can be used once. If SMTP is unavailable, the API explicitly reports that reset mail is unconfigured. An existing administrator can create a replacement account and deactivate the old account after verifying the staff member's identity.
 
