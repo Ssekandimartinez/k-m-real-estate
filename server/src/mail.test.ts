@@ -53,4 +53,22 @@ describe("SMTP connection verification", () => {
     ).toBe(false);
     expect(mocks.createTransport).not.toHaveBeenCalled();
   });
+  it("sends a configured verification message to the specified owner and closes transport", async () => {
+    vi.stubEnv("SMTP_FROM", "owner@example.invalid");
+    mocks.sendMail.mockResolvedValueOnce({});
+    expect(
+      await sendMail(
+        "owner@example.invalid",
+        "Setup verification",
+        "Technical setup check",
+      ),
+    ).toBe(true);
+    expect(mocks.sendMail).toHaveBeenCalledWith({
+      from: "owner@example.invalid",
+      to: "owner@example.invalid",
+      subject: "Setup verification",
+      text: "Technical setup check",
+    });
+    expect(mocks.close).toHaveBeenCalledOnce();
+  });
 });

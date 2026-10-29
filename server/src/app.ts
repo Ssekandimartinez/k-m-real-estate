@@ -433,25 +433,43 @@ app.use("/api/admin", authenticate, (_req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
 });
-app.post("/api/admin/email/verify", adminOnly, authLimit, async (_req, res) => {
+app.post("/api/admin/email/verify", adminOnly, authLimit, async (req, res) => {
+  const { sendTest } = z
+    .object({ sendTest: z.boolean().default(false) })
+    .parse(req.body || {});
   if (
     !process.env.SMTP_HOST ||
     !process.env.SMTP_USER ||
     !process.env.SMTP_PASSWORD
   ) {
+    res.status(503).json({
+      error: "SMTP host, login and key must be configured before verification",
+    });
+    return;
+  }
+  if (sendTest && !mailConfigured()) {
     res
       .status(503)
       .json({
-        error:
-          "SMTP host, login and key must be configured before verification",
+        error: "Configure the verified sender address before sending a test",
       });
     return;
   }
   try {
     await verifyMailConnection();
+    if (sendTest) {
+      await sendMail(
+        process.env.SMTP_FROM!,
+        "K&M Real Estate email setup verification",
+        "This email confirms that the K&M Real Estate website can send through its configured mail provider. This is a technical setup check; no customer enquiry was submitted.",
+      );
+    }
     res.json({
       ok: true,
-      message: "SMTP authentication verified. No email was sent.",
+      emailSent: sendTest,
+      message: sendTest
+        ? "Verification email sent to the configured sender address."
+        : "SMTP authentication verified. No email was sent.",
     });
   } catch (error) {
     const failure = error as { code?: unknown; responseCode?: unknown };
