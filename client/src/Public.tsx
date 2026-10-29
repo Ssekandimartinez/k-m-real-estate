@@ -750,6 +750,19 @@ function Testimonials() {
       <div className="grid three">
         {data.items.map((v) => (
           <blockquote key={v.id}>
+            {v.images[0] && (
+              <img
+                className="testimonial-portrait"
+                src={v.images[0].url}
+                alt={v.images[0].alt}
+                loading="lazy"
+                width="72"
+                height="72"
+              />
+            )}
+            {v.specs.sample === true && (
+              <p className="eyebrow">Fictional sample testimonial</p>
+            )}
             <p>“{v.summary}”</p>
             <cite>{v.title}</cite>
           </blockquote>
@@ -923,6 +936,9 @@ export function About() {
                   />
                 )}
                 <div className="card-content">
+                  {v.specs.sample === true && (
+                    <p className="eyebrow">Sample team profile</p>
+                  )}
                   <h3>{v.title}</h3>
                   <p>{v.specs.jobTitle}</p>
                   <p>{v.summary}</p>

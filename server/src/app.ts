@@ -157,7 +157,18 @@ app.get("/api/content/:kind", async (req, res) => {
   const where: Prisma.EntryWhereInput = {
     kind,
     status: "PUBLISHED",
-    ...(kind === "testimonial" ? { verified: true } : {}),
+    ...(kind === "testimonial"
+      ? {
+          AND: [
+            {
+              OR: [
+                { verified: true },
+                { specs: { path: ["sample"], equals: true } },
+              ],
+            },
+          ],
+        }
+      : {}),
     ...(q.featured === "true" ? { featured: true } : {}),
     ...(q.category ? { category: { slug: String(q.category) } } : {}),
     ...(q.subgroup
@@ -237,7 +248,14 @@ app.get("/api/content/:kind/:slug", async (req, res) => {
       kind,
       slug: req.params.slug,
       status: "PUBLISHED",
-      ...(kind === "testimonial" ? { verified: true } : {}),
+      ...(kind === "testimonial"
+        ? {
+            OR: [
+              { verified: true },
+              { specs: { path: ["sample"], equals: true } },
+            ],
+          }
+        : {}),
     },
     include: { category: true, images: { orderBy: { position: "asc" } } },
   });

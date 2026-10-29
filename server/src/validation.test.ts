@@ -22,6 +22,19 @@ describe("Publishing and request validation", () => {
       }).success,
     ).toBe(false);
   });
+  it("allows explicitly labeled sample testimonials without claiming verification", () => {
+    const sample = {
+      ...base,
+      kind: "testimonial",
+      status: "PUBLISHED",
+      verified: false,
+      specs: { sample: true },
+    };
+    expect(entrySchema.safeParse(sample).success).toBe(true);
+    expect(
+      entrySchema.safeParse({ ...sample, specs: { sample: "true" } }).success,
+    ).toBe(false);
+  });
   it("requires published property data", () => {
     expect(
       entrySchema.safeParse({ ...base, kind: "property", status: "PUBLISHED" })

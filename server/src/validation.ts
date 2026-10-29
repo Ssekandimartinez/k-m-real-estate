@@ -78,7 +78,12 @@ export const entrySchema = z
       .default([]),
   })
   .superRefine((v, ctx) => {
-    if (v.kind === "testimonial" && v.status === "PUBLISHED" && !v.verified)
+    if (
+      v.kind === "testimonial" &&
+      v.status === "PUBLISHED" &&
+      !v.verified &&
+      v.specs.sample !== true
+    )
       ctx.addIssue({
         code: "custom",
         message: "Verify a testimonial before publishing",

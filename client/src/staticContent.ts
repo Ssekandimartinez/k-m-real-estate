@@ -38,7 +38,7 @@ export function readStaticContent(data: StaticContent, path: string): unknown {
     (item) =>
       item.kind === kind &&
       item.status === "PUBLISHED" &&
-      (kind !== "testimonial" || item.verified),
+      (kind !== "testimonial" || item.verified || item.specs.sample === true),
   );
   if (slug) {
     const item = items.find((entry) => entry.slug === decodeURIComponent(slug));

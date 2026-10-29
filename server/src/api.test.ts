@@ -287,6 +287,56 @@ run("PostgreSQL API workflows", () => {
       ).status,
     ).toBe(400);
   });
+  it("publishes labeled samples while hiding unverified testimonials, including in search", async () => {
+    const prefix = `testimonial-${suffix}`;
+    const records = [
+      { slug: `${prefix}-sample`, verified: false, specs: { sample: true } },
+      { slug: `${prefix}-verified`, verified: true, specs: {} },
+      { slug: `${prefix}-unverified`, verified: false, specs: {} },
+    ];
+    try {
+      for (const record of records) {
+        await db.entry.create({
+          data: {
+            ...record,
+            kind: "testimonial",
+            title: prefix,
+            status: "PUBLISHED",
+          },
+        });
+      }
+      for (const query of ["", `?q=${prefix}`]) {
+        const response = await request(app).get(
+          `/api/content/testimonial${query}`,
+        );
+        expect(response.status).toBe(200);
+        const slugs = response.body.items.map(
+          (entry: { slug: string }) => entry.slug,
+        );
+        expect(slugs).toContain(`${prefix}-sample`);
+        expect(slugs).toContain(`${prefix}-verified`);
+        expect(slugs).not.toContain(`${prefix}-unverified`);
+      }
+      expect(
+        (await request(app).get(`/api/content/testimonial/${prefix}-sample`))
+          .status,
+      ).toBe(200);
+      expect(
+        (
+          await request(app).get(
+            `/api/content/testimonial/${prefix}-unverified`,
+          )
+        ).status,
+      ).toBe(404);
+    } finally {
+      await db.entry.deleteMany({
+        where: {
+          kind: "testimonial",
+          slug: { in: records.map((record) => record.slug) },
+        },
+      });
+    }
+  });
   it("archives and deletes content through protected endpoints", async () => {
     const records = await admin.get("/api/admin/content/property");
     const item = records.body.find((v: any) => v.id === entryId);

@@ -1281,6 +1281,13 @@ blockquote {
   padding: 20px;
   font-size: 1rem;
 }
+.testimonial-portrait {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
 blockquote cite {
   font-size: 0.8rem;
   color: #675e5e;
