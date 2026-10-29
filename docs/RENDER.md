@@ -25,7 +25,8 @@ provider before expiry if the application must continue running without payment.
    incur charges when a payment method is present. Do not enable paid overages.
 4. Render installs dependencies, generates Prisma Client and builds both apps.
    At each startup, it applies migrations and runs the idempotent approved-content
-   seed before starting Express. Startup stops if either step fails. This avoids
+   seed before starting Express. The seed initializes the approved media library
+   only when absent and preserves existing library edits. Startup stops if either step fails. This avoids
    paid pre-deploy commands. The seed preserves existing edited content.
 5. Check `/api/health` on the service's actual HTTPS URL. This performs a database
    query. Open the homepage and `/admin` as well.

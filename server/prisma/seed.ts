@@ -3,7 +3,16 @@ import path from "node:path";
 import { db } from "../src/db.js";
 import { serverRoot } from "../src/config.js";
 import { slug, company, groups } from "./approved-content.js";
+import { buildStaticContent } from "../../scripts/static-content.js";
 async function main() {
+  // Validate the approved media and initialize only a fresh database's library.
+  // Preserve any library already curated through the administration tools.
+  const { visualMedia } = buildStaticContent(path.resolve(serverRoot, ".."));
+  await db.setting.upsert({
+    where: { key: "visual-media" },
+    create: { key: "visual-media", value: visualMedia },
+    update: {},
+  });
   await db.setting.upsert({
     where: { key: "company" },
     create: { key: "company", value: company },

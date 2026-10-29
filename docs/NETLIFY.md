@@ -1,8 +1,17 @@
-# Frontend-only Netlify website
+# Netlify frontend with Render API
 
-The owner requested public content, images and videos without a backend.
-`netlify.toml` enables `VITE_STANDALONE=true`, builds the client workspace and
-publishes `client/dist`. Direct page URLs use the React route fallback.
+The production frontend is `https://k-and-m-realestate.netlify.app` and its
+backend is `https://km-real-estate-oregon.onrender.com`. `netlify.toml` enables
+`VITE_STANDALONE=false`, builds the client workspace and publishes `client/dist`.
+API and media proxy rules precede the React route fallback. Requests remain on
+the Netlify browser origin, preserving secure HTTP-only administration cookies.
+Render must allow that exact Netlify origin through `APP_ORIGIN`; `SITE_URL` also
+uses the Netlify address for canonical URLs and password reset links.
+
+The remaining notes describe the optional standalone preview, which is not the
+connected production configuration. Its static catalogue is not the production
+database. Use [RENDER.md](RENDER.md) for the free Render database and deployment
+limits, initial administrator creation and external service configuration.
 
 Vite emits `/content/site.json` from the approved company/service catalogue and
 the existing curated media manifests. It validates every media file and poster
@@ -10,7 +19,7 @@ at build time. No database, secret, customer record, demo listing, fabricated
 project or testimonial is exported. Catalogue filters, detail pages and gallery
 pagination run in the browser. Changes to these source files require a rebuild.
 
-Enquiry links open the visitor's email application or telephone dialler. The
+In standalone preview mode, enquiry links open the visitor's email application or telephone dialler. The
 website does not save enquiries or claim they were delivered. Staff login and
 content editing require the separate backend deployment and are unavailable here.
 Properties, projects, blog posts and testimonials remain empty until genuine
