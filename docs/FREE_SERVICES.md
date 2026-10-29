@@ -7,17 +7,19 @@ automatic upgrade is authorized.
 
 ## New image and video uploads
 
-The Cloudinary environment is `xxnutxux`. Its private credentials are configured
-only on Render as `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and
-`CLOUDINARY_API_SECRET`. They are not frontend variables or Git-tracked files.
-An actual upload, database metadata persistence, image delivery and deletion have
-been verified through the live admin API.
+The provisional Cloudinary environment `xxnutxux` was used to verify an actual
+upload, database metadata persistence, image delivery and deletion through the
+live admin API. Permanent ownership could not be confirmed, so its production
+secret is disabled. Existing images remain safe on Netlify. Connect an owned
+Free account using `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and
+`CLOUDINARY_API_SECRET` privately in Render. They must not be frontend variables
+or Git-tracked files.
 
-The owner must finish claiming the prepared environment and confirm access to it
-in the Cloudinary console using `ssekandimartinez@gmail.com`. The private claim
-link is kept outside Git. Unclaimed environments expire, so successful upload
-tests alone do not establish permanent account ownership. Do not migrate the
-entire existing media collection into a temporary or quota-limited environment.
+The owner can finish claiming the prepared environment, or create a permanent
+Free account with Google using `ssekandimartinez@gmail.com` and use that account's
+credentials instead. The private claim link is kept outside Git. Unclaimed
+environments expire, so successful upload tests alone do not establish permanent
+ownership. Do not migrate the existing media collection into a temporary account.
 
 Cloudinary's [Free plan](https://cloudinary.com/pricing) has usage limits. Keep
 the account on Free, monitor usage, and avoid paid add-ons.
