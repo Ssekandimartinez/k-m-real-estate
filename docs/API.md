@@ -43,6 +43,10 @@ POST `/auth/login` with email/password; GET `/auth/me`; POST `/auth/logout`; POS
 
 Website configuration is developer-managed; PUT `/admin/settings` returns 403 for all staff roles.
 
+The legacy dashboard URL `/admin/settings` no longer mounts an editor, and the
+staff navigation contains no Website content section. GET `/settings` continues
+to serve the saved company content to visitors.
+
 Administrator only: GET/POST `/admin/users`; PATCH `/admin/users/:id`; GET `/admin/audit`.
 
 Errors use `{error, details?}` with HTTP status. Unknown API routes return 404. Validation errors return 400, authentication 401, authorization/CSRF/origin rejection 403, conflicts 409. Unconfigured persistent uploads and reset email return 503.
