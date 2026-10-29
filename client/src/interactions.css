@@ -1,0 +1,342 @@
+/* Finite, composited motion. Content stays readable without animation support. */
+.header {
+  transition:
+    box-shadow 280ms ease,
+    background-color 280ms ease;
+}
+.header.is-scrolled {
+  box-shadow: 0 9px 30px #29252a14;
+}
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  background: #c67b63;
+  z-index: 80;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.back-to-top {
+  position: fixed;
+  right: 28px;
+  bottom: 102px;
+  width: 46px;
+  height: 46px;
+  padding: 10px;
+  border: 1px solid #681f3630;
+  border-radius: 50%;
+  background: #faf7f2f5;
+  color: var(--wine);
+  box-shadow: 0 5px 20px #29252a16;
+  z-index: 35;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 220ms,
+    background 180ms;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--wine);
+  color: white;
+  transform: translateY(-3px);
+}
+body:has(.cookie-notice) .back-to-top {
+  bottom: 260px;
+}
+.header nav > a:not(.button),
+.nav-dropdown > a {
+  position: relative;
+}
+.header nav > a:not(.button)::after,
+.nav-dropdown > a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--wine);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 230ms ease;
+}
+.header nav > a:not(.button):hover::after,
+.header nav > a.active::after,
+.header nav > a:focus-visible::after,
+.nav-dropdown:hover > a::after,
+.nav-dropdown:focus-within > a::after {
+  transform: scaleX(1);
+}
+.dropdown {
+  animation: dropdown-arrive 200ms ease-out both;
+}
+.dropdown a {
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    padding-left 180ms ease;
+}
+.dropdown a:hover,
+.dropdown a:focus-visible {
+  padding-left: 15px;
+}
+.button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    #ffffff24 50%,
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.button:hover::after,
+.button:focus-visible::after {
+  animation: button-glint 650ms ease-out;
+}
+.button > svg,
+.text-link > svg,
+.inspiration-photo > span > svg {
+  transition: transform 220ms ease;
+}
+.button:hover > svg,
+.button:focus-visible > svg,
+.text-link:hover > svg,
+.text-link:focus-visible > svg,
+.inspiration-photo:hover > span > svg {
+  transform: translate(3px, -3px);
+}
+.button:active {
+  transform: translateY(1px) scale(0.98);
+}
+.request-form input,
+.request-form select,
+.request-form textarea,
+.search-form input,
+.search-form select,
+.collection-filter input,
+.collection-filter select,
+.gallery-filters select {
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+.request-form input:focus,
+.request-form textarea:focus,
+.request-form select:focus,
+.search-form input:focus,
+.search-form select:focus,
+.collection-filter input:focus,
+.collection-filter select:focus,
+.gallery-filters select:focus {
+  border-color: #a76c7e;
+  box-shadow: 0 0 0 3px #681f3610;
+}
+.card,
+.service-card,
+.service-offering-card,
+.inspiration-photo,
+.visual-gallery > figure {
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms ease,
+    border-color 240ms ease;
+}
+.service-card-text > svg,
+.why-icon {
+  transition:
+    transform 320ms ease,
+    background-color 250ms ease,
+    color 250ms ease;
+}
+.service-questions details[open] > p,
+.service-questions details[open] > div {
+  animation: detail-expand 260ms ease-out;
+}
+.service-questions summary {
+  transition: color 180ms ease;
+}
+.service-questions summary:hover {
+  color: #a25248;
+}
+.thumbnails button {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+.thumbnails button:hover,
+.thumbnails button:focus-visible {
+  transform: translateY(-3px);
+}
+.thumbnails button:active {
+  transform: scale(0.95);
+}
+.success {
+  animation: result-arrive 350ms ease-out;
+}
+.page-hero-image {
+  animation: photograph-settle 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover,
+  .card:focus-within,
+  .service-offering-card:hover,
+  .service-offering-card:focus-within {
+    transform: translateY(-5px);
+    border-color: #c67b6380;
+    box-shadow: 0 15px 35px #29252a12;
+  }
+  .service-card:hover,
+  .service-card:focus-within,
+  .inspiration-photo:hover,
+  .inspiration-photo:focus-visible {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px #29252a25;
+  }
+  .service-card:hover .service-card-text > svg {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+  .why .grid > div:hover .why-icon {
+    transform: translateY(-4px);
+    background: var(--sand);
+    color: var(--wine);
+  }
+  .visual-gallery > figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px #29252a12;
+  }
+}
+@media (max-width: 960px) {
+  .header nav.open {
+    animation: mobile-menu-arrive 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@media (max-width: 700px) {
+  .back-to-top {
+    right: 22px;
+    bottom: 96px;
+  }
+}
+@keyframes dropdown-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes mobile-menu-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes button-glint {
+  to {
+    transform: translateX(120%);
+  }
+}
+@keyframes detail-expand {
+  from {
+    opacity: 0.4;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes result-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes photograph-settle {
+  from {
+    transform: scale(1.035);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .back-to-top,
+  .dropdown a,
+  .button,
+  .button > svg,
+  .text-link > svg,
+  .card,
+  .service-card,
+  .service-offering-card,
+  .inspiration-photo,
+  .visual-gallery > figure,
+  .service-card-text > svg,
+  .why-icon,
+  .thumbnails button {
+    transition: none !important;
+  }
+  .dropdown,
+  .header nav.open,
+  .button::after,
+  .service-questions details[open] > p,
+  .service-questions details[open] > div,
+  .success,
+  .page-hero-image {
+    animation: none !important;
+  }
+  .button:hover,
+  .button:active,
+  .card:hover,
+  .card:focus-within,
+  .service-offering-card:hover,
+  .inspiration-photo:hover,
+  .service-card:hover,
+  .visual-gallery > figure:hover,
+  .back-to-top:hover,
+  .button:hover > svg,
+  .text-link:hover > svg,
+  .thumbnails button:hover,
+  .why .grid > div:hover .why-icon,
+  .service-card:hover .service-card-text > svg {
+    transform: none !important;
+  }
+}
