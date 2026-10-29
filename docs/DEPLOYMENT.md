@@ -37,6 +37,10 @@ Google Analytics is optional: enter a `G-…` measurement ID in Website content 
 
 Docker: set root `.env` `POSTGRES_PASSWORD`, configure `server/.env`, run `docker compose build`, `docker compose up -d db`, then migrations/seeding using your Node environment or a one-off app container. Start with `docker compose up -d app`. The image runs as the non-root `node` user. Compose binds ports to loopback; put your HTTPS proxy in front. Container startup does not automatically apply migrations or create an administrator.
 
+## Developer-managed website settings
+
+The website-wide company settings editor is removed from the staff dashboard. PUT `/api/admin/settings` returns 403 even for administrators. The developer maintains these settings through reviewed database operations; existing public company data remains available through GET `/api/settings`. Business content, requests, media and staff management retain their existing permissions.
+
 ## Staff access and recovery
 
 Roles are ADMIN and STAFF. Staff can manage editorial records, categories, media and customer requests. Only administrators manage company settings, staff accounts and audit history. Role changes revoke the affected user's sessions. A user cannot deactivate or demote their own account.
@@ -49,7 +53,7 @@ Cloudinary stores uploaded images and videos persistently. JPEG/PNG/WebP images 
 
 Replace media by uploading a new file, selecting it in the relevant record or settings and saving. Then delete the old file from the library. Entry gallery references and settings references block deletion. Avoid embedding media URLs directly in rich-text bodies if you need reference-aware deletion; those inline references are not currently tracked relationally.
 
-If Cloudinary is not configured, uploads fail explicitly with 503; no temporary disk upload is presented as persistent storage. No real Cloudinary upload/delete round-trip was possible without credentials.
+If Cloudinary is not configured, uploads fail explicitly with 503; no temporary disk upload is presented as persistent storage. On 29 October 2026, live image and MP4 upload, metadata persistence, delivery and deletion were verified through the Netlify admin API after the owner confirmed account activation. Temporary test records and sessions were removed. See [FREE_SERVICES.md](FREE_SERVICES.md) for the current provider configuration status.
 
 ## Inquiries and notifications
 

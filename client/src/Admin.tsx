@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PasswordInput from "./PasswordInput";
 import {
   Link,
@@ -13,7 +13,6 @@ import {
   ArrowLeft,
   ArrowUpRight,
   BarChart3,
-  Check,
   FileText,
   ImagePlus,
   LayoutDashboard,
@@ -22,7 +21,6 @@ import {
   Plus,
   Save,
   Search,
-  Settings,
   Shield,
   Trash2,
   Users,
@@ -33,7 +31,6 @@ import {
   setCsrf,
   write,
   type Category,
-  type Company,
   type CustomerRequest,
   type Entry,
   type Staff,
@@ -51,7 +48,6 @@ const modules = [
   ["team", "Team members"],
   ["testimonial", "Testimonials"],
   ["categories", "Categories"],
-  ["settings", "Website content"],
   ["users", "Staff accounts"],
   ["audit", "Audit log"],
   ["password", "Change password"],
@@ -118,9 +114,7 @@ export default function Admin() {
         <p className="sidebar-label">MANAGE YOUR BUSINESS</p>
         <nav aria-label="Staff navigation">
           {modules
-            .filter(
-              ([k]) => isAdmin || !["settings", "users", "audit"].includes(k),
-            )
+            .filter(([k]) => isAdmin || !["users", "audit"].includes(k))
             .map(([key, label]) => (
               <Link
                 className={module === key ? "active" : ""}
@@ -134,8 +128,6 @@ export default function Admin() {
                   <ImagePlus size={16} />
                 ) : key === "users" ? (
                   <Users size={16} />
-                ) : key === "settings" ? (
-                  <Settings size={16} />
                 ) : (
                   <FileText size={16} />
                 )}{" "}
@@ -184,8 +176,6 @@ export default function Admin() {
             <Media />
           ) : module === "categories" ? (
             <Categories />
-          ) : module === "settings" && isAdmin ? (
-            <SettingsEditor />
           ) : module === "users" && isAdmin ? (
             <UsersEditor />
           ) : module === "audit" && isAdmin ? (
@@ -1393,230 +1383,6 @@ function Categories() {
     </>
   );
 }
-function SettingsEditor() {
-  const query = useQueryClient();
-  const { data, error } = useQuery({
-    queryKey: ["company"],
-    queryFn: () => api<Company>("/settings"),
-  });
-  const [v, setV] = useState<Company | null>(null),
-    [err, setError] = useState(""),
-    [saved, setSaved] = useState(false);
-  useEffect(() => {
-    if (data) setV(structuredClone(data));
-  }, [data]);
-  if (error || !v) return <LoadingError error={error} />;
-  const fields = [
-    "tagline",
-    "phone",
-    "email",
-    "address",
-    "heroTitle",
-    "heroDescription",
-    "overview",
-    "mission",
-    "vision",
-    "heroImage",
-    "logo",
-    "footer",
-    "seoDescription",
-    "primaryColor",
-    "analyticsId",
-  ] as const;
-  return (
-    <>
-      <AdminTitle
-        eyebrow="YOUR COMPANY STORY"
-        title="Website content & settings"
-      />
-      <ErrorMessage error={err} />
-      {saved && (
-        <div className="notice success">
-          <Check size={16} /> Website settings saved.
-        </div>
-      )}
-      <form
-        className="editor-form"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          setError("");
-          setSaved(false);
-          try {
-            await api("/admin/settings", write("PUT", v));
-            await query.invalidateQueries({ queryKey: ["company"] });
-            setSaved(true);
-          } catch (e) {
-            setError((e as Error).message);
-          }
-        }}
-      >
-        <div className="grid two">
-          {fields.map((k) => (
-            <label key={k}>
-              {k.replace(/([A-Z])/g, " $1")}
-              {[
-                "heroDescription",
-                "overview",
-                "mission",
-                "vision",
-                "footer",
-                "seoDescription",
-              ].includes(k) ? (
-                <textarea
-                  rows={4}
-                  value={v[k]}
-                  onChange={(e) => setV({ ...v, [k]: e.target.value })}
-                />
-              ) : (
-                <input
-                  required
-                  value={v[k]}
-                  type={
-                    k === "primaryColor"
-                      ? "color"
-                      : k === "email"
-                        ? "email"
-                        : "text"
-                  }
-                  onChange={(e) => setV({ ...v, [k]: e.target.value })}
-                />
-              )}
-            </label>
-          ))}
-        </div>
-        <fieldset>
-          <legend>Core values</legend>
-          {v.values.map((item, i) => (
-            <div className="grid two" key={i}>
-              <label>
-                Value title
-                <input
-                  value={item.title}
-                  onChange={(e) =>
-                    setV({
-                      ...v,
-                      values: v.values.map((val, n) =>
-                        n === i ? { ...val, title: e.target.value } : val,
-                      ),
-                    })
-                  }
-                />
-              </label>
-              <label>
-                Description
-                <textarea
-                  value={item.text}
-                  onChange={(e) =>
-                    setV({
-                      ...v,
-                      values: v.values.map((val, n) =>
-                        n === i ? { ...val, text: e.target.value } : val,
-                      ),
-                    })
-                  }
-                />
-              </label>
-            </div>
-          ))}
-        </fieldset>
-        <fieldset>
-          <legend>Homepage sections</legend>
-          <div className="check-row">
-            {["properties", "projects", "posts", "testimonials"].map((s) => (
-              <label className="checkbox" key={s}>
-                <input
-                  type="checkbox"
-                  checked={v.featuredSections.includes(s)}
-                  onChange={(e) =>
-                    setV({
-                      ...v,
-                      featuredSections: e.target.checked
-                        ? [...v.featuredSections, s]
-                        : v.featuredSections.filter((k) => k !== s),
-                    })
-                  }
-                />
-                {s}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Contact channels</legend>
-          <label>
-            WhatsApp number (digits with country code)
-            <input
-              value={v.whatsappNumber}
-              onChange={(e) => setV({ ...v, whatsappNumber: e.target.value })}
-            />
-          </label>
-          <p className="caption">
-            WhatsApp links use this number, or the company telephone when blank.
-          </p>
-          {v.socialLinks.map((s, i) => (
-            <div className="image-editor" key={i}>
-              <label>
-                Platform
-                <input
-                  value={s.label}
-                  onChange={(e) =>
-                    setV({
-                      ...v,
-                      socialLinks: v.socialLinks.map((s, n) =>
-                        n === i ? { ...s, label: e.target.value } : s,
-                      ),
-                    })
-                  }
-                />
-              </label>
-              <label>
-                Verified profile URL
-                <input
-                  value={s.url}
-                  type="url"
-                  onChange={(e) =>
-                    setV({
-                      ...v,
-                      socialLinks: v.socialLinks.map((s, n) =>
-                        n === i ? { ...s, url: e.target.value } : s,
-                      ),
-                    })
-                  }
-                />
-              </label>
-              <button
-                type="button"
-                aria-label="Remove social profile"
-                onClick={() =>
-                  setV({
-                    ...v,
-                    socialLinks: v.socialLinks.filter((_, n) => n !== i),
-                  })
-                }
-              >
-                <X size={16} />
-              </button>
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={() =>
-              setV({
-                ...v,
-                socialLinks: [...v.socialLinks, { label: "", url: "" }],
-              })
-            }
-          >
-            <Plus size={16} /> Add verified social profile
-          </button>
-        </fieldset>
-        <button className="button">
-          <Save size={16} /> Save website settings
-        </button>
-      </form>
-    </>
-  );
-}
 function Media() {
   const query = useQueryClient();
   const { data, error } = useQuery({
@@ -1840,7 +1606,8 @@ function UsersEditor() {
         </div>
         <p className="caption">
           Staff can manage company content, media and requests. Administrators
-          can also manage website settings, accounts and audit logs.
+          can also manage accounts and audit logs. Website settings are
+          maintained by the developer.
         </p>
         <button className="button">
           <Plus size={16} /> Create staff account

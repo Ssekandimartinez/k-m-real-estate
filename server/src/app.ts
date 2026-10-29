@@ -27,7 +27,6 @@ import {
   kindSchema,
   passwordSchema,
   requestSchema,
-  settingsSchema,
 } from "./validation.js";
 import { mailConfigured, sendMail, verifyMailConnection } from "./mail.js";
 
@@ -448,11 +447,9 @@ app.post("/api/admin/email/verify", adminOnly, authLimit, async (req, res) => {
     return;
   }
   if (sendTest && !mailConfigured()) {
-    res
-      .status(503)
-      .json({
-        error: "Configure the verified sender address before sending a test",
-      });
+    res.status(503).json({
+      error: "Configure the verified sender address before sending a test",
+    });
     return;
   }
   try {
@@ -723,15 +720,11 @@ app.patch("/api/admin/requests/:id", async (req: AuthRequest, res) => {
   await audit(req, "request.update", item.id);
   res.json(item);
 });
-app.put("/api/admin/settings", adminOnly, async (req: AuthRequest, res) => {
-  const value = settingsSchema.parse(req.body);
-  await db.setting.upsert({
-    where: { key: "company" },
-    create: { key: "company", value },
-    update: { value },
-  });
-  await audit(req, "settings.update");
-  res.json(value);
+// Retire settings writes for old dashboard clients as well as the current UI.
+app.put("/api/admin/settings", (_req, res) => {
+  res
+    .status(403)
+    .json({ error: "Website settings are maintained by the developer." });
 });
 app.get("/api/admin/users", adminOnly, async (_req, res) =>
   res.json(

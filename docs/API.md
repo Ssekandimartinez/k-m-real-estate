@@ -41,7 +41,9 @@ POST `/auth/login` with email/password; GET `/auth/me`; POST `/auth/logout`; POS
 | GET / POST     | `/admin/media`           | List / multipart upload (file, name, alt, folder)     |
 | PATCH / DELETE | `/admin/media/:id`       | Metadata update / stored asset deletion               |
 
-Administrator only: PUT `/admin/settings`; GET/POST `/admin/users`; PATCH `/admin/users/:id`; GET `/admin/audit`.
+Website configuration is developer-managed; PUT `/admin/settings` returns 403 for all staff roles.
+
+Administrator only: GET/POST `/admin/users`; PATCH `/admin/users/:id`; GET `/admin/audit`.
 
 Errors use `{error, details?}` with HTTP status. Unknown API routes return 404. Validation errors return 400, authentication 401, authorization/CSRF/origin rejection 403, conflicts 409. Unconfigured persistent uploads and reset email return 503.
 

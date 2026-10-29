@@ -149,6 +149,18 @@ run("PostgreSQL API workflows", () => {
       ).status,
     ).toBe(403);
   });
+  it("keeps website settings developer-managed even for administrators", async () => {
+    const before = await db.setting.findUnique({ where: { key: "company" } });
+    const response = await admin
+      .put("/api/admin/settings")
+      .set("Origin", config.origin)
+      .set("X-CSRF-Token", csrf)
+      .send({ name: "Attempted dashboard edit" });
+    expect(response.status).toBe(403);
+    expect(await db.setting.findUnique({ where: { key: "company" } })).toEqual(
+      before,
+    );
+  });
   it("creates draft property and excludes it from public search", async () => {
     const r = await admin
       .post("/api/admin/content")
