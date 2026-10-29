@@ -2,13 +2,14 @@
 services:
   - type: web
     name: km-real-estate-oregon
-    runtime: node
+    runtime: docker
     region: oregon
     plan: free
-    buildCommand: npm ci --include=dev && npm run db:generate && npm run build
+    dockerfilePath: ./server/Dockerfile.render
+    dockerContext: .
     # Free web services do not support pre-deploy commands or dashboard Shell.
     # Fail startup if migrations or approved-content initialization fail.
-    startCommand: npm run db:migrate && npm run db:seed && npm run start -w server
+    # The container CMD runs migrations, seeds approved content, then starts Express.
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION

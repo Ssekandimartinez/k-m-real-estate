@@ -15,12 +15,6 @@
   force = true
 
 [[redirects]]
-  from = "/media/*"
-  to = "https://km-real-estate-oregon.onrender.com/media/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/content/*"
   to = "/404.html"
   status = 404

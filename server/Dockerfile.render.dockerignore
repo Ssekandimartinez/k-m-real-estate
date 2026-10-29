@@ -1,0 +1,20 @@
+# Backend image context only. Original media stays in Git and on Netlify.
+**
+!package.json
+!package-lock.json
+!client
+!client/package.json
+!server
+!server/**
+!scripts
+!scripts/task.mjs
+!docs
+!docs/MASTER_REQUIREMENTS.md
+!docs/media-library.json
+!docs/media-curation.json
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+**/uploads
+**/*.log

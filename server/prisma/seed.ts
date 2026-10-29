@@ -3,11 +3,41 @@ import path from "node:path";
 import { db } from "../src/db.js";
 import { serverRoot } from "../src/config.js";
 import { slug, company, groups } from "./approved-content.js";
-import { buildStaticContent } from "../../scripts/static-content.js";
+import { z } from "zod";
 async function main() {
-  // Validate the approved media and initialize only a fresh database's library.
+  // Validate approved metadata; the media files are hosted by Netlify.
   // Preserve any library already curated through the administration tools.
-  const { visualMedia } = buildStaticContent(path.resolve(serverRoot, ".."));
+  const library = JSON.parse(
+    await readFile(
+      path.resolve(serverRoot, "../docs/media-library.json"),
+      "utf8",
+    ),
+  );
+  const { annotations } = JSON.parse(
+    await readFile(
+      path.resolve(serverRoot, "../docs/media-curation.json"),
+      "utf8",
+    ),
+  );
+  const assetSchema = z.object({
+    id: z.string().min(1),
+    type: z.enum(["image", "video"]),
+    url: z.string().startsWith("/"),
+    poster: z.string().startsWith("/").optional(),
+    alt: z.string(),
+    placement: z.string().min(1),
+    category: z.string().min(1),
+  });
+  const visualMedia = {
+    assets: z.array(assetSchema).parse(
+      library.assets.map((asset: { id: string }) => ({
+        ...asset,
+        ...annotations.find(
+          (annotation: { id: string }) => annotation.id === asset.id,
+        ),
+      })),
+    ),
+  };
   await db.setting.upsert({
     where: { key: "visual-media" },
     create: { key: "visual-media", value: visualMedia },

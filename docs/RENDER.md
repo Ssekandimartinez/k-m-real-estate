@@ -1,10 +1,13 @@
 # Render deployment
 
-The root `render.yaml` provisions a Node web service and PostgreSQL database in
+The root `render.yaml` provisions a containerized Node API and PostgreSQL database in
 Oregon, matching the existing `km-real-estate-db` database. The active backend is
 `km-real-estate-oregon` at `https://km-real-estate-oregon.onrender.com`.
 The frontend is hosted at `https://k-and-m-realestate.netlify.app`.
-Netlify proxies `/api/*` and `/media/*` to Render before its SPA fallback.
+Netlify proxies `/api/*` to Render before its SPA fallback and serves the media
+from its existing static deployment. The backend-only image excludes the 5 GB
+frontend media collection; originals are preserved. `server/Dockerfile.render`
+builds the API and includes the approved metadata needed to seed PostgreSQL.
 `VITE_STANDALONE=false` enables real API requests. Browser API requests and
 session cookies remain on the Netlify origin. `APP_ORIGIN` and `SITE_URL` both
 use the public Netlify URL, including for password reset links.
@@ -23,13 +26,16 @@ provider before expiry if the application must continue running without payment.
 3. Confirm that both resources show Free, then apply the Blueprint. Review usage
    and spend settings: bandwidth and build usage above included allowances can
    incur charges when a payment method is present. Do not enable paid overages.
-4. Render installs dependencies, generates Prisma Client and builds both apps.
+4. Render builds the backend Docker image, installs dependencies, generates Prisma
+   Client and compiles the server. Netlify builds the frontend separately.
    At each startup, it applies migrations and runs the idempotent approved-content
    seed before starting Express. The seed initializes the approved media library
    only when absent and preserves existing library edits. Startup stops if either step fails. This avoids
    paid pre-deploy commands. The seed preserves existing edited content.
 5. Check `/api/health` on the service's actual HTTPS URL. This performs a database
-   query. Open the homepage and `/admin` as well.
+   query. Open the homepage and `/admin` on Netlify, not on the backend hostname.
+   The backend-only image has no React HTML build; its root HTML route returns
+   503 by design. Use `/api/health` to check backend readiness.
 6. Free services have no interactive Shell. To create an administrator, use an
    interactive local terminal with `DATABASE_URL` pointing to the production
    database and run `npm run admin:create`. Temporarily allow only your current

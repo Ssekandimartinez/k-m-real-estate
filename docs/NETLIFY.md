@@ -3,7 +3,8 @@
 The production frontend is `https://k-and-m-realestate.netlify.app` and its
 backend is `https://km-real-estate-oregon.onrender.com`. `netlify.toml` enables
 `VITE_STANDALONE=false`, builds the client workspace and publishes `client/dist`.
-API and media proxy rules precede the React route fallback. Requests remain on
+The API proxy rule precedes the React route fallback. Media remains served by
+Netlify. API requests remain on
 the Netlify browser origin, preserving secure HTTP-only administration cookies.
 Render must allow that exact Netlify origin through `APP_ORIGIN`; `SITE_URL` also
 uses the Netlify address for canonical URLs and password reset links.
