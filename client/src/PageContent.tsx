@@ -15,7 +15,7 @@ const guides: Record<
       ],
       [
         "Ask about the details",
-        "Use the property enquiry form to ask about availability, viewing arrangements and the terms associated with a published listing.",
+        "Contact our team to ask about availability, viewing arrangements and the terms associated with a published listing.",
       ],
       [
         "Have a property to offer?",

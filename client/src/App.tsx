@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { api, type Company } from "./api";
 import Analytics from "./Analytics";
+import { standalone } from "./staticContent";
 const MediaGallery = lazy(() => import("./MediaGallery"));
 import {
   About,
@@ -49,11 +50,24 @@ export default function App() {
   return (
     <CompanyContext.Provider value={data || null}>
       {location.pathname.startsWith("/admin") ? (
-        <Suspense
-          fallback={<p className="loading">Loading staff workspace…</p>}
-        >
-          <Admin />
-        </Suspense>
+        standalone ? (
+          <main className="section container">
+            <h1>Staff access</h1>
+            <p>
+              Staff sign-in is unavailable on this public website. Please
+              contact the company for assistance.
+            </p>
+            <Link className="button" to="/">
+              Return to website
+            </Link>
+          </main>
+        ) : (
+          <Suspense
+            fallback={<p className="loading">Loading staff workspace…</p>}
+          >
+            <Admin />
+          </Suspense>
+        )
       ) : (
         <>
           <a className="skip" href="#main">
@@ -296,7 +310,7 @@ function Footer() {
         <div>
           <Link to="/privacy">Privacy Policy</Link>
           <Link to="/terms">Terms of Service</Link>
-          <Link to="/admin">Staff access</Link>
+          {!standalone && <Link to="/admin">Staff access</Link>}
         </div>
         <span>Built around your next chapter.</span>
       </div>

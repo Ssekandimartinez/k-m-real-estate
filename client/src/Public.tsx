@@ -38,6 +38,7 @@ import {
   type Entry,
 } from "./api";
 import { useCompany } from "./App";
+import { standalone } from "./staticContent";
 import { Inspiration } from "./Inspiration";
 import { ServicePageGuide } from "./ServicePageGuide";
 import { CollectionGuide, EnquiryGuide } from "./PageContent";
@@ -1524,6 +1525,36 @@ export function RequestForm(props: {
   entry?: Entry;
   defaultKind?: CustomerRequest["kind"];
 }) {
+  const company = useCompany();
+  if (standalone) {
+    const email = company?.email || "kmrealestate38@gmail.com";
+    const phone = company?.phone || "+211 924 265 999";
+    const subject = props.entry
+      ? `Enquiry: ${props.entry.title}`
+      : props.defaultKind === "QUOTATION"
+        ? "Quotation request"
+        : "Website enquiry";
+    return (
+      <div className="request-form">
+        <h3>Let’s discuss your requirements</h3>
+        <p>
+          Email us your requirements, location and preferred timeline, or call
+          our team.
+        </p>
+        <a
+          className="button"
+          href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
+        >
+          Email your enquiry <Mail size={16} />
+        </a>
+        <p>
+          <a className="text-link" href={`tel:${phone.replace(/\s/g, "")}`}>
+            {phone}
+          </a>
+        </p>
+      </div>
+    );
+  }
   return (
     <Suspense fallback={<p role="status">Loading secure request form…</p>}>
       <LazyRequestForm {...props} />
@@ -1661,24 +1692,21 @@ export function Legal({ terms = false }: { terms?: boolean }) {
           <>
             <h2>Information we collect</h2>
             <p>
-              When you submit an inquiry, viewing request, consultation or
-              quotation request, we collect your name, email, telephone,
-              requirements and any location or scheduling details you choose to
-              provide.
+              {standalone
+                ? "This website does not save enquiry submissions. Email and telephone links open your chosen application. When you contact us directly, we receive the information you choose to share."
+                : "When you submit an inquiry, viewing request, consultation or quotation request, we collect your name, email, telephone, requirements and any location or scheduling details you choose to provide."}
             </p>
             <h2>How we use information</h2>
             <p>
-              We use these details to respond to your request, prepare
-              quotations and manage follow-ups. Authorized staff can access
-              requests in the protected dashboard. Configured service providers
-              may process website hosting, email and media storage on our
-              behalf.
+              {standalone
+                ? "We use information you share by email or telephone to respond to your request and discuss quotations. Hosting and communication providers may process information when you use their services."
+                : "We use these details to respond to your request, prepare quotations and manage follow-ups. Authorized staff can access requests in the protected dashboard. Configured service providers may process website hosting, email and media storage on our behalf."}
             </p>
             <h2>Cookies and analytics</h2>
             <p>
-              The staff dashboard uses an essential secure session cookie for
-              authentication. Public visitors do not need an account. No
-              optional analytics are activated by default.
+              {standalone
+                ? "This public website has no staff sign-in and does not set a staff session cookie. Optional analytics are not enabled."
+                : "The staff dashboard uses an essential secure session cookie for authentication. Public visitors do not need an account. No optional analytics are activated by default."}
             </p>
             <h2>Your choices</h2>
             <p>

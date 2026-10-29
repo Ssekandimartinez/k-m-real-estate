@@ -1,3 +1,9 @@
+import {
+  standalone,
+  loadStaticContent,
+  readStaticContent,
+} from "./staticContent";
+
 export interface Category {
   id: string;
   name: string;
@@ -89,6 +95,13 @@ export async function api<T = any>(
   url: string,
   options: RequestInit = {},
 ): Promise<T> {
+  if (standalone) {
+    if ((options.method || "GET").toUpperCase() !== "GET")
+      throw new Error(
+        "Please contact our team by email or telephone to send your enquiry.",
+      );
+    return readStaticContent(await loadStaticContent(), url) as T;
+  }
   const response = await fetch("/api" + url, {
     ...options,
     credentials: "same-origin",
