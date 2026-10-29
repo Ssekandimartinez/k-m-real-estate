@@ -1,6 +1,7 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Category } from "./api";
+import { useVisual } from "./visualMedia";
 
 const guides: Record<
   string,
@@ -162,6 +163,7 @@ export function ServicePageGuide({
   category: Category;
   related?: Category[];
 }) {
+  const planningPhoto = useVisual(`service-guide-${category.slug}`);
   const guide = guides[category.slug];
   if (!guide) return null;
   const product = category.kind === "product";
@@ -192,16 +194,16 @@ export function ServicePageGuide({
       <section className="service-planning">
         <div className="container service-planning-grid">
           <figure>
-            <img
-              src={`/images/${guide.image}.webp`}
-              alt={guide.alt}
-              loading="lazy"
-              width="1000"
-              height="700"
-            />
-            <figcaption className="caption">
-              {category.name}
-            </figcaption>
+            {planningPhoto && (
+              <img
+                src={planningPhoto.url}
+                alt={planningPhoto.alt}
+                loading="lazy"
+                width="1000"
+                height="700"
+              />
+            )}
+            <figcaption className="caption">{category.name}</figcaption>
           </figure>
           <div>
             <p className="eyebrow">PLAN YOUR NEXT STEP</p>
@@ -325,15 +327,6 @@ export function ServicePageGuide({
                 .slice(0, 3)
                 .map((item) => (
                   <article key={item.id}>
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={`Illustrative ${item.name.toLowerCase()} photograph`}
-                        loading="lazy"
-                        width="600"
-                        height="360"
-                      />
-                    )}
                     <div>
                       <h3>
                         <Link to={`/services/category/${item.slug}`}>

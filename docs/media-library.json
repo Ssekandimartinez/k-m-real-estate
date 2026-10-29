@@ -6,7 +6,7 @@
       "source": "images/#1 St_ Louis Plumbers _ Trusted Plumbing Services In Missouri.jpg",
       "url": "/media/library/image-001.webp",
       "alt": "Sink plumbing with plastic drainage pipes",
-      "placement": "gallery",
+      "placement": "content-service:general-plumbing-works",
       "category": "Plumbing"
     },
     {
@@ -15,7 +15,7 @@
       "source": "images/#work #construction #tech #electrical #construction #building #contractors #painting # plumbing_.jpg",
       "url": "/media/library/image-002.webp",
       "alt": "Pipe installation in a wall",
-      "placement": "gallery",
+      "placement": "content-service:plumbing-installation",
       "category": "Plumbing"
     },
     {
@@ -24,7 +24,7 @@
       "source": "images/1.jpg",
       "url": "/media/library/image-003.webp",
       "alt": "Modern open-plan interior with a piano",
-      "placement": "gallery",
+      "placement": "service-guide-real-estate-and-property-services",
       "category": "Property & design"
     },
     {
@@ -33,7 +33,7 @@
       "source": "images/1004091679454186890.jpg",
       "url": "/media/library/image-004.webp",
       "alt": "Colourful classroom desks",
-      "placement": "gallery",
+      "placement": "content-product:school-furniture",
       "category": "Property & design"
     },
     {
@@ -51,7 +51,7 @@
       "source": "images/1146095805163548029.jpg",
       "url": "/media/library/image-006.webp",
       "alt": "Workers preparing a building site",
-      "placement": "gallery",
+      "placement": "content-service:residential-construction",
       "category": "Construction & materials"
     },
     {
@@ -60,7 +60,7 @@
       "source": "images/2.jpg",
       "url": "/media/library/image-007.webp",
       "alt": "Light-filled furnished living room",
-      "placement": "gallery",
+      "placement": "home-inspiration-0",
       "category": "Property & design"
     },
     {
@@ -69,7 +69,7 @@
       "source": "images/322851867051668315.jpg",
       "url": "/media/library/image-008.webp",
       "alt": "Office chairs and desks",
-      "placement": "gallery",
+      "placement": "content-product:office-desks",
       "category": "Supplies & technology"
     },
     {
@@ -78,7 +78,7 @@
       "source": "images/457045062163449303.jpg",
       "url": "/media/library/image-009.webp",
       "alt": "Plastic pipe fittings",
-      "placement": "gallery",
+      "placement": "content-product:pvc-pipes",
       "category": "Plumbing"
     },
     {
@@ -105,7 +105,7 @@
       "source": "images/AFFORDABLE pLUMBING $ERVICE-✅24_7 RELIABLE pLUMBER _.jpg",
       "url": "/media/library/image-012.webp",
       "alt": "Drainage pipes in an excavation",
-      "placement": "gallery",
+      "placement": "content-service:water-pipe-installation",
       "category": "Plumbing"
     },
     {
@@ -123,7 +123,7 @@
       "source": "images/Barbed wire.jpg",
       "url": "/media/library/image-014.webp",
       "alt": "Coiled barbed wire",
-      "placement": "gallery",
+      "placement": "content-product:barbed-wire",
       "category": "Construction & materials"
     },
     {
@@ -141,7 +141,7 @@
       "source": "images/China Good Quality Black Low Carbon Steel Angle Bar.jpg",
       "url": "/media/library/image-016.webp",
       "alt": "Stacked steel angle bars",
-      "placement": "gallery",
+      "placement": "content-product:iron-bars",
       "category": "Construction & materials"
     },
     {
@@ -150,7 +150,7 @@
       "source": "images/Every realtor brings something so different to the….jpg",
       "url": "/media/library/image-017.webp",
       "alt": "Moving into a home",
-      "placement": "gallery",
+      "placement": "content-service:residential-rentals",
       "category": "Property & design"
     },
     {
@@ -159,7 +159,7 @@
       "source": "images/Expert Tips for an Easy Faucet Installation.jpg",
       "url": "/media/library/image-018.webp",
       "alt": "Repairing a sink drain",
-      "placement": "gallery",
+      "placement": "service-guide-plumbing-and-technical-services",
       "category": "Plumbing"
     },
     {
@@ -168,7 +168,7 @@
       "source": "images/Forge Safety _ Best Safety Equipment Shop for Workplace & Personal Protection.jpg",
       "url": "/media/library/image-019.webp",
       "alt": "Protective construction equipment",
-      "placement": "gallery",
+      "placement": "content-product:helmets",
       "category": "Construction & materials"
     },
     {
@@ -177,7 +177,7 @@
       "source": "images/Office desk and chair @11,000_ Delivery available….jpg",
       "url": "/media/library/image-020.webp",
       "alt": "Office desk and chair",
-      "placement": "gallery",
+      "placement": "content-property:business-workspace-suite",
       "category": "Supplies & technology"
     },
     {
@@ -195,7 +195,7 @@
       "source": "images/PVC coated hex wire mesh.jpg",
       "url": "/media/library/image-022.webp",
       "alt": "Coated wire mesh",
-      "placement": "gallery",
+      "placement": "content-product:wire-mesh",
       "category": "Construction & materials"
     },
     {
@@ -213,7 +213,7 @@
       "source": "images/Points to check while choosing a Safety Equipment Supplier.jpg",
       "url": "/media/library/image-024.webp",
       "alt": "High-visibility safety equipment",
-      "placement": "gallery",
+      "placement": "content-product:reflective-vests",
       "category": "Construction & materials"
     },
     {
@@ -222,7 +222,7 @@
       "source": "images/Razor wire is one of the most preferred high….jpg",
       "url": "/media/library/image-025.webp",
       "alt": "Coiled metal wire",
-      "placement": "gallery",
+      "placement": "content-product:chain-link-fencing",
       "category": "Construction & materials"
     },
     {
@@ -231,7 +231,7 @@
       "source": "images/Ready to work with a Realtor®️with a fresh view of….jpg",
       "url": "/media/library/image-026.webp",
       "alt": "A property conversation at a desk",
-      "placement": "gallery",
+      "placement": "content-service:personalized-consultation",
       "category": "Supplies & technology"
     },
     {
@@ -240,7 +240,7 @@
       "source": "images/Reliable PPE Supplies for Workplace Safety.jpg",
       "url": "/media/library/image-027.webp",
       "alt": "Workplace protective equipment",
-      "placement": "gallery",
+      "placement": "content-product:personal-protective-equipment",
       "category": "Construction & materials"
     },
     {
@@ -258,7 +258,7 @@
       "source": "images/Taking care of the details, so your plumbing runs….jpg",
       "url": "/media/library/image-029.webp",
       "alt": "Working beneath a washbasin",
-      "placement": "gallery",
+      "placement": "content-service:pipe-maintenance",
       "category": "Plumbing"
     },
     {
@@ -294,7 +294,7 @@
       "source": "images/We are supplying #Office #Furniture to all over….jpg",
       "url": "/media/library/image-033.webp",
       "alt": "Wrapped office chairs",
-      "placement": "gallery",
+      "placement": "content-product:office-tables",
       "category": "Supplies & technology"
     },
     {
@@ -303,7 +303,7 @@
       "source": "images/apartment 4.jpg",
       "url": "/media/library/image-034.webp",
       "alt": "Apartment buildings beside a road",
-      "placement": "gallery",
+      "placement": "content-property:three-bedroom-apartment-residence",
       "category": "Property & design"
     },
     {
@@ -312,7 +312,7 @@
       "source": "images/apartment.jpg",
       "url": "/media/library/image-035.webp",
       "alt": "Residential buildings with landscaped grounds",
-      "placement": "gallery",
+      "placement": "content-property:garden-court-apartment",
       "category": "Property & design"
     },
     {
@@ -321,7 +321,7 @@
       "source": "images/apartment.webp",
       "url": "/media/library/image-036.webp",
       "alt": "Apartment development beside a road",
-      "placement": "gallery",
+      "placement": "content-property:city-living-apartment",
       "category": "Property & design"
     },
     {
@@ -330,7 +330,7 @@
       "source": "images/combined desk.jpg",
       "url": "/media/library/image-037.webp",
       "alt": "Concrete work on a construction site",
-      "placement": "gallery",
+      "placement": "content-property:client-reception-office-suite",
       "category": "Construction & materials"
     },
     {
@@ -339,7 +339,7 @@
       "source": "images/coomercail building.webp",
       "url": "/media/library/image-038.webp",
       "alt": "Commercial building exterior",
-      "placement": "gallery",
+      "placement": "content-property:modern-commercial-building",
       "category": "Supplies & technology"
     },
     {
@@ -348,7 +348,7 @@
       "source": "images/pexels-107014568-9551365.jpg",
       "url": "/media/library/image-039.webp",
       "alt": "Bathroom with purple wall tiles",
-      "placement": "gallery",
+      "placement": "content-service:bathroom-plumbing",
       "category": "Plumbing"
     },
     {
@@ -384,7 +384,7 @@
       "source": "images/pexels-akoonie-39208835.jpg",
       "url": "/media/library/image-043.webp",
       "alt": "Workers beside reinforcement bars",
-      "placement": "gallery",
+      "placement": "content-service:structural-surveying",
       "category": "Construction & materials"
     },
     {
@@ -420,7 +420,7 @@
       "source": "images/pexels-andromeda99-11438196.jpg",
       "url": "/media/library/image-047.webp",
       "alt": "Terracotta roof tiles",
-      "placement": "gallery",
+      "placement": "content-product:tiles",
       "category": "Construction & materials"
     },
     {
@@ -474,7 +474,7 @@
       "source": "images/pexels-artbovich-7546707.jpg",
       "url": "/media/library/image-053.webp",
       "alt": "Living room with blue seating",
-      "placement": "gallery",
+      "placement": "content-project:contemporary-living-room-interior",
       "category": "Property & design"
     },
     {
@@ -483,7 +483,7 @@
       "source": "images/pexels-artbovich-8082211.jpg",
       "url": "/media/library/image-054.webp",
       "alt": "Dining table in a decorated interior",
-      "placement": "gallery",
+      "placement": "content-project:dining-and-kitchen-design-study",
       "category": "Property & design"
     },
     {
@@ -501,7 +501,7 @@
       "source": "images/pexels-babydov-7789604.jpg",
       "url": "/media/library/image-056.webp",
       "alt": "A bright office desk",
-      "placement": "gallery",
+      "placement": "content-property:open-plan-business-office",
       "category": "Property & design"
     },
     {
@@ -510,7 +510,7 @@
       "source": "images/pexels-breakingpic-3229.jpg",
       "url": "/media/library/image-057.webp",
       "alt": "An incandescent light bulb",
-      "placement": "gallery",
+      "placement": "content-product:lighting-equipment",
       "category": "Supplies & technology"
     },
     {
@@ -519,7 +519,7 @@
       "source": "images/pexels-cheikh-mbed-363896776-39865786.jpg",
       "url": "/media/library/image-058.webp",
       "alt": "Aerial view of a city neighbourhood",
-      "placement": "gallery",
+      "placement": "content-property:mixed-use-development-land",
       "category": "Property & design"
     },
     {
@@ -528,7 +528,7 @@
       "source": "images/pexels-cottonbro-4604701.jpg",
       "url": "/media/library/image-059.webp",
       "alt": "Glass-fronted commercial building",
-      "placement": "gallery",
+      "placement": "content-property:glass-front-business-centre",
       "category": "Property & design"
     },
     {
@@ -537,7 +537,7 @@
       "source": "images/pexels-cottonbro-5090652.jpg",
       "url": "/media/library/image-060.webp",
       "alt": "Coiled electrical wiring",
-      "placement": "gallery",
+      "placement": "content-product:electrical-wiring-accessories",
       "category": "Construction & materials"
     },
     {
@@ -546,7 +546,7 @@
       "source": "images/pexels-d-goug-211350543-40017694.jpg",
       "url": "/media/library/image-061.webp",
       "alt": "Residential construction in progress",
-      "placement": "gallery",
+      "placement": "content-project:residential-build-planning",
       "category": "Construction & materials"
     },
     {
@@ -555,7 +555,7 @@
       "source": "images/pexels-daniel-andraski-197681005-12234106.jpg",
       "url": "/media/library/image-062.webp",
       "alt": "Inspecting a property with a tablet",
-      "placement": "gallery",
+      "placement": "content-service:building-inspections",
       "category": "Property & design"
     },
     {
@@ -600,7 +600,7 @@
       "source": "images/pexels-delot-19599327.jpg",
       "url": "/media/library/image-067.webp",
       "alt": "Small kitchen appliances",
-      "placement": "gallery",
+      "placement": "content-product:blenders",
       "category": "Supplies & technology"
     },
     {
@@ -618,7 +618,7 @@
       "source": "images/pexels-dextarstudio-16140813.jpg",
       "url": "/media/library/image-069.webp",
       "alt": "Contemporary commercial architecture",
-      "placement": "gallery",
+      "placement": "content-property:urban-enterprise-premises",
       "category": "Property & design"
     },
     {
@@ -636,7 +636,7 @@
       "source": "images/pexels-erkan-226635.jpg",
       "url": "/media/library/image-071.webp",
       "alt": "A microphone and audio equipment",
-      "placement": "gallery",
+      "placement": "content-product:microphones",
       "category": "Supplies & technology"
     },
     {
@@ -708,7 +708,7 @@
       "source": "images/pexels-gustavo-fring-4971250.jpg",
       "url": "/media/library/image-079.webp",
       "alt": "A couple carrying moving boxes",
-      "placement": "gallery",
+      "placement": "content-service:tenant-placement",
       "category": "Property & design"
     },
     {
@@ -735,7 +735,7 @@
       "source": "images/pexels-harrun-muhammad-116282236-32467382 (1).jpg",
       "url": "/media/library/image-082.webp",
       "alt": "Construction workers at a building site",
-      "placement": "gallery",
+      "placement": "content-service:general-building-construction",
       "category": "Construction & materials"
     },
     {
@@ -762,7 +762,7 @@
       "source": "images/pexels-infinity-lifespaces-1420423121-30592257.jpg",
       "url": "/media/library/image-085.webp",
       "alt": "Workers installing interior finishes",
-      "placement": "gallery",
+      "placement": "content-service:interior-design",
       "category": "Construction & materials"
     },
     {
@@ -780,7 +780,7 @@
       "source": "images/pexels-izafi-37672724.jpg",
       "url": "/media/library/image-087.webp",
       "alt": "Bottles and supplies on shop shelves",
-      "placement": "gallery",
+      "placement": "content-product:beverages",
       "category": "Supplies & technology"
     },
     {
@@ -789,7 +789,7 @@
       "source": "images/pexels-jakubzerdzicki-20555791.jpg",
       "url": "/media/library/image-088.webp",
       "alt": "Computers on an office desk",
-      "placement": "home-service-4",
+      "placement": "content-property:professional-team-workspace",
       "category": "Supplies & technology"
     },
     {
@@ -798,7 +798,7 @@
       "source": "images/pexels-jakubzerdzicki-27523002.jpg",
       "url": "/media/library/image-089.webp",
       "alt": "Indoor security cameras",
-      "placement": "gallery",
+      "placement": "content-product:security-systems",
       "category": "Supplies & technology"
     },
     {
@@ -807,7 +807,7 @@
       "source": "images/pexels-jakubzerdzicki-27934787.jpg",
       "url": "/media/library/image-090.webp",
       "alt": "Home monitoring cameras",
-      "placement": "gallery",
+      "placement": "content-product:surveillance-equipment",
       "category": "Supplies & technology"
     },
     {
@@ -816,7 +816,7 @@
       "source": "images/pexels-jakubzerdzicki-29799518.jpg",
       "url": "/media/library/image-091.webp",
       "alt": "Keys and a calculator",
-      "placement": "gallery",
+      "placement": "content-service:property-financial-management",
       "category": "Property & design"
     },
     {
@@ -825,7 +825,7 @@
       "source": "images/pexels-jan-van-der-wolf-11680885-15750953.jpg",
       "url": "/media/library/image-092.webp",
       "alt": "Stacked red chairs",
-      "placement": "gallery",
+      "placement": "content-product:chairs",
       "category": "Supplies & technology"
     },
     {
@@ -834,7 +834,7 @@
       "source": "images/pexels-jan-van-der-wolf-11680885-33566637.jpg",
       "url": "/media/library/image-093.webp",
       "alt": "Construction materials in storage",
-      "placement": "gallery",
+      "placement": "service-guide-construction-materials",
       "category": "Supplies & technology"
     },
     {
@@ -861,7 +861,7 @@
       "source": "images/pexels-jibarofoto-2339722.jpg",
       "url": "/media/library/image-096.webp",
       "alt": "Outdoor brass water tap",
-      "placement": "gallery",
+      "placement": "content-service:plumbing-repairs",
       "category": "Plumbing"
     },
     {
@@ -870,7 +870,7 @@
       "source": "images/pexels-jose-carlos-alexandre-2433751-17797264.jpg",
       "url": "/media/library/image-097.webp",
       "alt": "Worker checking a residential building site",
-      "placement": "gallery",
+      "placement": "content-service:building-inspection",
       "category": "Construction & materials"
     },
     {
@@ -924,7 +924,7 @@
       "source": "images/pexels-kgstudios-27926020.jpg",
       "url": "/media/library/image-103.webp",
       "alt": "Pipes and equipment in storage",
-      "placement": "gallery",
+      "placement": "content-product:plumbing-materials",
       "category": "Supplies & technology"
     },
     {
@@ -969,7 +969,7 @@
       "source": "images/pexels-kindelmedia-8486933.jpg",
       "url": "/media/library/image-108.webp",
       "alt": "Construction worker in a hard hat",
-      "placement": "gallery",
+      "placement": "content-service:construction-project-management",
       "category": "Construction & materials"
     },
     {
@@ -978,7 +978,7 @@
       "source": "images/pexels-kindelmedia-8487393.jpg",
       "url": "/media/library/image-109.webp",
       "alt": "Two construction professionals",
-      "placement": "gallery",
+      "placement": "content-service:construction-management",
       "category": "Construction & materials"
     },
     {
@@ -996,7 +996,7 @@
       "source": "images/pexels-kindelmedia-8487732.jpg",
       "url": "/media/library/image-111.webp",
       "alt": "A worker inspecting an interior",
-      "placement": "gallery",
+      "placement": "content-service:property-maintenance-and-repairs",
       "category": "Construction & materials"
     },
     {
@@ -1005,7 +1005,7 @@
       "source": "images/pexels-kun-fayakun-1238181416-29417483.jpg",
       "url": "/media/library/image-112.webp",
       "alt": "Large concrete drainage pipes",
-      "placement": "gallery",
+      "placement": "content-service:water-transfer-connections",
       "category": "Plumbing"
     },
     {
@@ -1014,7 +1014,7 @@
       "source": "images/pexels-lagosfoodbank-8069554.jpg",
       "url": "/media/library/image-113.webp",
       "alt": "A worker handling packaged supplies",
-      "placement": "gallery",
+      "placement": "service-guide-general-supplies-and-procurement",
       "category": "Supplies & technology"
     },
     {
@@ -1041,7 +1041,7 @@
       "source": "images/pexels-mahmoud-zakariya-2154822140-34243922.jpg",
       "url": "/media/library/image-116.webp",
       "alt": "Apartment buildings and landscaping",
-      "placement": "gallery",
+      "placement": "page-/properties",
       "category": "Property & design"
     },
     {
@@ -1050,7 +1050,7 @@
       "source": "images/pexels-mahmoud-zakariya-2154822140-34450816.jpg",
       "url": "/media/library/image-117.webp",
       "alt": "Residential buildings around a courtyard",
-      "placement": "gallery",
+      "placement": "page-/gallery",
       "category": "Property & design"
     },
     {
@@ -1086,7 +1086,7 @@
       "source": "images/pexels-markus-winkler-1430818-13572281.jpg",
       "url": "/media/library/image-121.webp",
       "alt": "Plastic water containers",
-      "placement": "gallery",
+      "placement": "content-product:relief-items",
       "category": "Supplies & technology"
     },
     {
@@ -1113,7 +1113,7 @@
       "source": "images/pexels-max-o-88958793-9494281.jpg",
       "url": "/media/library/image-124.webp",
       "alt": "Aerial view of a residential neighbourhood",
-      "placement": "gallery",
+      "placement": "content-property:residential-development-plot",
       "category": "Property & design"
     },
     {
@@ -1122,7 +1122,7 @@
       "source": "images/pexels-md-photography-2150970498-31690140.jpg",
       "url": "/media/library/image-125.webp",
       "alt": "Visitor overlooking a building site",
-      "placement": "gallery",
+      "placement": "service-guide-construction-and-design",
       "category": "Construction & materials"
     },
     {
@@ -1149,7 +1149,7 @@
       "source": "images/pexels-mickael-ange-konan-2156070331-34526423.jpg",
       "url": "/media/library/image-128.webp",
       "alt": "Working on an electrical control panel",
-      "placement": "gallery",
+      "placement": "service-guide-electrical-electronics-and-it-solutions",
       "category": "Supplies & technology"
     },
     {
@@ -1158,7 +1158,7 @@
       "source": "images/pexels-mike-van-schoonderwalt-1884800-5504388.jpg",
       "url": "/media/library/image-129.webp",
       "alt": "Construction cranes",
-      "placement": "gallery",
+      "placement": "content-service:commercial-construction",
       "category": "Construction & materials"
     },
     {
@@ -1167,7 +1167,7 @@
       "source": "images/pexels-mikhail-nilov-9301901.jpg",
       "url": "/media/library/image-130.webp",
       "alt": "A professional discussion at an office",
-      "placement": "gallery",
+      "placement": "page-/terms",
       "category": "Property & design"
     },
     {
@@ -1176,7 +1176,7 @@
       "source": "images/pexels-muaiad-elameen-1755135066-31086011.jpg",
       "url": "/media/library/image-131.webp",
       "alt": "Road construction equipment",
-      "placement": "gallery",
+      "placement": "content-service:road-construction",
       "category": "Construction & materials"
     },
     {
@@ -1185,7 +1185,7 @@
       "source": "images/pexels-musingapictures-39696845.jpg",
       "url": "/media/library/image-132.webp",
       "alt": "People beside a building framework",
-      "placement": "gallery",
+      "placement": "content-service:community-infrastructure",
       "category": "Construction & materials"
     },
     {
@@ -1221,7 +1221,7 @@
       "source": "images/pexels-nic-scrollstoppingphotos-28286039.jpg",
       "url": "/media/library/image-136.webp",
       "alt": "Electrical cable ends",
-      "placement": "gallery",
+      "placement": "content-product:electrical-materials",
       "category": "Construction & materials"
     },
     {
@@ -1230,7 +1230,7 @@
       "source": "images/pexels-ninobur-17410739.jpg",
       "url": "/media/library/image-137.webp",
       "alt": "Residential construction beside a road",
-      "placement": "gallery",
+      "placement": "content-service:property-development",
       "category": "Construction & materials"
     },
     {
@@ -1239,7 +1239,7 @@
       "source": "images/pexels-ninthgrid-2149521550-30677596.jpg",
       "url": "/media/library/image-138.webp",
       "alt": "People greeting in an office",
-      "placement": "gallery",
+      "placement": "content-service:investment-advisory",
       "category": "Supplies & technology"
     },
     {
@@ -1266,7 +1266,7 @@
       "source": "images/pexels-pavel-danilyuk-6340707.jpg",
       "url": "/media/library/image-141.webp",
       "alt": "Stationery on a desk",
-      "placement": "gallery",
+      "placement": "content-product:office-consumables",
       "category": "Supplies & technology"
     },
     {
@@ -1275,7 +1275,7 @@
       "source": "images/pexels-pavel-danilyuk-7937758.jpg",
       "url": "/media/library/image-142.webp",
       "alt": "Glazed doors and interior finishes",
-      "placement": "gallery",
+      "placement": "content-product:glass",
       "category": "Property & design"
     },
     {
@@ -1284,7 +1284,7 @@
       "source": "images/pexels-phat-tr-ng-1662052981-39426480.jpg",
       "url": "/media/library/image-143.webp",
       "alt": "Kitchen appliances and cooking equipment",
-      "placement": "gallery",
+      "placement": "content-product:gas-cookers",
       "category": "Supplies & technology"
     },
     {
@@ -1293,7 +1293,7 @@
       "source": "images/pexels-picha-stock-2210122-3869641.jpg",
       "url": "/media/library/image-144.webp",
       "alt": "People meeting inside a building",
-      "placement": "gallery",
+      "placement": "content-service:commercial-leasing",
       "category": "Property & design"
     },
     {
@@ -1302,7 +1302,7 @@
       "source": "images/pexels-pixabay-164829.jpg",
       "url": "/media/library/image-145.webp",
       "alt": "A microphone on a stand",
-      "placement": "gallery",
+      "placement": "content-post:coordinate-supplies-for-a-new-workspace",
       "category": "Supplies & technology"
     },
     {
@@ -1338,7 +1338,7 @@
       "source": "images/pexels-pnw-prod-8276210.jpg",
       "url": "/media/library/image-149.webp",
       "alt": "Hands joined over a meeting table",
-      "placement": "gallery",
+      "placement": "content-service:real-estate-consultancy",
       "category": "Property & design"
     },
     {
@@ -1356,7 +1356,7 @@
       "source": "images/pexels-punttim-5600669.jpg",
       "url": "/media/library/image-151.webp",
       "alt": "Glass office buildings",
-      "placement": "page-/terms",
+      "placement": "content-property:corporate-business-premises",
       "category": "Property & design"
     },
     {
@@ -1365,7 +1365,7 @@
       "source": "images/pexels-pupeno-27728635.jpg",
       "url": "/media/library/image-152.webp",
       "alt": "Stacked construction panels",
-      "placement": "gallery",
+      "placement": "content-product:ceiling-boards",
       "category": "Construction & materials"
     },
     {
@@ -1374,7 +1374,7 @@
       "source": "images/pexels-quang-nguyen-vinh-222549-11669967.jpg",
       "url": "/media/library/image-153.webp",
       "alt": "Aerial view of landscaped homes",
-      "placement": "page-/gallery",
+      "placement": "content-property:family-home-land-parcel",
       "category": "Property & design"
     },
     {
@@ -1383,7 +1383,7 @@
       "source": "images/pexels-ranjeet-860714737-28265032.jpg",
       "url": "/media/library/image-154.webp",
       "alt": "Electrical distribution equipment",
-      "placement": "gallery",
+      "placement": "home-service-4",
       "category": "Construction & materials"
     },
     {
@@ -1410,7 +1410,7 @@
       "source": "images/pexels-rdne-8293781.jpg",
       "url": "/media/library/image-157.webp",
       "alt": "House keys and property information",
-      "placement": "gallery",
+      "placement": "content-service:property-sales",
       "category": "Property & design"
     },
     {
@@ -1437,7 +1437,7 @@
       "source": "images/pexels-roger11reyes-6509862.jpg",
       "url": "/media/library/image-160.webp",
       "alt": "A worker shaping building material",
-      "placement": "gallery",
+      "placement": "content-service:paving",
       "category": "Construction & materials"
     },
     {
@@ -1464,7 +1464,7 @@
       "source": "images/pexels-seyhmus-yakut-114873224-19143956.jpg",
       "url": "/media/library/image-163.webp",
       "alt": "Aerial view of a residential street",
-      "placement": "gallery",
+      "placement": "content-property:neighbourhood-building-plot",
       "category": "Property & design"
     },
     {
@@ -1482,7 +1482,7 @@
       "source": "images/pexels-shox-37528609.jpg",
       "url": "/media/library/image-165.webp",
       "alt": "Paving blocks stacked for construction",
-      "placement": "gallery",
+      "placement": "content-service:interlocking-pavers",
       "category": "Construction & materials"
     },
     {
@@ -1500,7 +1500,7 @@
       "source": "images/pexels-steve-985117.jpg",
       "url": "/media/library/image-167.webp",
       "alt": "A handheld torch",
-      "placement": "gallery",
+      "placement": "content-product:torches",
       "category": "Supplies & technology"
     },
     {
@@ -1545,7 +1545,7 @@
       "source": "images/pexels-thisisengineering-3862379.jpg",
       "url": "/media/library/image-172.webp",
       "alt": "Architectural design on a computer",
-      "placement": "gallery",
+      "placement": "content-post:prepare-a-construction-project-brief",
       "category": "Supplies & technology"
     },
     {
@@ -1554,7 +1554,7 @@
       "source": "images/pexels-thisvikto-10202856.jpg",
       "url": "/media/library/image-173.webp",
       "alt": "Workers checking steel reinforcement",
-      "placement": "gallery",
+      "placement": "content-service:construction-and-design-structural-surveying",
       "category": "Construction & materials"
     },
     {
@@ -1581,7 +1581,7 @@
       "source": "images/pexels-tima-miroshnichenko-6614837.jpg",
       "url": "/media/library/image-176.webp",
       "alt": "Drawing an architectural plan",
-      "placement": "gallery",
+      "placement": "content-service:architectural-design",
       "category": "Construction & materials"
     },
     {
@@ -1590,7 +1590,7 @@
       "source": "images/pexels-tima-miroshnichenko-6830012.jpg",
       "url": "/media/library/image-177.webp",
       "alt": "Furniture in a showroom",
-      "placement": "gallery",
+      "placement": "content-product:home-furniture",
       "category": "Supplies & technology"
     },
     {
@@ -1626,7 +1626,7 @@
       "source": "images/pexels-willians-huerta-2157111846-36397790 (1).jpg",
       "url": "/media/library/image-181.webp",
       "alt": "Coiled metal fencing",
-      "placement": "gallery",
+      "placement": "content-product:razor-wire",
       "category": "Construction & materials"
     },
     {
@@ -1653,7 +1653,7 @@
       "source": "images/pexels-ywanphoto-3089685.jpg",
       "url": "/media/library/image-184.webp",
       "alt": "Trucks and heavy construction equipment",
-      "placement": "gallery",
+      "placement": "content-service:infrastructure-development",
       "category": "Construction & materials"
     },
     {
@@ -1671,7 +1671,7 @@
       "source": "images/pexels-zulfugarkarimov-33686677.jpg",
       "url": "/media/library/image-186.webp",
       "alt": "Office ring binders",
-      "placement": "gallery",
+      "placement": "content-product:filing-materials",
       "category": "Supplies & technology"
     },
     {
@@ -1680,7 +1680,7 @@
       "source": "images/property 1.jpg",
       "url": "/media/library/image-187.webp",
       "alt": "Single-storey home behind a fence",
-      "placement": "gallery",
+      "placement": "content-property:courtyard-family-home",
       "category": "Property & design"
     },
     {
@@ -1689,7 +1689,7 @@
       "source": "images/property 2.jpg",
       "url": "/media/library/image-188.webp",
       "alt": "House and garden with a driveway",
-      "placement": "gallery",
+      "placement": "content-property:contemporary-garden-residence",
       "category": "Property & design"
     },
     {
@@ -1698,7 +1698,7 @@
       "source": "images/property 3.webp",
       "url": "/media/library/image-189.webp",
       "alt": "Covered outdoor seating area",
-      "placement": "gallery",
+      "placement": "content-property:spacious-four-bedroom-villa",
       "category": "Property & design"
     },
     {
@@ -1707,7 +1707,7 @@
       "source": "images/property 4.webp",
       "url": "/media/library/image-190.webp",
       "alt": "Single-storey home with a lawn",
-      "placement": "gallery",
+      "placement": "content-property:elegant-three-bedroom-home",
       "category": "Property & design"
     },
     {
@@ -1716,7 +1716,7 @@
       "source": "images/property 6.jpg",
       "url": "/media/library/image-191.webp",
       "alt": "Contemporary two-storey house",
-      "placement": "gallery",
+      "placement": "content-property:private-compound-residence",
       "category": "Property & design"
     },
     {
@@ -1725,7 +1725,7 @@
       "source": "images/property 6.webp",
       "url": "/media/library/image-192.webp",
       "alt": "Residential courtyard and swimming pool",
-      "placement": "gallery",
+      "placement": "content-property:bright-two-bedroom-bungalow",
       "category": "Property & design"
     },
     {
@@ -1734,7 +1734,7 @@
       "source": "images/property 9.webp",
       "url": "/media/library/image-193.webp",
       "alt": "House beside a swimming pool",
-      "placement": "home-inspiration-0",
+      "placement": "content-property:generous-five-bedroom-residence",
       "category": "Property & design"
     },
     {
@@ -1743,7 +1743,7 @@
       "source": "images/property5.webp",
       "url": "/media/library/image-194.webp",
       "alt": "Garden path beside a home",
-      "placement": "gallery",
+      "placement": "content-property:modern-family-retreat",
       "category": "Property & design"
     },
     {
@@ -1752,7 +1752,7 @@
       "source": "images/propery7.webp",
       "url": "/media/library/image-195.webp",
       "alt": "Two-storey house with balconies",
-      "placement": "page-/properties",
+      "placement": "content-property:light-filled-two-bedroom-apartment",
       "category": "Property & design"
     },
     {
@@ -1761,7 +1761,7 @@
       "source": "images/properyt 11.jpg",
       "url": "/media/library/image-196.webp",
       "alt": "House overlooking a large lawn",
-      "placement": "gallery",
+      "placement": "content-property:executive-apartment-suite",
       "category": "Property & design"
     },
     {
@@ -1770,7 +1770,7 @@
       "source": "images/properyt 5.webp",
       "url": "/media/library/image-197.webp",
       "alt": "Single-storey house and driveway",
-      "placement": "gallery",
+      "placement": "content-property:shaded-garden-bungalow",
       "category": "Property & design"
     },
     {
@@ -1779,7 +1779,7 @@
       "source": "images/properyt 7.webp",
       "url": "/media/library/image-198.webp",
       "alt": "Aerial view of a residential property",
-      "placement": "gallery",
+      "placement": "content-property:hillside-compound-residence",
       "category": "Property & design"
     },
     {
@@ -1788,7 +1788,7 @@
       "source": "images/properyt 8.webp",
       "url": "/media/library/image-199.webp",
       "alt": "Multi-storey residential building",
-      "placement": "gallery",
+      "placement": "content-property:contemporary-balcony-apartment",
       "category": "Property & design"
     },
     {
@@ -1797,7 +1797,7 @@
       "source": "images/prpoperyt 10.webp",
       "url": "/media/library/image-200.webp",
       "alt": "Residential development and landscaping",
-      "placement": "gallery",
+      "placement": "content-property:landscaped-court-apartment",
       "category": "Property & design"
     },
     {

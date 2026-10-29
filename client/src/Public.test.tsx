@@ -265,7 +265,19 @@ it("expands the published offerings and shows category preparation guidance", as
           : url.startsWith("/api/categories")
             ? []
             : url === "/api/visual-media"
-              ? { assets: [] }
+              ? {
+                  assets: [
+                    {
+                      id: "planning-photo",
+                      type: "image",
+                      url: "/media/library/image-018.webp",
+                      alt: "Repairing a sink drain",
+                      placement:
+                        "service-guide-plumbing-and-technical-services",
+                      category: "Plumbing",
+                    },
+                  ],
+                }
               : { items },
     })),
   );
@@ -304,9 +316,10 @@ it("expands the published offerings and shows category preparation guidance", as
       "Whether you need a new installation, repair or maintenance",
     ),
   ).toBeInTheDocument();
-  expect(
-    screen.getByAltText("Hands working on a basin waste pipe connection"),
-  ).toHaveAttribute("src", "/images/plumbing-repair.webp");
+  expect(screen.getByAltText("Repairing a sink drain")).toHaveAttribute(
+    "src",
+    "/media/library/image-018.webp",
+  );
   fireEvent.click(screen.getByRole("button", { name: "Show fewer" }));
   expect(screen.queryByText("Published explanation 6")).not.toBeInTheDocument();
 });

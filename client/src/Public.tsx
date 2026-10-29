@@ -40,6 +40,7 @@ import {
 import { useCompany } from "./App";
 import { standalone } from "./staticContent";
 import { Inspiration } from "./Inspiration";
+import Testimonials from "./Testimonials";
 import { ServicePageGuide } from "./ServicePageGuide";
 import { CollectionGuide, EnquiryGuide } from "./PageContent";
 import {
@@ -739,46 +740,9 @@ export function Home() {
     </>
   );
 }
-function Testimonials() {
-  const { data } = useQuery({
-    queryKey: ["testimonials"],
-    queryFn: () => api<{ items: Entry[] }>("/content/testimonial?limit=6"),
-  });
-  return data?.items.length ? (
-    <section className="section container">
-      <SectionTitle eyebrow="CLIENT EXPERIENCES" title="In their own words." />
-      <div className="grid three">
-        {data.items.map((v) => (
-          <blockquote key={v.id}>
-            {v.images[0] && (
-              <img
-                className="testimonial-portrait"
-                src={v.images[0].url}
-                alt={v.images[0].alt}
-                loading="lazy"
-                width="72"
-                height="72"
-              />
-            )}
-            {v.specs.sample === true && (
-              <p className="eyebrow">Fictional sample testimonial</p>
-            )}
-            <p>“{v.summary}”</p>
-            <cite>{v.title}</cite>
-          </blockquote>
-        ))}
-      </div>
-    </section>
-  ) : null;
-}
 export function CTA() {
-  const { data: visualMedia } = useVisualMedia();
-  const image = visualMedia?.assets.find((asset) => asset.id === "image-072");
   return (
     <section className="cta">
-      {image && (
-        <img className="cta-background" src={image.url} alt="" loading="lazy" />
-      )}
       <div className="container">
         <div>
           <p className="eyebrow light">YOUR NEXT CHAPTER STARTS HERE</p>
