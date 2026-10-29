@@ -766,8 +766,19 @@ export function Home() {
   );
 }
 export function CTA() {
+  const { data: visualMedia } = useVisualMedia();
+  const image = visualMedia?.assets.find((asset) => asset.id === "image-072");
   return (
     <section className="cta">
+      {image && (
+        <ResponsiveImage
+          className="cta-background"
+          src={image.url}
+          alt=""
+          loading="lazy"
+          sizes="100vw"
+        />
+      )}
       <div className="container">
         <div>
           <p className="eyebrow light">YOUR NEXT CHAPTER STARTS HERE</p>
