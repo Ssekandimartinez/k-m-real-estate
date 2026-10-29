@@ -40,7 +40,6 @@ import {
 import { useCompany } from "./App";
 import { standalone } from "./staticContent";
 import { Inspiration } from "./Inspiration";
-import Testimonials from "./Testimonials";
 import { ServicePageGuide } from "./ServicePageGuide";
 import { CollectionGuide, EnquiryGuide } from "./PageContent";
 import {
@@ -57,6 +56,7 @@ const labels: Record<string, string> = {
   service: "Services",
 };
 const icons = [Building2, HardHat, Layers3, Package, Unplug, Wrench];
+const Testimonials = lazy(() => import("./Testimonials"));
 const groupNames = [
   "Real Estate & Property Services",
   "Construction & Design",
@@ -727,7 +727,11 @@ export function Home() {
           </div>
         </div>
       </section>
-      {c?.featuredSections.includes("testimonials") && <Testimonials />}
+      {c?.featuredSections.includes("testimonials") && (
+        <Suspense fallback={null}>
+          <Testimonials />
+        </Suspense>
+      )}
       {(!c || c.featuredSections.includes("posts")) && (
         <Featured
           kind="post"
