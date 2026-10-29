@@ -29,7 +29,7 @@ import {
   requestSchema,
   settingsSchema,
 } from "./validation.js";
-import { mailConfigured, sendMail } from "./mail.js";
+import { mailConfigured, sendMail, verifyMailConnection } from "./mail.js";
 
 export const app = express();
 app.disable("x-powered-by");
@@ -432,6 +432,38 @@ app.post("/api/auth/reset", authLimit, async (req, res) => {
 app.use("/api/admin", authenticate, (_req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
+});
+app.post("/api/admin/email/verify", adminOnly, authLimit, async (_req, res) => {
+  if (
+    !process.env.SMTP_HOST ||
+    !process.env.SMTP_USER ||
+    !process.env.SMTP_PASSWORD
+  ) {
+    res
+      .status(503)
+      .json({
+        error:
+          "SMTP host, login and key must be configured before verification",
+      });
+    return;
+  }
+  try {
+    await verifyMailConnection();
+    res.json({
+      ok: true,
+      message: "SMTP authentication verified. No email was sent.",
+    });
+  } catch (error) {
+    const failure = error as { code?: unknown; responseCode?: unknown };
+    res.status(502).json({
+      error: "SMTP verification failed",
+      code:
+        typeof failure.code === "string" ? failure.code : "SMTP_CHECK_FAILED",
+      ...(typeof failure.responseCode === "number"
+        ? { responseCode: failure.responseCode }
+        : {}),
+    });
+  }
 });
 app.get("/api/admin/stats", async (_req, res) => {
   const [
