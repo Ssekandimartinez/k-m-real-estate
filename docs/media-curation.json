@@ -1,0 +1,1755 @@
+{
+  "annotations": [
+    {
+      "id": "image-001",
+      "alt": "Sink plumbing with plastic drainage pipes",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-002",
+      "alt": "Pipe installation in a wall",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-003",
+      "alt": "Modern open-plan interior with a piano",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-004",
+      "alt": "Colourful classroom desks",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-005",
+      "alt": "Metal gate and outdoor fixtures",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-006",
+      "alt": "Workers preparing a building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-007",
+      "alt": "Light-filled furnished living room",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-008",
+      "alt": "Office chairs and desks",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-009",
+      "alt": "Plastic pipe fittings",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-010",
+      "alt": "Shelves of construction supplies",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-011",
+      "alt": "Steel profiles and tubing",
+      "category": "Construction & materials",
+      "placement": "services-overview-2"
+    },
+    {
+      "id": "image-012",
+      "alt": "Drainage pipes in an excavation",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-013",
+      "alt": "Warehouse shelving",
+      "category": "Supplies & technology",
+      "placement": "page-/catalogue"
+    },
+    {
+      "id": "image-014",
+      "alt": "Coiled barbed wire",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-015",
+      "alt": "An arrangement of building materials",
+      "category": "Construction & materials",
+      "placement": "home-service-2"
+    },
+    {
+      "id": "image-016",
+      "alt": "Stacked steel angle bars",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-017",
+      "alt": "Moving into a home",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-018",
+      "alt": "Repairing a sink drain",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-019",
+      "alt": "Protective construction equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-020",
+      "alt": "Office desk and chair",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-021",
+      "alt": "Warehouse storage aisles",
+      "category": "Supplies & technology",
+      "placement": "home-service-3"
+    },
+    {
+      "id": "image-022",
+      "alt": "Coated wire mesh",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-023",
+      "alt": "Pipes installed inside a wall",
+      "category": "Plumbing",
+      "placement": "services-overview-5"
+    },
+    {
+      "id": "image-024",
+      "alt": "High-visibility safety equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-025",
+      "alt": "Coiled metal wire",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-026",
+      "alt": "A property conversation at a desk",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-027",
+      "alt": "Workplace protective equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-028",
+      "alt": "Steel reinforcement on a building site",
+      "category": "Construction & materials",
+      "placement": "page-/services/category/construction-materials"
+    },
+    {
+      "id": "image-029",
+      "alt": "Working beneath a washbasin",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-030",
+      "alt": "A safety equipment shop",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-031",
+      "alt": "Repairing domestic plumbing",
+      "category": "Plumbing",
+      "placement": "home-service-5"
+    },
+    {
+      "id": "image-032",
+      "alt": "Reviewing property paperwork",
+      "category": "Property & design",
+      "placement": "home-service-0"
+    },
+    {
+      "id": "image-033",
+      "alt": "Wrapped office chairs",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-034",
+      "alt": "Apartment buildings beside a road",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-035",
+      "alt": "Residential buildings with landscaped grounds",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-036",
+      "alt": "Apartment development beside a road",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-037",
+      "alt": "Concrete work on a construction site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-038",
+      "alt": "Commercial building exterior",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-039",
+      "alt": "Bathroom with purple wall tiles",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-040",
+      "alt": "A pile of construction aggregate",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-041",
+      "alt": "Outdoor water sprinkler",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-042",
+      "alt": "Construction worker handling materials",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-043",
+      "alt": "Workers beside reinforcement bars",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-044",
+      "alt": "Bagged building materials",
+      "category": "Construction & materials",
+      "placement": "about-card-2"
+    },
+    {
+      "id": "image-045",
+      "alt": "People in an outdoor setting",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-046",
+      "alt": "Contemporary living room interior",
+      "category": "Property & design",
+      "placement": "home-intro"
+    },
+    {
+      "id": "image-047",
+      "alt": "Terracotta roof tiles",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-048",
+      "alt": "Construction work at sunset",
+      "category": "Construction & materials",
+      "placement": "page-/services/category/construction-and-design"
+    },
+    {
+      "id": "image-049",
+      "alt": "Professionals reviewing plans together",
+      "category": "Property & design",
+      "placement": "home-hero-2"
+    },
+    {
+      "id": "image-050",
+      "alt": "A discussion over design drawings",
+      "category": "Property & design",
+      "placement": "service-category-0"
+    },
+    {
+      "id": "image-051",
+      "alt": "People gathered at an indoor event",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-052",
+      "alt": "Bright tiled bathroom",
+      "category": "Plumbing",
+      "placement": "home-inspiration-1"
+    },
+    {
+      "id": "image-053",
+      "alt": "Living room with blue seating",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-054",
+      "alt": "Dining table in a decorated interior",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-055",
+      "alt": "Living room with purple seating",
+      "category": "Property & design",
+      "placement": "home-inspiration-0"
+    },
+    {
+      "id": "image-056",
+      "alt": "A bright office desk",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-057",
+      "alt": "An incandescent light bulb",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-058",
+      "alt": "Aerial view of a city neighbourhood",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-059",
+      "alt": "Glass-fronted commercial building",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-060",
+      "alt": "Coiled electrical wiring",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-061",
+      "alt": "Residential construction in progress",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-062",
+      "alt": "Inspecting a property with a tablet",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-063",
+      "alt": "Handling bricks on a building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-064",
+      "alt": "Concrete building structure under construction",
+      "category": "Construction & materials",
+      "placement": "page-/projects"
+    },
+    {
+      "id": "image-065",
+      "alt": "Exposed water pipes and valves",
+      "category": "Plumbing",
+      "placement": "page-/services/category/plumbing-and-technical-services"
+    },
+    {
+      "id": "image-066",
+      "alt": "A worker in a high-visibility vest",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-067",
+      "alt": "Small kitchen appliances",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-068",
+      "alt": "Cookware and appliances on display",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-069",
+      "alt": "Contemporary commercial architecture",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-070",
+      "alt": "Warehouse storage racks",
+      "category": "Supplies & technology",
+      "placement": "services-overview-3"
+    },
+    {
+      "id": "image-071",
+      "alt": "A microphone and audio equipment",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-072",
+      "alt": "Contemporary residential architecture",
+      "category": "Property & design",
+      "placement": "home-hero-0"
+    },
+    {
+      "id": "image-073",
+      "alt": "An illuminated shower head",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-074",
+      "alt": "Shipping containers at a port",
+      "category": "Supplies & technology",
+      "placement": "page-/services/category/general-supplies-and-procurement"
+    },
+    {
+      "id": "image-075",
+      "alt": "A group reviewing building plans",
+      "category": "Property & design",
+      "placement": "page-/quote"
+    },
+    {
+      "id": "image-076",
+      "alt": "Professionals discussing a property",
+      "category": "Property & design",
+      "placement": "about-intro"
+    },
+    {
+      "id": "image-077",
+      "alt": "A stack of laptops",
+      "category": "Supplies & technology",
+      "placement": "about-card-4"
+    },
+    {
+      "id": "image-078",
+      "alt": "Outdoor event equipment",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-079",
+      "alt": "A couple carrying moving boxes",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-080",
+      "alt": "Architectural drawings and a hard hat",
+      "category": "Construction & materials",
+      "placement": "services-overview-1"
+    },
+    {
+      "id": "image-081",
+      "alt": "A worker cutting construction material",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-082",
+      "alt": "Construction workers at a building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-083",
+      "alt": "A construction team reviewing plans",
+      "category": "Construction & materials",
+      "placement": "home-service-1"
+    },
+    {
+      "id": "image-084",
+      "alt": "A multi-storey building under construction",
+      "category": "Construction & materials",
+      "placement": "page-/services"
+    },
+    {
+      "id": "image-085",
+      "alt": "Workers installing interior finishes",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-086",
+      "alt": "Stacked red bricks",
+      "category": "Construction & materials",
+      "placement": "service-category-2"
+    },
+    {
+      "id": "image-087",
+      "alt": "Bottles and supplies on shop shelves",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-088",
+      "alt": "Computers on an office desk",
+      "category": "Supplies & technology",
+      "placement": "home-service-4"
+    },
+    {
+      "id": "image-089",
+      "alt": "Indoor security cameras",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-090",
+      "alt": "Home monitoring cameras",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-091",
+      "alt": "Keys and a calculator",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-092",
+      "alt": "Stacked red chairs",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-093",
+      "alt": "Construction materials in storage",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-094",
+      "alt": "Rows of bound books",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-095",
+      "alt": "Wall-mounted water tap",
+      "category": "Plumbing",
+      "placement": "about-card-5"
+    },
+    {
+      "id": "image-096",
+      "alt": "Outdoor brass water tap",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-097",
+      "alt": "Worker checking a residential building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-098",
+      "alt": "Packaged food supplies",
+      "category": "Supplies & technology",
+      "placement": "about-card-3"
+    },
+    {
+      "id": "image-099",
+      "alt": "Roadwork equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-100",
+      "alt": "An assortment of electronic devices",
+      "category": "Supplies & technology",
+      "placement": "services-overview-4"
+    },
+    {
+      "id": "image-101",
+      "alt": "Mixing construction aggregate",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-102",
+      "alt": "Workers handling reinforcement materials",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-103",
+      "alt": "Pipes and equipment in storage",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-104",
+      "alt": "Property adviser holding a model house",
+      "category": "Property & design",
+      "placement": "services-overview-0"
+    },
+    {
+      "id": "image-105",
+      "alt": "Close-up of a model house",
+      "category": "Property & design",
+      "placement": "home-inspiration-2"
+    },
+    {
+      "id": "image-106",
+      "alt": "A property adviser holding keys",
+      "category": "Property & design",
+      "placement": "about-card-0"
+    },
+    {
+      "id": "image-107",
+      "alt": "People holding house keys",
+      "category": "Property & design",
+      "placement": "page-/services/category/real-estate-and-property-services"
+    },
+    {
+      "id": "image-108",
+      "alt": "Construction worker in a hard hat",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-109",
+      "alt": "Two construction professionals",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-110",
+      "alt": "Construction professionals reviewing a tablet",
+      "category": "Construction & materials",
+      "placement": "about-card-1"
+    },
+    {
+      "id": "image-111",
+      "alt": "A worker inspecting an interior",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-112",
+      "alt": "Large concrete drainage pipes",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-113",
+      "alt": "A worker handling packaged supplies",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-114",
+      "alt": "Workers unloading supplies",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-115",
+      "alt": "Construction worker beside equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-116",
+      "alt": "Apartment buildings and landscaping",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-117",
+      "alt": "Residential buildings around a courtyard",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-118",
+      "alt": "Apartment development under a blue sky",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-119",
+      "alt": "Hardware supplies on shelves",
+      "category": "Supplies & technology",
+      "placement": "service-category-3"
+    },
+    {
+      "id": "image-120",
+      "alt": "Food and household supplies",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-121",
+      "alt": "Plastic water containers",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-122",
+      "alt": "Modern high-rise architecture",
+      "category": "Property & design",
+      "placement": "page-/privacy"
+    },
+    {
+      "id": "image-123",
+      "alt": "Computer and camera accessories",
+      "category": "Supplies & technology",
+      "placement": "page-/services/category/electrical-electronics-and-it-solutions"
+    },
+    {
+      "id": "image-124",
+      "alt": "Aerial view of a residential neighbourhood",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-125",
+      "alt": "Visitor overlooking a building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-126",
+      "alt": "Stacked plastic chairs",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-127",
+      "alt": "Industrial supply storage yard",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-128",
+      "alt": "Working on an electrical control panel",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-129",
+      "alt": "Construction cranes",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-130",
+      "alt": "A professional discussion at an office",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-131",
+      "alt": "Road construction equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-132",
+      "alt": "People beside a building framework",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-133",
+      "alt": "A weighing scale in a supply shop",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-134",
+      "alt": "Stacked timber in a storage area",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-135",
+      "alt": "Building materials in an open yard",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-136",
+      "alt": "Electrical cable ends",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-137",
+      "alt": "Residential construction beside a road",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-138",
+      "alt": "People greeting in an office",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-139",
+      "alt": "Person relaxing on a sofa",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-140",
+      "alt": "Electronic components laid out for inspection",
+      "category": "Supplies & technology",
+      "placement": "service-category-4"
+    },
+    {
+      "id": "image-141",
+      "alt": "Stationery on a desk",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-142",
+      "alt": "Glazed doors and interior finishes",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-143",
+      "alt": "Kitchen appliances and cooking equipment",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-144",
+      "alt": "People meeting inside a building",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-145",
+      "alt": "A microphone on a stand",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-146",
+      "alt": "Metal fasteners and fittings",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-147",
+      "alt": "A person beside a house",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-148",
+      "alt": "Person in an outdoor setting",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-149",
+      "alt": "Hands joined over a meeting table",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-150",
+      "alt": "Professionals in an office lounge",
+      "category": "Property & design",
+      "placement": "page-/about"
+    },
+    {
+      "id": "image-151",
+      "alt": "Glass office buildings",
+      "category": "Property & design",
+      "placement": "page-/terms"
+    },
+    {
+      "id": "image-152",
+      "alt": "Stacked construction panels",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-153",
+      "alt": "Aerial view of landscaped homes",
+      "category": "Property & design",
+      "placement": "page-/gallery"
+    },
+    {
+      "id": "image-154",
+      "alt": "Electrical distribution equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-155",
+      "alt": "A food supply delivery vehicle",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-156",
+      "alt": "Office telephone and payment equipment",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-157",
+      "alt": "House keys and property information",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-158",
+      "alt": "Screws and wall fixings",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-159",
+      "alt": "Plumbing tools and fittings",
+      "category": "Plumbing",
+      "placement": "service-category-5"
+    },
+    {
+      "id": "image-160",
+      "alt": "A worker shaping building material",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-161",
+      "alt": "Workers repairing a road",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-162",
+      "alt": "Stacked metal pipes",
+      "category": "Plumbing"
+    },
+    {
+      "id": "image-163",
+      "alt": "Aerial view of a residential street",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-164",
+      "alt": "A truck unloading aggregate",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-165",
+      "alt": "Paving blocks stacked for construction",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-166",
+      "alt": "Industrial processing structures",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-167",
+      "alt": "A handheld torch",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-168",
+      "alt": "Tools and hardware on display",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-169",
+      "alt": "Hardware shop shelves",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-170",
+      "alt": "Professionals reviewing plans on a balcony",
+      "category": "Property & design",
+      "placement": "page-/contact"
+    },
+    {
+      "id": "image-171",
+      "alt": "Coloured pencils and stationery",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-172",
+      "alt": "Architectural design on a computer",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-173",
+      "alt": "Workers checking steel reinforcement",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-174",
+      "alt": "Construction workers reviewing plans",
+      "category": "Construction & materials",
+      "placement": "service-category-1"
+    },
+    {
+      "id": "image-175",
+      "alt": "Packaged supplies and cartons",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-176",
+      "alt": "Drawing an architectural plan",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-177",
+      "alt": "Furniture in a showroom",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-178",
+      "alt": "A spacious furnished living area",
+      "category": "Property & design",
+      "placement": "page-/blog"
+    },
+    {
+      "id": "image-179",
+      "alt": "Mixing mortar on a building site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-180",
+      "alt": "Loose red bricks",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-181",
+      "alt": "Coiled metal fencing",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-182",
+      "alt": "Workers at a concrete construction site",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-183",
+      "alt": "Workers beside roadwork equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-184",
+      "alt": "Trucks and heavy construction equipment",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-185",
+      "alt": "Timber stacked in a warehouse",
+      "category": "Construction & materials"
+    },
+    {
+      "id": "image-186",
+      "alt": "Office ring binders",
+      "category": "Supplies & technology"
+    },
+    {
+      "id": "image-187",
+      "alt": "Single-storey home behind a fence",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-188",
+      "alt": "House and garden with a driveway",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-189",
+      "alt": "Covered outdoor seating area",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-190",
+      "alt": "Single-storey home with a lawn",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-191",
+      "alt": "Contemporary two-storey house",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-192",
+      "alt": "Residential courtyard and swimming pool",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-193",
+      "alt": "House beside a swimming pool",
+      "category": "Property & design",
+      "placement": "home-hero-1"
+    },
+    {
+      "id": "image-194",
+      "alt": "Garden path beside a home",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-195",
+      "alt": "Two-storey house with balconies",
+      "category": "Property & design",
+      "placement": "page-/properties"
+    },
+    {
+      "id": "image-196",
+      "alt": "House overlooking a large lawn",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-197",
+      "alt": "Single-storey house and driveway",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-198",
+      "alt": "Aerial view of a residential property",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-199",
+      "alt": "Multi-storey residential building",
+      "category": "Property & design"
+    },
+    {
+      "id": "image-200",
+      "alt": "Residential development and landscaping",
+      "category": "Property & design"
+    },
+    {
+      "id": "video-001",
+      "alt": "Construction site with cranes",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-002",
+      "alt": "Workers handling reinforcement bars",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-003",
+      "alt": "Workers inside a concrete framework",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-004",
+      "alt": "Building work around reinforcement columns",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-005",
+      "alt": "Metal cutting with sparks",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-006",
+      "alt": "Concrete construction work",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-007",
+      "alt": "A discussion at a table",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-008",
+      "alt": "Contemporary outdoor seating at sunset",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-009",
+      "alt": "Aerial view of a building site",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-010",
+      "alt": "Workers beside scaffolding",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-011",
+      "alt": "Construction team reviewing reinforcement",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-012",
+      "alt": "Workers preparing a concrete floor",
+      "category": "Construction & materials",
+      "placement": "home-video-0"
+    },
+    {
+      "id": "video-013",
+      "alt": "Measuring reinforcement bars",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-014",
+      "alt": "A building structure under construction",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-015",
+      "alt": "A tree-lined residential driveway",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-016",
+      "alt": "Aerial view of an urban junction",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-017",
+      "alt": "Modern residential courtyard",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-018",
+      "alt": "Aerial view of a neighbourhood",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-019",
+      "alt": "Aerial view of commercial streets",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-020",
+      "alt": "Aerial view of buildings beside a waterfront",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-021",
+      "alt": "Dense urban rooftops",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-022",
+      "alt": "Commercial development in an open landscape",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-023",
+      "alt": "Aerial view of city buildings",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-024",
+      "alt": "Residential streets from above",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-025",
+      "alt": "Aerial view of a residential block",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-026",
+      "alt": "Glass-fronted city buildings",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-027",
+      "alt": "Road construction work",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-028",
+      "alt": "Excavation beside a building site",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-029",
+      "alt": "Aerial view of a garden",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-030",
+      "alt": "Aerial view of a construction street",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-031",
+      "alt": "Working with timber",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-032",
+      "alt": "Aerial view of a residential lane",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-033",
+      "alt": "Foundation framework on a building site",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-034",
+      "alt": "People gathered outdoors",
+      "category": "Life & surroundings",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-035",
+      "alt": "Cultivated land seen from above",
+      "category": "Life & surroundings",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-036",
+      "alt": "Workers constructing a building",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-037",
+      "alt": "Worker inspecting an interior doorway",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-038",
+      "alt": "Contemporary apartment buildings",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-039",
+      "alt": "South Sudan flag",
+      "category": "Life & surroundings",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-040",
+      "alt": "People meeting in an office lounge",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-041",
+      "alt": "Aerial view of a residential development",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-042",
+      "alt": "Building supports inside a construction site",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-043",
+      "alt": "Construction workers on a concrete structure",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-044",
+      "alt": "Aerial view of homes under construction",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-045",
+      "alt": "City towers at sunset",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-046",
+      "alt": "House surrounded by greenery",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-047",
+      "alt": "Roof tiles and rooftop solar equipment",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-048",
+      "alt": "People discussing a house under construction",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-049",
+      "alt": "A house exterior and garden",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-050",
+      "alt": "Covered veranda of a house",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-051",
+      "alt": "Concrete columns at a building site",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-052",
+      "alt": "Aerial view of a concrete building structure",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-053",
+      "alt": "Installing equipment inside a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-054",
+      "alt": "Residential neighbourhood from above",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-055",
+      "alt": "Aerial view of a house roof",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-056",
+      "alt": "Warehouse storage aisles",
+      "category": "Supplies & technology",
+      "placement": "service-video-3"
+    },
+    {
+      "id": "video-057",
+      "alt": "Boxes stored on warehouse shelves",
+      "category": "Supplies & technology",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-058",
+      "alt": "Crane lifting materials over a building",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-059",
+      "alt": "Glass-fronted commercial architecture",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-060",
+      "alt": "Large construction pipe",
+      "category": "Plumbing",
+      "placement": "service-video-2"
+    },
+    {
+      "id": "video-061",
+      "alt": "Cutting material at a workbench",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-062",
+      "alt": "Delivery area beside a building",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-063",
+      "alt": "A multi-storey building exterior",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-064",
+      "alt": "Construction worker in an interior",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-065",
+      "alt": "Contemporary bathroom washbasin",
+      "category": "Plumbing",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-066",
+      "alt": "Excavation and roadwork from above",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-067",
+      "alt": "Workers repairing a street",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-068",
+      "alt": "Workers building with stone",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-069",
+      "alt": "Roadside construction team",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-070",
+      "alt": "Worker breaking stone",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-071",
+      "alt": "Vehicles on a residential street",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-072",
+      "alt": "Mixing mortar for construction",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-073",
+      "alt": "Warehouse workers beside storage racks",
+      "category": "Supplies & technology",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-074",
+      "alt": "Moving furniture into a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-075",
+      "alt": "Working on a bathroom fitting",
+      "category": "Plumbing",
+      "placement": "service-video-5"
+    },
+    {
+      "id": "video-076",
+      "alt": "Architectural drawing and a hard hat",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-077",
+      "alt": "A person working at a desk",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-078",
+      "alt": "Shipping containers at a port",
+      "category": "Supplies & technology",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-079",
+      "alt": "People visiting a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-080",
+      "alt": "A conversation inside a living room",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-081",
+      "alt": "Moving boxes and a houseplant",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-082",
+      "alt": "People unpacking in a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-083",
+      "alt": "A person sitting inside a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-084",
+      "alt": "Inspecting a kitchen",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-085",
+      "alt": "A discussion in a furnished kitchen",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-086",
+      "alt": "People looking at a property",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-087",
+      "alt": "A couple outside a house",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-088",
+      "alt": "A person holding a home sign",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-089",
+      "alt": "People holding a decorative home sign",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-090",
+      "alt": "An illuminated pendant light",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-091",
+      "alt": "A desk in a softly lit room",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-092",
+      "alt": "Reviewing documents in an office",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-093",
+      "alt": "Working at a laptop",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-094",
+      "alt": "A business discussion over a laptop",
+      "category": "Property & design",
+      "placement": "about-video"
+    },
+    {
+      "id": "video-095",
+      "alt": "An office conversation",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-096",
+      "alt": "Signing paperwork",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-097",
+      "alt": "Reviewing a document beside a building",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-098",
+      "alt": "Inspecting an unfinished room",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-099",
+      "alt": "Reviewing a document at a table",
+      "category": "Property & design",
+      "placement": "service-video-0"
+    },
+    {
+      "id": "video-100",
+      "alt": "People meeting around an office table",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-101",
+      "alt": "Design professionals reviewing wall plans",
+      "category": "Property & design",
+      "placement": "home-video-1"
+    },
+    {
+      "id": "video-102",
+      "alt": "Worker inspecting an interior",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-103",
+      "alt": "Workers discussing interior construction",
+      "category": "Construction & materials",
+      "placement": "service-video-1"
+    },
+    {
+      "id": "video-104",
+      "alt": "Worker measuring an interior wall",
+      "category": "Construction & materials",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-105",
+      "alt": "Inspecting a large window",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-106",
+      "alt": "Professionals reviewing a design model",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-107",
+      "alt": "People working together in a studio",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-108",
+      "alt": "Working with plants in an outdoor area",
+      "category": "Life & surroundings",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-109",
+      "alt": "Property adviser inside a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-110",
+      "alt": "Reviewing documents at a desk",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-111",
+      "alt": "Electrical components",
+      "category": "Supplies & technology",
+      "placement": "service-video-4"
+    },
+    {
+      "id": "video-112",
+      "alt": "People meeting inside a home",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-113",
+      "alt": "Discussing plans around a table",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-114",
+      "alt": "People reviewing drawings",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-115",
+      "alt": "A collaborative design discussion",
+      "category": "Property & design",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-116",
+      "alt": "Repairing an outdoor tap",
+      "category": "Plumbing",
+      "placement": "gallery"
+    },
+    {
+      "id": "video-117",
+      "alt": "Plumbing tools on a workbench",
+      "category": "Plumbing",
+      "placement": "gallery"
+    }
+  ]
+}

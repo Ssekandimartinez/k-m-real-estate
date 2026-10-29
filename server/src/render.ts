@@ -23,8 +23,14 @@ export function renderDetail(
   item: Record<string, any>,
 ) {
   const header = renderHome(c).split('<main id="main">')[0];
-  const gallery = item.images.length
-    ? `<div class="gallery"><img class="gallery-main" src="${esc(item.images[0].url)}" alt="${esc(item.images[0].alt)}"/><div class="thumbnails">${item.images.map((image: Record<string, string>, i: number) => `<button aria-label="Show image ${i + 1}: ${esc(image.alt)}" aria-pressed="${i === 0}"><img src="${esc(image.url)}" alt=""/></button>`).join("")}</div></div>`
+  const images = item.images.filter(
+    (image: { url: string }) =>
+      !/^\/images\/(consultancy|construction|materials|supplies|electrical|plumbing)\.webp$/.test(
+        image.url,
+      ),
+  );
+  const gallery = images.length
+    ? `<div class="gallery"><img class="gallery-main" src="${esc(images[0].url)}" alt="${esc(images[0].alt)}"/><div class="thumbnails">${images.map((image: Record<string, string>, i: number) => `<button aria-label="Show image ${i + 1}: ${esc(image.alt)}" aria-pressed="${i === 0}">${i + 1}</button>`).join("")}</div></div>`
     : "";
   return `${header}<main id="main"><section class="page-hero"><div class="container"><p class="eyebrow">${esc(item.category?.name || item.kind)}</p><h1>${esc(item.title)}</h1><p>${esc(item.summary)}</p></div></section><section class="section container detail-grid"><div>${gallery}<div class="prose">${item.body}</div></div><aside class="detail-aside"><p class="eyebrow">LET’S TAKE THE NEXT STEP</p><h2>${item.kind === "property" ? "Make this your next move." : "Tell us what you have in mind."}</h2><p>Speak to K&M Real Estate for information, a consultation or a tailored quotation.</p><a class="text-link" href="tel:${esc(c?.phone)}">${esc(c?.phone)}</a><p>Loading secure request form…</p></aside></section></main>`;
 }

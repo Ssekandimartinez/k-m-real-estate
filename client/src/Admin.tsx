@@ -1542,17 +1542,7 @@ function SettingsEditor() {
           </div>
         </fieldset>
         <fieldset>
-          <legend>Verified contact channels</legend>
-          <label className="checkbox">
-            <input
-              type="checkbox"
-              checked={v.whatsappVerified}
-              onChange={(e) =>
-                setV({ ...v, whatsappVerified: e.target.checked })
-              }
-            />{" "}
-            We have confirmed this number is registered on WhatsApp
-          </label>
+          <legend>Contact channels</legend>
           <label>
             WhatsApp number (digits with country code)
             <input
@@ -1560,6 +1550,9 @@ function SettingsEditor() {
               onChange={(e) => setV({ ...v, whatsappNumber: e.target.value })}
             />
           </label>
+          <p className="caption">
+            WhatsApp links use this number, or the company telephone when blank.
+          </p>
           {v.socialLinks.map((s, i) => (
             <div className="image-editor" key={i}>
               <label>

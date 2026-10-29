@@ -47,7 +47,7 @@ const company = {
   ],
   socialLinks: [],
   whatsappVerified: false,
-  whatsappNumber: "",
+  whatsappNumber: "211924265999",
   seoDescription:
     "K&M Real Estate provides property, construction, design, building materials and general supply services in Juba, South Sudan.",
   primaryColor: "#681F36",

@@ -1444,7 +1444,7 @@ Use accurate contact information.
 
 Do not invent a precise map pin.
 
-Use the provided number for WhatsApp click-to-chat only after confirming it is registered on WhatsApp.
+Owner update (29 October 2026): enable WhatsApp click-to-chat using the provided number without a verification gate. Use the configured WhatsApp number, falling back to the company telephone. This does not assert WhatsApp registration.
 
 ---
 

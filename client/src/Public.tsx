@@ -6,10 +6,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { LazyMotion, useReducedMotion } from "motion/react";
-import * as m from "motion/react-m";
-const loadAnimation = () =>
-  import("./motion-features").then((mod) => mod.default);
+import { useReducedMotion } from "motion/react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -30,6 +27,8 @@ import {
   Wrench,
   Mail,
   CalendarDays,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import {
   api,
@@ -39,6 +38,15 @@ import {
   type Entry,
 } from "./api";
 import { useCompany } from "./App";
+import { Inspiration } from "./Inspiration";
+import { ServicePageGuide } from "./ServicePageGuide";
+import { CollectionGuide, EnquiryGuide } from "./PageContent";
+import {
+  VisualPhoto,
+  useVisualMedia,
+  useVisual,
+  SlotVideo,
+} from "./visualMedia";
 const labels: Record<string, string> = {
   property: "Properties",
   project: "Projects",
@@ -63,7 +71,7 @@ const groupSlugs = [
   "electrical-electronics-and-it-solutions",
   "plumbing-and-technical-services",
 ];
-const groupImages = [
+const legacyGroupImages = [
   "consultancy",
   "construction",
   "materials",
@@ -71,6 +79,9 @@ const groupImages = [
   "electrical",
   "plumbing",
 ];
+const legacyStock = new Set(
+  legacyGroupImages.map((name) => `/images/${name}.webp`),
+);
 function SectionTitle({
   eyebrow,
   title,
@@ -136,20 +147,17 @@ export function LoadingError({ error }: { error?: Error | null }) {
   );
 }
 export function Card({ item }: { item: Entry }) {
+  const photo = item.images.find((image) => !legacyStock.has(image.url));
   return (
     <article className="card">
-      {item.images[0] && (
+      {photo && (
         <Link
           to={`/${destinations[item.kind]}/${item.slug}`}
           tabIndex={-1}
           aria-hidden="true"
         >
           <div className="card-image">
-            <img
-              src={item.images[0].url}
-              alt={item.images[0].alt}
-              loading="lazy"
-            />
+            <img src={photo.url} alt={photo.alt} loading="lazy" />
             {item.transaction && (
               <span className="badge">
                 For {item.transaction === "SALE" ? "sale" : "rent"}
@@ -383,61 +391,157 @@ export function SearchForm({ expanded = false }: { expanded?: boolean }) {
     </form>
   );
 }
-export function Home() {
+const heroSlides = [
+  {
+    image: "architecture",
+    eyebrow: "ROOTED IN JUBA. BUILT AROUND YOU.",
+    title: "Your Property. Our Expertise. Real Results.",
+    description:
+      "Professional real estate, construction, design and supply solutions in South Sudan.",
+    to: "/properties",
+    button: "Explore Properties",
+    secondaryTo: "/services",
+    secondary: "Our Services",
+  },
+  {
+    image: "interior",
+    eyebrow: "FROM FIRST IDEAS TO FINISHING TOUCHES",
+    title: "Spaces imagined. Possibilities built.",
+    description:
+      "Bring your plans to life with construction, architectural and interior design services for your next space.",
+    to: "/services#construction-and-design",
+    button: "Explore Construction & Design",
+    secondaryTo: "/quote",
+    secondary: "Request a Quote",
+  },
+  {
+    image: "consultancy",
+    eyebrow: "A PARTNER FOR YOUR PROPERTY JOURNEY",
+    title: "Your next chapter starts here.",
+    description:
+      "Buying, leasing or managing property? Talk to K&M Real Estate about your needs in South Sudan.",
+    to: "/contact",
+    button: "Talk to Our Team",
+    secondaryTo: "/properties",
+    secondary: "Find a Property",
+  },
+];
+export function HeroSlideshow({ image }: { image?: string }) {
   const c = useCompany();
   const reduced = useReducedMotion();
+  const { data: visuals } = useVisualMedia();
+  const [active, setActive] = useState(0);
+  const [interacting, setInteracting] = useState(false);
+  const slide = heroSlides[active];
+  useEffect(() => {
+    if (interacting || reduced) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden)
+        setActive((current) => (current + 1) % heroSlides.length);
+    }, 4000);
+    return () => window.clearInterval(timer);
+  }, [interacting, reduced]);
+  return (
+    <div
+      className="hero-slideshow"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Property and design inspiration"
+      onMouseEnter={() => setInteracting(true)}
+      onMouseLeave={() => setInteracting(false)}
+      onFocusCapture={() => setInteracting(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setInteracting(false);
+      }}
+    >
+      {heroSlides.map((slide, i) => (
+        <img
+          key={slide.image}
+          className={`hero-image hero-slide${active === i ? " is-active" : ""}`}
+          src={
+            visuals?.assets.find(
+              (asset) => asset.placement === `home-hero-${i}`,
+            )?.url || (i === 0 ? image : undefined)
+          }
+          alt=""
+          aria-hidden="true"
+          fetchPriority={i === 0 ? "high" : "low"}
+        />
+      ))}
+      <div className="hero-shade" />
+      <div
+        className="container hero-content"
+        aria-live={interacting || reduced ? "polite" : "off"}
+      >
+        <div key={active} className="hero-slide-copy">
+          <p className="eyebrow light">
+            <span />
+            {slide.eyebrow}
+          </p>
+          <h1>{active === 0 ? c?.heroTitle || slide.title : slide.title}</h1>
+          <p>
+            {active === 0
+              ? c?.heroDescription || slide.description
+              : slide.description}
+          </p>
+          <div className="actions">
+            <Link className="button sand" to={slide.to}>
+              {slide.button}
+              <ArrowUpRight size={18} />
+            </Link>
+            <Link className="button outline-light" to={slide.secondaryTo}>
+              {slide.secondary}
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="slideshow-controls">
+        <button
+          type="button"
+          aria-label="Previous slide"
+          onClick={() =>
+            setActive((active + heroSlides.length - 1) % heroSlides.length)
+          }
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <div className="slide-dots">
+          {heroSlides.map((slide, i) => (
+            <button
+              key={slide.image}
+              type="button"
+              aria-label={`Show slide ${i + 1}`}
+              aria-pressed={active === i}
+              onClick={() => setActive(i)}
+            >
+              <span />
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          aria-label="Next slide"
+          onClick={() => setActive((active + 1) % heroSlides.length)}
+        >
+          <ChevronRight size={18} />
+        </button>
+        <span className="slide-count">0{active + 1} / 03</span>
+      </div>
+    </div>
+  );
+}
+export function Home() {
+  const c = useCompany();
+  const { data: visualMedia } = useVisualMedia();
+  const purposePhoto = visualMedia?.assets.find(
+    (asset) => asset.id === "image-026",
+  );
   return (
     <>
       <section className="hero">
-        <img
-          className="hero-image"
-          src={c?.heroImage || "/images/architecture.webp"}
-          alt="Contemporary residential architecture, shown for inspiration"
-          fetchPriority="high"
-          srcSet={
-            !c || c.heroImage === "/images/architecture.webp"
-              ? "/images/architecture-mobile.webp 900w, /images/architecture.webp 1800w"
-              : undefined
-          }
-          sizes="100vw"
-        />
-        <div className="hero-shade" />
-        <div className="container hero-content">
-          <LazyMotion features={loadAnimation}>
-            <m.div
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduced ? 0 : 0.7 }}
-            >
-              <p className="eyebrow light">
-                <span /> ROOTED IN JUBA. BUILT AROUND YOU.
-              </p>
-              <h1>
-                {c?.heroTitle || "Your Property. Our Expertise. Real Results."}
-              </h1>
-              <p>
-                {c?.heroDescription ||
-                  "Professional real estate, construction, design and supply solutions in South Sudan."}
-              </p>
-              <div className="actions">
-                <Link className="button sand" to="/properties">
-                  Explore Properties <ArrowUpRight size={18} />
-                </Link>
-                <Link className="button outline-light" to="/services">
-                  Our Services <ArrowUpRight size={18} />
-                </Link>
-              </div>
-            </m.div>
-          </LazyMotion>
-          <div className="hero-caption">
-            <span>01 / A NEW PERSPECTIVE</span>
-            <span>
-              Spaces for living.
-              <br />
-              Possibilities for tomorrow.
-            </span>
-          </div>
-        </div>
+        <HeroSlideshow image={c?.heroImage} />
       </section>
       <div className="container search-wrap">
         <p className="eyebrow">FIND A SPACE THAT FITS YOUR NEXT CHAPTER</p>
@@ -452,11 +556,7 @@ export function Home() {
       </div>
       <section className="section container about-intro">
         <div className="editorial-image">
-          <img
-            src="/images/interior.webp"
-            alt="Light-filled contemporary interior, illustrative photograph"
-            loading="lazy"
-          />
+          <VisualPhoto slot="home-intro" />
           <div className="image-note">
             A thoughtful approach.
             <br />
@@ -509,17 +609,9 @@ export function Home() {
                 <Link
                   key={name}
                   className="service-card"
-                  to={
-                    i >= 2 && i <= 4
-                      ? `/catalogue?category=${groupSlugs[i]}`
-                      : `/services#${groupSlugs[i]}`
-                  }
+                  to={`/services/category/${groupSlugs[i]}`}
                 >
-                  <img
-                    src={`/images/${groupImages[i]}.webp`}
-                    alt={`Illustrative ${name.toLowerCase()} photograph`}
-                    loading="lazy"
-                  />
+                  <VisualPhoto slot={`home-service-${i}`} />
                   <div className="service-overlay" />
                   <div className="service-card-text">
                     <Icon size={27} strokeWidth={1.2} />
@@ -603,9 +695,18 @@ export function Home() {
           to="/projects"
         />
       )}
+      <Inspiration />
       <section className="mission-section sandstone">
         <div className="container mission-grid">
-          <div>
+          <div className={`mission-purpose${purposePhoto ? " has-photo" : ""}`}>
+            {purposePhoto && (
+              <img
+                className="mission-purpose-photo"
+                src={purposePhoto.url}
+                alt=""
+                loading="lazy"
+              />
+            )}
             <p className="eyebrow">A CLEAR PURPOSE</p>
             <h2>
               Built on trust.
@@ -657,8 +758,13 @@ function Testimonials() {
   ) : null;
 }
 export function CTA() {
+  const { data: visualMedia } = useVisualMedia();
+  const image = visualMedia?.assets.find((asset) => asset.id === "image-072");
   return (
     <section className="cta">
+      {image && (
+        <img className="cta-background" src={image.url} alt="" loading="lazy" />
+      )}
       <div className="container">
         <div>
           <p className="eyebrow light">YOUR NEXT CHAPTER STARTS HERE</p>
@@ -684,16 +790,29 @@ export function PageHero({
   eyebrow,
   title,
   description,
+  image,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  image?: string;
 }) {
+  const { pathname } = useLocation();
+  const visual = useVisual(`page-${pathname}`);
   useEffect(() => {
     document.title = `${title} | K&M Real Estate`;
   }, [title]);
   return (
     <section className="page-hero">
+      {(visual || image) && (
+        <img
+          className="page-hero-image"
+          src={visual?.url || image}
+          alt=""
+          fetchPriority="high"
+        />
+      )}
+      <div className="page-hero-shade" />
       <div className="container">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
@@ -716,11 +835,7 @@ export function About() {
         description="A partner for property, construction and supply solutions in South Sudan."
       />
       <section className="section container about-intro">
-        <img
-          className="rounded-photo"
-          src="/images/architecture.webp"
-          alt="Architectural inspiration for modern living"
-        />
+        <VisualPhoto className="rounded-photo" slot="about-intro" />
         <div>
           <p className="eyebrow">K&M REAL ESTATE · JUBA</p>
           <h2>
@@ -774,21 +889,21 @@ export function About() {
         />
         <div className="grid three">
           {groupNames.map((v, i) => (
-            <div className="value" key={v}>
+            <div className="value capability-photo" key={v}>
+              <VisualPhoto slot={`about-card-${i}`} />
               <h3>{v}</h3>
               <Link
                 className="text-link"
-                to={
-                  i >= 2 && i <= 4
-                    ? `/catalogue?category=${groupSlugs[i]}`
-                    : `/services#${groupSlugs[i]}`
-                }
+                to={`/services/category/${groupSlugs[i]}`}
               >
                 Explore <ArrowRight size={16} />
               </Link>
             </div>
           ))}
         </div>
+      </section>
+      <section className="container">
+        <SlotVideo slot="about-video" />
       </section>
       {!!data?.items.length && (
         <section className="section container">
@@ -820,15 +935,93 @@ export function About() {
     </>
   );
 }
-export function Services() {
+export function Services({ categoryPage = false }: { categoryPage?: boolean }) {
+  const { slug } = useParams();
   const { data: services, error } = useQuery({
     queryKey: ["services", "categories"],
     queryFn: () => api<Category[]>("/categories?kind=service"),
   });
-  const { data: products } = useQuery({
+  const { data: products, error: productsError } = useQuery({
     queryKey: ["products", "categories"],
     queryFn: () => api<Category[]>("/categories?kind=product"),
   });
+  const category = [...(services || []), ...(products || [])].find(
+    (c) => c.slug === slug,
+  );
+  const groupIndex = groupSlugs.indexOf(slug || "");
+  if (categoryPage) {
+    if (error || productsError || !services || !products)
+      return (
+        <section className="section container">
+          <LoadingError error={error || productsError} />
+        </section>
+      );
+    if (!category) return <NotFound />;
+    return (
+      <>
+        <PageHero
+          eyebrow="OUR EXPERTISE"
+          title={category.name}
+          description={category.description}
+        />
+        <section className="section container">
+          <Link className="text-link" to="/services">
+            <ChevronLeft size={16} /> All services
+          </Link>
+          <div className="service-detail">
+            <div>
+              {groupIndex >= 0 && (
+                <>
+                  <VisualPhoto slot={`service-category-${groupIndex}`} />
+                </>
+              )}
+            </div>
+            <div>
+              <h2>
+                {category.kind === "product"
+                  ? "Explore our catalogue"
+                  : "How we can help"}
+              </h2>
+              <p>{category.description}</p>
+              <p>
+                Explore the published{" "}
+                {category.kind === "product" ? "supplies" : "services"} below,
+                or tell us about your requirements to start a conversation.
+              </p>
+              <Link
+                className="button"
+                to={`/quote?service=${encodeURIComponent(category.name)}`}
+              >
+                Discuss your requirements <ArrowUpRight size={16} />
+              </Link>
+            </div>
+          </div>
+          <section
+            className="service-offerings"
+            aria-label={`${category.name} offerings`}
+          >
+            <SectionTitle
+              eyebrow="EXPLORE THE DETAILS"
+              title={
+                category.kind === "product"
+                  ? "Materials, equipment & supplies"
+                  : "Support for your property & project"
+              }
+            />
+            <ServiceItems category={category} expanded />
+          </section>
+        </section>
+        <ServicePageGuide
+          category={category}
+          related={[...(services || []), ...(products || [])]}
+        />
+        <section className="container">
+          <SlotVideo slot={`service-video-${groupIndex}`} />
+        </section>
+        <CTA />
+      </>
+    );
+  }
   return (
     <>
       <PageHero
@@ -847,16 +1040,15 @@ export function Services() {
             return (
               <section className="service-detail" id={groupSlugs[i]} key={name}>
                 <div>
-                  <img
-                    src={`/images/${groupImages[i]}.webp`}
-                    alt={`Illustrative ${name.toLowerCase()} photograph`}
-                    loading="lazy"
-                  />
-                  <p className="caption">Illustrative service photography</p>
+                  <VisualPhoto slot={`services-overview-${i}`} />
                 </div>
                 <div>
                   <p className="eyebrow">0{i + 1} / OUR EXPERTISE</p>
-                  <h2>{category?.name || name}</h2>
+                  <h2>
+                    <Link to={`/services/category/${groupSlugs[i]}`}>
+                      {category?.name || name}
+                    </Link>
+                  </h2>
                   <p>{category?.description}</p>
                   {category && <ServiceItems category={category} />}
                   <Link
@@ -906,7 +1098,14 @@ export function Services() {
     </>
   );
 }
-function ServiceItems({ category }: { category: Category }) {
+function ServiceItems({
+  category,
+  expanded = false,
+}: {
+  category: Category;
+  expanded?: boolean;
+}) {
+  const [showAll, setShowAll] = useState(false);
   const { data, error } = useQuery({
     queryKey: ["services", category.id],
     queryFn: () =>
@@ -914,6 +1113,59 @@ function ServiceItems({ category }: { category: Category }) {
         `/content/${category.kind}?category=${category.slug}&limit=100`,
       ),
   });
+  if (expanded) {
+    if (error || !data) return <LoadingError error={error} />;
+    if (!data.items.length)
+      return (
+        <div className="empty">
+          <h3>Tell us what you need.</h3>
+          <p>
+            Detailed offerings are being prepared. Send your requirements for a
+            conversation about this category.
+          </p>
+          <Link
+            className="text-link"
+            to={`/quote?service=${encodeURIComponent(category.name)}`}
+          >
+            Request information <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      );
+    return (
+      <>
+        <div className="service-offering-grid">
+          {(showAll ? data.items : data.items.slice(0, 6)).map((item) => (
+            <article className="service-offering-card" key={item.id}>
+              <p className="eyebrow">
+                {item.specs.supplyCategory || category.name}
+              </p>
+              <h3>
+                <Link to={`/${destinations[item.kind]}/${item.slug}`}>
+                  {item.title}
+                </Link>
+              </h3>
+              <p>{item.summary}</p>
+              <Link
+                className="text-link"
+                to={`/${destinations[item.kind]}/${item.slug}`}
+              >
+                Explore details <ArrowUpRight size={16} />
+              </Link>
+            </article>
+          ))}
+        </div>
+        {data.items.length > 6 && (
+          <button
+            className="button outline service-show-more"
+            aria-expanded={showAll}
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? "Show fewer" : `View all ${data.items.length} offerings`}
+          </button>
+        )}
+      </>
+    );
+  }
   return error ? (
     <LoadingError error={error} />
   ) : (
@@ -1061,6 +1313,7 @@ export function Collection({ kind }: { kind: string }) {
           )}
         </div>
       </section>
+      <CollectionGuide kind={kind} />
       <CTA />
     </>
   );
@@ -1081,6 +1334,8 @@ export function Detail() {
     setActive(0);
   }, [slug]);
   const c = useCompany();
+  const photos =
+    item?.images.filter((image) => !legacyStock.has(image.url)) || [];
   if (error || !item)
     return (
       <section className="section container">
@@ -1096,22 +1351,22 @@ export function Detail() {
       />
       <section className="section container detail-grid">
         <div>
-          {item.images.length > 0 && (
+          {photos.length > 0 && (
             <div className="gallery">
               <img
                 className="gallery-main"
-                src={item.images[active]?.url}
-                alt={item.images[active]?.alt}
+                src={photos[active]?.url}
+                alt={photos[active]?.alt}
               />
               <div className="thumbnails">
-                {item.images.map((v, i) => (
+                {photos.map((v, i) => (
                   <button
                     key={v.url + i}
                     onClick={() => setActive(i)}
                     aria-label={`Show image ${i + 1}: ${v.alt}`}
                     aria-pressed={active === i}
                   >
-                    <img src={v.url} alt="" />
+                    {i + 1}
                   </button>
                 ))}
               </div>
@@ -1225,10 +1480,10 @@ export function Detail() {
                   : "CONSULTATION"
             }
           />
-          {c?.whatsappVerified && c.whatsappNumber && (
+          {(c?.whatsappNumber || c?.phone) && (
             <a
               className="button secondary"
-              href={`https://wa.me/${c.whatsappNumber}?text=${encodeURIComponent("Hello, I am interested in " + item.title)}`}
+              href={`https://wa.me/${(c.whatsappNumber || c.phone).replace(/\D/g, "")}?text=${encodeURIComponent("Hello, I am interested in " + item.title)}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -1341,10 +1596,10 @@ export function Contact({ quote = false }: { quote?: boolean }) {
               </p>
             </div>
           </div>
-          {c?.whatsappVerified && c.whatsappNumber && (
+          {(c?.whatsappNumber || c?.phone) && (
             <a
               className="button"
-              href={`https://wa.me/${c.whatsappNumber}`}
+              href={`https://wa.me/${(c.whatsappNumber || c.phone).replace(/\D/g, "")}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -1358,6 +1613,7 @@ export function Contact({ quote = false }: { quote?: boolean }) {
           <RequestForm defaultKind={quote ? "QUOTATION" : "CONTACT"} />
         </div>
       </section>
+      <EnquiryGuide quote={quote} />
     </>
   );
 }

@@ -16,6 +16,7 @@ const escape = (s: unknown) =>
 const paths: Record<string, { title: string; kind?: string }> = {
   "/": { title: "Real Estate. Real Results." },
   "/about": { title: "About K&M" },
+  "/gallery": { title: "Photos & Videos" },
   "/properties": { title: "Properties in Juba", kind: "property" },
   "/services": { title: "Our Services", kind: "service" },
   "/catalogue": { title: "Materials & Supply Catalogue", kind: "product" },
@@ -79,6 +80,14 @@ app.get("/{*path}", async (req, res) => {
   }
   const company = (await db.setting.findUnique({ where: { key: "company" } }))
     ?.value as Record<string, any> | null;
+  const visualLibrary = (
+    await db.setting.findUnique({ where: { key: "visual-media" } })
+  )?.value as { assets: { placement: string; url: string }[] } | null;
+  const homeImage =
+    visualLibrary?.assets.find((asset) => asset.placement === "home-hero-0")
+      ?.url ||
+    company?.heroImage ||
+    "/images/architecture.webp";
   const route = paths[req.path],
     parts = req.path.split("/").filter(Boolean),
     base: Record<string, string> = {
@@ -94,14 +103,14 @@ app.get("/{*path}", async (req, res) => {
     image = company?.heroImage || "/images/architecture.webp",
     content = "",
     found = Boolean(route) || req.path.startsWith("/admin");
-  let initialEntry:any=null;
+  let initialEntry: any = null;
   if (parts.length === 2 && base[parts[0]]) {
     const entry = await db.entry.findFirst({
       where: { kind: base[parts[0]], slug: parts[1], status: "PUBLISHED" },
-      include: { images:{orderBy:{position:'asc'}}, category:true },
+      include: { images: { orderBy: { position: "asc" } }, category: true },
     });
     if (entry) {
-      initialEntry=entry;
+      initialEntry = entry;
       found = true;
       title = entry.seoTitle || entry.title;
       description = entry.seoDescription || entry.summary;
@@ -146,14 +155,16 @@ app.get("/{*path}", async (req, res) => {
   };
   const preload =
     req.path === "/"
-      ? `<link rel="preload" as="image" href="${escape(company?.heroImage || "/images/architecture.webp")}" ${!company?.heroImage || company.heroImage === "/images/architecture.webp" ? 'imagesrcset="/images/architecture-mobile.webp 900w, /images/architecture.webp 1800w" imagesizes="100vw"' : ""} fetchpriority="high"/>`
-      : initialEntry?.images[0]?`<link rel="preload" as="image" href="${escape(initialEntry.images[0].url)}" fetchpriority="high"/>`:"";
+      ? `<link rel="preload" as="image" href="${escape(homeImage)}" fetchpriority="high"/>`
+      : "";
   const meta = `${preload}<link rel="canonical" href="${escape(url)}"/><meta property="og:title" content="${escape(title)} | K&amp;M Real Estate"/><meta property="og:description" content="${escape(description)}"/><meta property="og:type" content="website"/><meta property="og:url" content="${escape(url)}"/><meta property="og:image" content="${escape(new URL(image, config.siteUrl).href)}"/><meta name="twitter:card" content="summary_large_image"/>${req.path.startsWith("/admin") ? '<meta name="robots" content="noindex,nofollow"/>' : ""}<script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script>`;
   const initialMarkup =
     req.path === "/"
-      ? renderHome(company)
-      : initialEntry?renderDetail(company,initialEntry):`<header><a href="/">K&amp;M Real Estate</a></header><main>${content}</main>`;
-  const bootstrap = `<script id="km-company" type="application/json">${JSON.stringify(company).replaceAll("<", "\\u003c")}</script>${initialEntry?`<script id="km-detail" type="application/json">${JSON.stringify(initialEntry).replaceAll('<','\\u003c')}</script>`:''}`;
+      ? renderHome({ ...company, heroImage: homeImage })
+      : initialEntry
+        ? renderDetail(company, initialEntry)
+        : `<header><a href="/">K&amp;M Real Estate</a></header><main>${content}</main>`;
+  const bootstrap = `<script id="km-visual-media" type="application/json">${JSON.stringify(visualLibrary || { assets: [] }).replaceAll("<", "\\u003c")}</script><script id="km-company" type="application/json">${JSON.stringify(company).replaceAll("<", "\\u003c")}</script>${initialEntry ? `<script id="km-detail" type="application/json">${JSON.stringify(initialEntry).replaceAll("<", "\\u003c")}</script>` : ""}`;
   template = template
     .replace(
       /<title>.*?<\/title>/,

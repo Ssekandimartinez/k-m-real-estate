@@ -76,7 +76,7 @@ The database migration was applied successfully and schema validation passed. De
 
 ## 16. Outstanding configuration
 
-Production PostgreSQL and backups, hosting/domain/HTTPS, SMTP, Cloudinary and the first administrator credentials. Optional: verified WhatsApp registration, official social profiles, Analytics ID and Search Console verification. No fabricated phone verification or social handles are published. Genuine property/project/team/testimonial records and approved articles should be added by staff as available.
+Production PostgreSQL and backups, hosting/domain/HTTPS, SMTP, Cloudinary and the first administrator credentials. Optional: official social profiles, Analytics ID and Search Console verification. Per the owner's 29 October 2026 instruction, WhatsApp links are enabled without a verification gate and use the configured WhatsApp number or company telephone. Registration has not been independently verified. Genuine property/project/team/testimonial records and approved articles should be added by staff as available.
 
 ## 17. Deployment
 

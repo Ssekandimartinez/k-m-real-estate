@@ -29,9 +29,9 @@ await sharp(path.join(root, "images/pexels-expect-best-79873-323780.jpg"))
   .resize(900)
   .webp({ quality: 76 })
   .toFile(path.join(root, "client/public/images/architecture-mobile.webp"));
-await sharp(path.join(root, "images/K&M Real Estate Logo.png"))
-  .resize({ width: 192 })
-  .webp({ quality: 80 })
+await sharp(path.join(root, "client/public/branding/K&M Real Estate Luxury Logo.png"))
+  .resize({ width: 600 })
+  .webp({ quality: 85 })
   .toFile(path.join(root, "client/public/branding/logo.webp"));
 await sharp(path.join(root, "images/KM_Favicon.png"))
   .resize(64, 64, { fit: "contain" })

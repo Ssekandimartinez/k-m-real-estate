@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { api, type Company } from "./api";
 import Analytics from "./Analytics";
+const MediaGallery = lazy(() => import("./MediaGallery"));
 import {
   About,
   Collection,
@@ -70,6 +71,18 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route
+                path="/gallery"
+                element={
+                  <Suspense
+                    fallback={
+                      <p className="loading">Loading visual collection…</p>
+                    }
+                  >
+                    <MediaGallery />
+                  </Suspense>
+                }
+              />
+              <Route
                 path="/properties"
                 element={<Collection kind="property" />}
               />
@@ -80,6 +93,10 @@ export default function App() {
                 element={<Collection kind="product" />}
               />
               <Route path="/services" element={<Services />} />
+              <Route
+                path="/services/category/:slug"
+                element={<Services categoryPage />}
+              />
               {["properties", "projects", "blog", "catalogue", "services"].map(
                 (p) => (
                   <Route key={p} path={`/${p}/:slug`} element={<Detail />} />
@@ -93,10 +110,38 @@ export default function App() {
             </Routes>
           </main>
           <Footer />
+          <WhatsAppButton />
           <Analytics />
         </>
       )}
     </CompanyContext.Provider>
+  );
+}
+function WhatsAppButton() {
+  const company = useCompany();
+  const number = (
+    company?.whatsappNumber ||
+    company?.phone ||
+    "+211924265999"
+  ).replace(/\D/g, "");
+  return (
+    <a
+      className="whatsapp-float"
+      href={`https://wa.me/${number}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with K&M Real Estate on WhatsApp"
+    >
+      <span className="whatsapp-float-label" aria-hidden="true">
+        Let’s talk on WhatsApp
+      </span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path
+          fill="currentColor"
+          d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.44 0 .07 5.37.07 11.97c0 2.11.55 4.17 1.6 5.98L0 24l6.2-1.63a11.94 11.94 0 0 0 5.83 1.49h.01C18.64 23.86 24 18.49 24 11.89c0-3.19-1.24-6.18-3.48-8.41ZM12.04 21.84a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.68.97.98-3.59-.24-.37a9.91 9.91 0 0 1-1.52-5.28c0-5.49 4.47-9.96 9.97-9.96a9.9 9.9 0 0 1 7.04 2.92 9.9 9.9 0 0 1 2.9 7.05c0 5.49-4.47 9.96-9.96 9.96Zm5.46-7.46c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"
+        />
+      </svg>
+    </a>
   );
 }
 function Header() {
@@ -156,27 +201,28 @@ function Header() {
               Services <ChevronDown size={12} />
             </NavLink>
             <div className="dropdown">
-              <Link to="/services#real-estate-and-property-services">
+              <Link to="/services/category/real-estate-and-property-services">
                 Real Estate & Property Services
               </Link>
-              <Link to="/services#construction-and-design">
+              <Link to="/services/category/construction-and-design">
                 Construction & Design
               </Link>
-              <Link to="/catalogue?category=construction-materials">
+              <Link to="/services/category/construction-materials">
                 Construction Materials
               </Link>
-              <Link to="/catalogue?category=general-supplies-and-procurement">
+              <Link to="/services/category/general-supplies-and-procurement">
                 General Supplies & Procurement
               </Link>
-              <Link to="/catalogue?category=electrical-electronics-and-it-solutions">
+              <Link to="/services/category/electrical-electronics-and-it-solutions">
                 Electrical, Electronics & IT
               </Link>
-              <Link to="/services#plumbing-and-technical-services">
+              <Link to="/services/category/plumbing-and-technical-services">
                 Plumbing & Technical Services
               </Link>
             </div>
           </div>
           <NavLink to="/projects">Projects</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/blog">Insights</NavLink>
           <NavLink to="/contact">Contact Us</NavLink>
           <Link to="/quote" className="button small">
@@ -204,6 +250,7 @@ function Footer() {
         <div>
           <h3>Explore</h3>
           <Link to="/about">Our company</Link>
+          <Link to="/gallery">Gallery</Link>
           <Link to="/properties">Find a property</Link>
           <Link to="/projects">Our projects</Link>
           <Link to="/blog">Blog & insights</Link>
@@ -211,7 +258,7 @@ function Footer() {
         <div>
           <h3>Expertise</h3>
           <Link to="/services">Property services</Link>
-          <Link to="/services#construction-and-design">
+          <Link to="/services/category/construction-and-design">
             Construction & design
           </Link>
           <Link to="/catalogue">Materials & supplies</Link>

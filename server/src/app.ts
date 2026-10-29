@@ -121,6 +121,12 @@ app.get("/api/settings", async (_req, res) => {
   const setting = await db.setting.findUnique({ where: { key: "company" } });
   res.json(setting?.value || null);
 });
+app.get("/api/visual-media", async (_req, res) => {
+  const library = await db.setting.findUnique({
+    where: { key: "visual-media" },
+  });
+  res.json(library?.value || { assets: [] });
+});
 app.get("/api/catalogue-groups", async (_req, res) => {
   const items = await db.entry.findMany({
     where: { kind: "product", status: "PUBLISHED" },
