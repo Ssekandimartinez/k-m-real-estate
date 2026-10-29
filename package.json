@@ -1,0 +1,34 @@
+{
+  "name": "km-real-estate",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "node scripts/task.mjs dev",
+    "build": "node scripts/task.mjs build",
+    "typecheck": "node scripts/task.mjs typecheck",
+    "test": "node scripts/task.mjs test",
+    "lint": "node node_modules/eslint/bin/eslint.js .",
+    "format": "node node_modules/prettier/bin/prettier.cjs --write client/src server/src docs README.md",
+    "db:generate": "node scripts/task.mjs db:generate",
+    "db:migrate": "node scripts/task.mjs db:migrate",
+    "db:seed": "node scripts/task.mjs db:seed",
+    "admin:create": "node scripts/task.mjs admin:create",
+    "test:e2e": "node node_modules/@playwright/test/cli.js test",
+    "assets:prepare": "node scripts/prepare-assets.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "concurrently": "^9.2.1",
+    "embedded-postgres": "18.4.0-beta.17",
+    "eslint": "^9.39.0",
+    "lighthouse": "^13.6.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  }
+}

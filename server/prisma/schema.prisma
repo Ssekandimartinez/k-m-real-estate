@@ -1,0 +1,163 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+}
+enum Role {
+  ADMIN
+  STAFF
+}
+enum Publication {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+enum RequestKind {
+  CONTACT
+  PROPERTY
+  VIEWING
+  QUOTATION
+  CONSULTATION
+}
+enum RequestStatus {
+  NEW
+  IN_PROGRESS
+  CLOSED
+}
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String
+  role Role @default(STAFF)
+  active Boolean @default(true)
+  sessions Session[]
+  resets PasswordReset[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Session {
+  id String @id @default(cuid())
+  tokenHash String @unique
+  csrfToken String
+  userId String
+  user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([expiresAt])
+}
+model PasswordReset {
+  id String @id @default(cuid())
+  tokenHash String @unique
+  userId String
+  user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+model Category {
+  id String @id @default(cuid())
+  name String
+  slug String
+  kind String
+  description String @default("")
+  image String?
+  entries Entry[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([kind,slug])
+}
+// Shared publishing fields with typed, validated per-kind specifications.
+// Property, project, service, catalogue, article, team and testimonial records
+// share the editorial lifecycle; category, images and requests remain relational.
+model Entry {
+  id String @id @default(cuid())
+  kind String
+  slug String
+  title String
+  summary String @default("")
+  body String @default("")
+  status Publication @default(DRAFT)
+  featured Boolean @default(false)
+  verified Boolean @default(false)
+  categoryId String?
+  category Category? @relation(fields:[categoryId], references:[id], onDelete:SetNull)
+  location String @default("")
+  price Decimal? @db.Decimal(16,2)
+  currency String @default("USD")
+  transaction String?
+  bedrooms Int?
+  bathrooms Int?
+  area Float?
+  amenities String[] @default([])
+  specs Json @default("{}")
+  seoTitle String @default("")
+  seoDescription String @default("")
+  images EntryImage[]
+  requests CustomerRequest[]
+  publishedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([kind,slug])
+  @@index([kind,status,featured])
+  @@index([location,transaction,price])
+}
+model EntryImage {
+  id String @id @default(cuid())
+  entryId String
+  entry Entry @relation(fields:[entryId], references:[id], onDelete:Cascade)
+  mediaId String?
+  media Media? @relation(fields:[mediaId], references:[id], onDelete:Restrict)
+  url String
+  alt String
+  position Int @default(0)
+  @@index([entryId,position])
+}
+model CustomerRequest {
+  id String @id @default(cuid())
+  kind RequestKind
+  status RequestStatus @default(NEW)
+  name String
+  email String
+  phone String
+  location String @default("")
+  service String @default("")
+  message String
+  quantities String @default("")
+  preferredDate DateTime?
+  entryId String?
+  entry Entry? @relation(fields:[entryId], references:[id], onDelete:SetNull)
+  notes String @default("")
+  followUpAt DateTime?
+  notificationStatus String @default("NOT_CONFIGURED")
+  consentAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([kind,status,createdAt])
+}
+model Media {
+  id String @id @default(cuid())
+  publicId String @unique
+  url String
+  type String
+  name String
+  folder String @default("general")
+  alt String @default("")
+  bytes Int
+  images EntryImage[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Setting {
+  key String @id
+  value Json
+  updatedAt DateTime @updatedAt
+}
+model AuditLog {
+  id String @id @default(cuid())
+  userId String?
+  action String
+  entityId String?
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}
