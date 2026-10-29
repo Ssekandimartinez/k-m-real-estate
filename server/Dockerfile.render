@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends openssl ca-cert
 COPY package.json package-lock.json ./
 COPY client/package.json client/package.json
 COPY server/package.json server/package.json
-RUN npm ci --include=dev
+RUN npm ci --include=dev --include=optional
+RUN node --input-type=module -e "import sharp from 'sharp'; import argon2 from 'argon2'; await sharp({create:{width:1,height:1,channels:3,background:'#fff'}}).png().toBuffer(); const hash=await argon2.hash('native-module-check'); if (!await argon2.verify(hash,'native-module-check')) process.exit(1); console.log('Image processing and password hashing native modules verified');"
 COPY server server
 COPY scripts/task.mjs scripts/task.mjs
 COPY docs/MASTER_REQUIREMENTS.md docs/media-library.json docs/media-curation.json docs/
