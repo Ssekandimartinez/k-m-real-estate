@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Category } from "./api";
@@ -195,7 +196,7 @@ export function ServicePageGuide({
         <div className="container service-planning-grid">
           <figure>
             {planningPhoto && (
-              <img
+              <ResponsiveImage
                 src={planningPhoto.url}
                 alt={planningPhoto.alt}
                 loading="lazy"

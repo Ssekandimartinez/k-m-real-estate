@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { useSearchParams } from "react-router-dom";
 import { useVisualMedia, VisualVideo } from "./visualMedia";
 import { LoadingError, PageHero } from "./Public";
@@ -73,7 +74,8 @@ export default function MediaGallery() {
                   {asset.type === "video" ? (
                     <VisualVideo asset={asset} />
                   ) : (
-                    <img
+                    <ResponsiveImage
+                      sizes="(max-width: 700px) 100vw, 33vw"
                       src={asset.url}
                       alt={asset.alt}
                       loading="lazy"

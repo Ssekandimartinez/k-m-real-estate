@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import {
   createContext,
   lazy,
@@ -29,6 +30,7 @@ import {
   Home,
   Legal,
   NotFound,
+  PageHero,
   Services,
 } from "./Public";
 const Admin = lazy(() => import("./Admin"));
@@ -83,7 +85,16 @@ export default function App() {
                 element={
                   <Suspense
                     fallback={
-                      <p className="loading">Loading visual collection…</p>
+                      <>
+                        <PageHero
+                          eyebrow="PHOTOS & VIDEOS"
+                          title="Gallery"
+                          description="Browse our visual collection of property, design, construction and supply inspiration."
+                        />
+                        <section className="section container">
+                          <p className="loading">Loading visual collection…</p>
+                        </section>
+                      </>
                     }
                   >
                     <MediaGallery />
@@ -177,7 +188,11 @@ function Header() {
           className="brand brand-logo"
           aria-label="K&M Real Estate home"
         >
-          <img src={c?.logo || "/branding/logo.webp"} alt="" />
+          <ResponsiveImage
+            sizes="180px"
+            src={c?.logo || "/branding/logo.webp"}
+            alt=""
+          />
         </Link>
         <button
           className="mobile-toggle"
@@ -248,7 +263,8 @@ function Footer() {
       <div className="container footer-top">
         <div>
           <Link to="/" className="brand brand-logo footer-brand">
-            <img
+            <ResponsiveImage
+              sizes="180px"
               src={c?.logo || "/branding/logo.webp"}
               alt="K&M Real Estate logo"
             />

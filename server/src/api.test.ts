@@ -74,6 +74,26 @@ run("PostgreSQL API workflows", () => {
       ),
     ).toBe(true);
   });
+  it("caches public data by query while keeping private, health and error responses uncached", async () => {
+    const publicData = await request(app).get(
+      "/api/content/property?featured=true",
+    );
+    expect(publicData.status).toBe(200);
+    expect(publicData.headers["netlify-cdn-cache-control"]).toContain(
+      "s-maxage=30",
+    );
+    expect(publicData.headers["netlify-vary"]).toBe("query");
+    for (const path of [
+      "/api/health",
+      "/api/auth/me",
+      "/api/admin/stats",
+      "/api/content/not-a-kind",
+    ]) {
+      const response = await request(app).get(path);
+      expect(response.headers["cache-control"]).toBe("no-store");
+      expect(response.headers["netlify-cdn-cache-control"]).toBeUndefined();
+    }
+  });
   it("rejects unauthenticated dashboard access", async () => {
     expect((await request(app).get("/api/admin/stats")).status).toBe(401);
   });

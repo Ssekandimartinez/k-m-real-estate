@@ -1,5 +1,7 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "./api";
+import { useEffect, useRef, useState } from "react";
 
 export type VisualAsset = {
   id: string;
@@ -33,23 +35,49 @@ export function VisualPhoto({
 }) {
   const asset = useVisual(slot);
   return asset ? (
-    <img
+    <ResponsiveImage
       className={className}
       src={asset.url}
       alt={asset.alt}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "auto"}
     />
-  ) : null;
+  ) : (
+    <span
+      className={className}
+      aria-hidden="true"
+      style={{ display: "block", aspectRatio: "3 / 2", background: "#ebdac5" }}
+    />
+  );
 }
 export function VisualVideo({ asset }: { asset: VisualAsset }) {
+  const element = useRef<HTMLVideoElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (!window.IntersectionObserver) {
+      setVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    if (element.current) observer.observe(element.current);
+    return () => observer.disconnect();
+  }, []);
   return (
     <video
+      ref={element}
       controls
       playsInline
       muted
       preload="none"
-      poster={asset.poster}
+      poster={visible ? asset.poster : undefined}
       aria-label={asset.alt}
       onPlay={(event) => {
         document.querySelectorAll("video").forEach((other) => {

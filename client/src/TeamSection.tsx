@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { ArrowUpRight, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Entry } from "./api";
@@ -24,7 +25,7 @@ export default function TeamSection({ members }: { members: Entry[] }) {
             <article className="team-card" key={member.id}>
               <div className="team-portrait">
                 {member.images[0] ? (
-                  <img
+                  <ResponsiveImage
                     src={member.images[0].url}
                     alt={member.images[0].alt || member.title}
                     loading="lazy"

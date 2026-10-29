@@ -67,6 +67,37 @@ it.each([
   },
 );
 describe("Customer request flow", () => {
+  it("downloads hero slides only when they are first needed", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          assets: [0, 1, 2].map((i) => ({
+            id: String(i),
+            placement: `home-hero-${i}`,
+            url: `/images/slide-${i}.webp`,
+            type: "image",
+            alt: "",
+            category: "",
+          })),
+        }),
+      }),
+    );
+    const { container } = wrap(<HeroSlideshow />);
+    await waitFor(() =>
+      expect(container.querySelectorAll(".hero-slide")[0]).toHaveAttribute(
+        "src",
+        "/images/slide-0.webp",
+      ),
+    );
+    const images = container.querySelectorAll(".hero-slide");
+    expect(images[1]).not.toHaveAttribute("src");
+    expect(images[2]).not.toHaveAttribute("src");
+    fireEvent.click(screen.getByRole("button", { name: "Next slide" }));
+    expect(images[1]).toHaveAttribute("src", "/images/slide-1.webp");
+    expect(images[2]).not.toHaveAttribute("src");
+  });
   it("automatically changes slide content and can pause and resume", () => {
     vi.useFakeTimers();
     wrap(<HeroSlideshow />);

@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -57,7 +58,7 @@ export default function Testimonials() {
               >
                 <div className="testimonials-photo">
                   {active.images[0] ? (
-                    <img
+                    <ResponsiveImage
                       src={active.images[0].url}
                       alt={active.images[0].alt}
                       loading="lazy"
@@ -122,9 +123,10 @@ export default function Testimonials() {
                 onClick={() => setSelected(position)}
               >
                 {entry.images[0] && (
-                  <img
+                  <ResponsiveImage
                     src={entry.images[0].url}
                     alt=""
+                    sizes="48px"
                     loading="lazy"
                     width="48"
                     height="48"

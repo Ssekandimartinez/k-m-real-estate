@@ -75,6 +75,7 @@ app.use(
 );
 // Origin enforcement also protects unauthenticated login/reset endpoints.
 app.use("/api", (req, res, next) => {
+  res.set("Cache-Control", "no-store");
   if (
     !["GET", "HEAD", "OPTIONS"].includes(req.method) &&
     !allowedOrigins.has(req.get("origin") || "")
@@ -111,6 +112,30 @@ const paging = (query: Record<string, unknown>) => ({
   skip:
     Math.max(0, (Number(query.page) || 1) - 1) *
     Math.min(100, Math.max(1, Number(query.limit) || 24)),
+});
+// Cache only anonymous, published public data. Query parameters remain separate
+// CDN objects; staff APIs, authentication, requests and health are never cached.
+app.use("/api", (req, res, next) => {
+  if (
+    req.method === "GET" &&
+    /^(?:\/(?:settings|visual-media|categories|catalogue-groups)|\/content\/[^/]+(?:\/[^/]+)?)$/.test(
+      req.path,
+    )
+  ) {
+    const json = res.json.bind(res);
+    res.json = (body) => {
+      if (res.statusCode === 200) {
+        res.set("Cache-Control", "public, max-age=0, must-revalidate");
+        res.set(
+          "Netlify-CDN-Cache-Control",
+          "public, s-maxage=30, stale-while-revalidate=60",
+        );
+        res.set("Netlify-Vary", "query");
+      }
+      return json(body);
+    };
+  }
+  next();
 });
 app.get("/api/health", async (_req, res) => {
   await db.$queryRaw`SELECT 1`;

@@ -1,3 +1,4 @@
+import ResponsiveImage from "./ResponsiveImage";
 import { lazy, Suspense, useEffect, useState } from "react";
 import {
   Link,
@@ -40,6 +41,7 @@ import {
 import { useCompany } from "./App";
 import { standalone } from "./staticContent";
 import { Inspiration } from "./Inspiration";
+import DeferredSection from "./DeferredSection";
 import TeamSection from "./TeamSection";
 import { ServicePageGuide } from "./ServicePageGuide";
 import { CollectionGuide, EnquiryGuide } from "./PageContent";
@@ -160,7 +162,12 @@ export function Card({ item }: { item: Entry }) {
           aria-hidden="true"
         >
           <div className="card-image">
-            <img src={photo.url} alt={photo.alt} loading="lazy" />
+            <ResponsiveImage
+              src={photo.url}
+              alt={photo.alt}
+              loading="lazy"
+              sizes="(max-width: 700px) 100vw, 33vw"
+            />
             {item.transaction && (
               <span className="badge">
                 For {item.transaction === "SALE" ? "sale" : "rent"}
@@ -435,7 +442,13 @@ export function HeroSlideshow({ image }: { image?: string }) {
   const { data: visuals } = useVisualMedia();
   const [active, setActive] = useState(0);
   const [interacting, setInteracting] = useState(false);
+  const [loadedSlides, setLoadedSlides] = useState<number[]>([0]);
   const slide = heroSlides[active];
+  useEffect(() => {
+    setLoadedSlides((loaded) =>
+      loaded.includes(active) ? loaded : [...loaded, active],
+    );
+  }, [active]);
   useEffect(() => {
     if (interacting || reduced) return;
     const timer = window.setInterval(() => {
@@ -459,13 +472,16 @@ export function HeroSlideshow({ image }: { image?: string }) {
       }}
     >
       {heroSlides.map((slide, i) => (
-        <img
+        <ResponsiveImage
           key={slide.image}
           className={`hero-image hero-slide${active === i ? " is-active" : ""}`}
+          sizes="100vw"
           src={
-            visuals?.assets.find(
-              (asset) => asset.placement === `home-hero-${i}`,
-            )?.url || (i === 0 ? image : undefined)
+            i === active || loadedSlides.includes(i)
+              ? visuals?.assets.find(
+                  (asset) => asset.placement === `home-hero-${i}`,
+                )?.url || (i === 0 ? image : undefined)
+              : undefined
           }
           alt=""
           aria-hidden="true"
@@ -698,12 +714,14 @@ export function Home() {
           to="/projects"
         />
       )}
-      <Inspiration />
+      <DeferredSection>
+        <Inspiration />
+      </DeferredSection>
       <section className="mission-section sandstone">
         <div className="container mission-grid">
           <div className={`mission-purpose${purposePhoto ? " has-photo" : ""}`}>
             {purposePhoto && (
-              <img
+              <ResponsiveImage
                 className="mission-purpose-photo"
                 src={purposePhoto.url}
                 alt=""
@@ -729,9 +747,11 @@ export function Home() {
         </div>
       </section>
       {c?.featuredSections.includes("testimonials") && (
-        <Suspense fallback={null}>
-          <Testimonials />
-        </Suspense>
+        <DeferredSection>
+          <Suspense fallback={null}>
+            <Testimonials />
+          </Suspense>
+        </DeferredSection>
       )}
       {(!c || c.featuredSections.includes("posts")) && (
         <Featured
@@ -788,8 +808,9 @@ export function PageHero({
   return (
     <section className="page-hero">
       {(visual || image) && (
-        <img
+        <ResponsiveImage
           className="page-hero-image"
+          sizes="100vw"
           src={visual?.url || image}
           alt=""
           fetchPriority="high"
@@ -1030,7 +1051,7 @@ export function Services({ categoryPage = false }: { categoryPage?: boolean }) {
             >
               <div>
                 {category.image && (
-                  <img
+                  <ResponsiveImage
                     src={category.image}
                     alt={category.name}
                     loading="lazy"
@@ -1311,7 +1332,7 @@ export function Detail() {
         <div>
           {photos.length > 0 && (
             <div className="gallery">
-              <img
+              <ResponsiveImage
                 className="gallery-main"
                 src={photos[active]?.url}
                 alt={photos[active]?.alt}
