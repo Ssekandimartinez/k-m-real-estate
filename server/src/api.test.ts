@@ -25,6 +25,7 @@ run("PostgreSQL API workflows", () => {
       data: [
         {
           email: adminEmail,
+          username: `admin-${suffix}`,
           name: "Integration Admin",
           passwordHash: await argon2.hash(password),
           role: "ADMIN",
@@ -75,6 +76,14 @@ run("PostgreSQL API workflows", () => {
   });
   it("rejects unauthenticated dashboard access", async () => {
     expect((await request(app).get("/api/admin/stats")).status).toBe(401);
+  });
+  it("signs in with a staff username as well as an email address", async () => {
+    const result = await request(app)
+      .post("/api/auth/login")
+      .set("Origin", config.origin)
+      .send({ email: `admin-${suffix}`, password });
+    expect(result.status).toBe(200);
+    expect(result.body.user.email).toBe(adminEmail);
   });
   it("rejects cross-origin state changes", async () => {
     expect(

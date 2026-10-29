@@ -299,10 +299,14 @@ app.post("/api/requests", formLimit, async (req, res) => {
 });
 app.post("/api/auth/login", authLimit, async (req, res) => {
   const data = z
-    .object({ email: z.email(), password: z.string().min(1).max(128) })
+    .object({
+      email: z.string().trim().min(1).max(200),
+      password: z.string().min(1).max(128),
+    })
     .parse(req.body);
-  const user = await db.user.findUnique({
-    where: { email: data.email.toLowerCase() },
+  const identifier = data.email.toLowerCase();
+  const user = await db.user.findFirst({
+    where: { OR: [{ email: identifier }, { username: identifier }] },
   });
   const dummy =
     "$argon2id$v=19$m=65536,t=3,p=4$bm9uc2VjcmV0c2FsdDEyMw$7EO69YhoLR9xJwTOQwLTmKhJoT5QzDuMg0SmI7d8kFU";
@@ -310,7 +314,7 @@ app.post("/api/auth/login", authLimit, async (req, res) => {
     .verify(user?.passwordHash || dummy, data.password)
     .catch(() => false);
   if (!user || !user.active || !valid) {
-    res.status(401).json({ error: "Invalid email or password" });
+    res.status(401).json({ error: "Invalid email, username or password" });
     return;
   }
   const raw = token(),

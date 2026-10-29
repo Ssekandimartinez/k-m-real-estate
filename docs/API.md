@@ -19,6 +19,8 @@ Requests require `kind`, `name`, `email`, `phone`, `message` and `consent:true`.
 
 ## Authentication
 
+Staff may sign in with their email address or an assigned unique username. The login request retains the `email` field for compatibility; it accepts either identifier. Password fields include a show/hide control in the staff interface.
+
 Catalogue groups are returned by GET `/catalogue-groups`, derived from published product records. Filter products using `subgroup=Furniture%20Supply` (or another returned value). Staff can edit each product's supply group.
 
 POST `/auth/login` with email/password; GET `/auth/me`; POST `/auth/logout`; POST `/auth/password` with current/password; POST `/auth/forgot` with email; POST `/auth/reset` with token/password. Login/me return the CSRF token. Password changes and reset invalidate sessions. Secure production cookies use the `__Host-` prefix, HttpOnly, Secure and SameSite=Strict.

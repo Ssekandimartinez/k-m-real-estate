@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PasswordInput from "./PasswordInput";
 import {
   Link,
   useLocation,
@@ -293,11 +294,11 @@ function Login({ resetMode = false }: { resetMode?: boolean }) {
         >
           {!resetMode && (
             <label>
-              Email address
+              {forgot ? "Email address" : "Email or username"}
               <input
                 required
                 name="email"
-                type="email"
+                type={forgot ? "email" : "text"}
                 autoComplete="username"
               />
             </label>
@@ -305,9 +306,8 @@ function Login({ resetMode = false }: { resetMode?: boolean }) {
           {(!forgot || resetMode) && (
             <label>
               Password
-              <input
+              <PasswordInput
                 name="password"
-                type="password"
                 minLength={resetMode ? 12 : 1}
                 maxLength={128}
                 required
@@ -1836,9 +1836,8 @@ function UsersEditor() {
           </label>
           <label>
             Initial password
-            <input
+            <PasswordInput
               name="password"
-              type="password"
               required
               minLength={12}
               maxLength={128}
@@ -1978,18 +1977,16 @@ function Password() {
       >
         <label>
           Current password
-          <input
+          <PasswordInput
             name="current"
-            type="password"
             autoComplete="current-password"
             required
           />
         </label>
         <label>
           New password
-          <input
+          <PasswordInput
             name="password"
-            type="password"
             minLength={12}
             maxLength={128}
             autoComplete="new-password"

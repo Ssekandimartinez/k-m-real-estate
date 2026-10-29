@@ -109,7 +109,7 @@ test("staff can publish, edit and delete an article through the dashboard", asyn
   isMobile,
 }) => {
   await page.goto("/admin");
-  await page.getByLabel("Email address").fill(adminEmail);
+  await page.getByLabel("Email or username").fill(adminEmail);
   await page.getByLabel("Password", { exact: true }).fill(adminPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
