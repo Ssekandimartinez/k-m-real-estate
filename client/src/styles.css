@@ -1261,9 +1261,14 @@ input[type="checkbox"] {
   overflow-wrap: anywhere;
 }
 .loading {
+  min-height: 260px;
   padding: 40px;
   text-align: center;
   color: #675e5e;
+}
+.grid > .card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
 }
 .skip {
   position: fixed;

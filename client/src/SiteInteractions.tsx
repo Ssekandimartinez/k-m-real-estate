@@ -96,15 +96,25 @@ export default function SiteInteractions() {
       },
       { threshold: 0.12, rootMargin: "0px 0px -24px 0px" },
     );
-    const discover = () =>
-      main.querySelectorAll(revealTargets).forEach((element) => {
+    const discover = (root: Element) => {
+      const targets = root.matches(revealTargets)
+        ? [root, ...root.querySelectorAll(revealTargets)]
+        : root.querySelectorAll(revealTargets);
+      targets.forEach((element) => {
         if (registered.has(element)) return;
         registered.add(element);
         observer.observe(element);
       });
-    discover();
+    };
+    discover(main);
     // API results and gallery filters can insert content after navigation.
-    const mutations = new MutationObserver(discover);
+    const mutations = new MutationObserver((records) => {
+      for (const record of records) {
+        for (const node of record.addedNodes) {
+          if (node instanceof Element) discover(node);
+        }
+      }
+    });
     mutations.observe(main, { childList: true, subtree: true });
     const imageLoaded = (event: Event) => {
       const element = event.target;
