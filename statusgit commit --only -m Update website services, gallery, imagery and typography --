@@ -1,0 +1,534 @@
+ .gitattributes                                     |    1 [32m+[m
+ client/package.json                                |    1 [32m+[m
+ .../branding/K&M Real Estate Luxury Logo.png       |  Bin [31m0[m -> [32m1556811[m bytes
+ client/public/branding/logo-classic.webp           |  Bin [31m0[m -> [32m15250[m bytes
+ client/public/branding/logo.webp                   |  Bin [31m15250[m -> [32m68658[m bytes
+ client/public/images/construction-poster.webp      |  Bin [31m0[m -> [32m16586[m bytes
+ client/public/images/design-poster.webp            |  Bin [31m0[m -> [32m7138[m bytes
+ client/public/images/detail-inspiration.webp       |  Bin [31m0[m -> [32m33544[m bytes
+ client/public/images/living-inspiration.webp       |  Bin [31m0[m -> [32m57206[m bytes
+ client/public/images/plumbing-repair.webp          |  Bin [31m0[m -> [32m82668[m bytes
+ .../architectural-brief-and-design-study-1.webp    |  Bin [31m0[m -> [32m59228[m bytes
+ .../architectural-brief-and-design-study-2.webp    |  Bin [31m0[m -> [32m91422[m bytes
+ .../projects/bathroom-refurbishment-concept-1.webp |  Bin [31m0[m -> [32m66158[m bytes
+ .../projects/bathroom-refurbishment-concept-2.webp |  Bin [31m0[m -> [32m162472[m bytes
+ .../projects/commercial-structure-planning-1.webp  |  Bin [31m0[m -> [32m340108[m bytes
+ .../projects/commercial-structure-planning-2.webp  |  Bin [31m0[m -> [32m88600[m bytes
+ .../contemporary-living-room-interior-1.webp       |  Bin [31m0[m -> [32m82672[m bytes
+ .../contemporary-living-room-interior-2.webp       |  Bin [31m0[m -> [32m115410[m bytes
+ .../projects/courtyard-residence-design-1.webp     |  Bin [31m0[m -> [32m91422[m bytes
+ .../projects/courtyard-residence-design-2.webp     |  Bin [31m0[m -> [32m82672[m bytes
+ .../dining-and-kitchen-design-study-1.webp         |  Bin [31m0[m -> [32m108560[m bytes
+ .../dining-and-kitchen-design-study-2.webp         |  Bin [31m0[m -> [32m82672[m bytes
+ .../garden-compound-and-access-design-1.webp       |  Bin [31m0[m -> [32m44058[m bytes
+ .../garden-compound-and-access-design-2.webp       |  Bin [31m0[m -> [32m193238[m bytes
+ .../projects/residential-build-planning-1.webp     |  Bin [31m0[m -> [32m129714[m bytes
+ .../projects/residential-build-planning-2.webp     |  Bin [31m0[m -> [32m59228[m bytes
+ .../projects/residential-community-layout-1.webp   |  Bin [31m0[m -> [32m53198[m bytes
+ .../projects/residential-community-layout-2.webp   |  Bin [31m0[m -> [32m316178[m bytes
+ .../projects/urban-apartment-development-1.webp    |  Bin [31m0[m -> [32m28972[m bytes
+ .../projects/urban-apartment-development-2.webp    |  Bin [31m0[m -> [32m316178[m bytes
+ .../properties/bright-two-bedroom-bungalow.webp    |  Bin [31m0[m -> [32m49922[m bytes
+ .../properties/business-workspace-suite.webp       |  Bin [31m0[m -> [32m112236[m bytes
+ .../images/properties/city-living-apartment.webp   |  Bin [31m0[m -> [32m48000[m bytes
+ .../properties/client-reception-office-suite.webp  |  Bin [31m0[m -> [32m113198[m bytes
+ .../contemporary-balcony-apartment-1.webp          |  Bin [31m0[m -> [32m28972[m bytes
+ .../properties/contemporary-garden-residence.webp  |  Bin [31m0[m -> [32m343674[m bytes
+ .../properties/corporate-business-premises.webp    |  Bin [31m0[m -> [32m238394[m bytes
+ .../images/properties/courtyard-family-home.webp   |  Bin [31m0[m -> [32m193238[m bytes
+ .../properties/elegant-three-bedroom-home.webp     |  Bin [31m0[m -> [32m55222[m bytes
+ .../properties/executive-apartment-suite.webp      |  Bin [31m0[m -> [32m276474[m bytes
+ .../images/properties/family-home-land-parcel.webp |  Bin [31m0[m -> [32m390818[m bytes
+ .../images/properties/flexible-team-office.webp    |  Bin [31m0[m -> [32m113198[m bytes
+ .../images/properties/garden-court-apartment.webp  |  Bin [31m0[m -> [32m316178[m bytes
+ .../generous-five-bedroom-residence.webp           |  Bin [31m0[m -> [32m34974[m bytes
+ .../properties/glass-front-business-centre.webp    |  Bin [31m0[m -> [32m183980[m bytes
+ .../properties/hillside-compound-residence-1.webp  |  Bin [31m0[m -> [32m55710[m bytes
+ .../properties/landscaped-court-apartment-1.webp   |  Bin [31m0[m -> [32m53198[m bytes
+ .../light-filled-two-bedroom-apartment.webp        |  Bin [31m0[m -> [32m34818[m bytes
+ .../properties/mixed-use-development-land.webp     |  Bin [31m0[m -> [32m169544[m bytes
+ .../properties/modern-commercial-building.webp     |  Bin [31m0[m -> [32m27544[m bytes
+ .../images/properties/modern-family-retreat.webp   |  Bin [31m0[m -> [32m41984[m bytes
+ .../properties/neighbourhood-building-plot.webp    |  Bin [31m0[m -> [32m325544[m bytes
+ .../properties/neighbourhood-business-space.webp   |  Bin [31m0[m -> [32m27544[m bytes
+ .../properties/open-plan-business-office.webp      |  Bin [31m0[m -> [32m57042[m bytes
+ .../properties/private-compound-residence.webp     |  Bin [31m0[m -> [32m139100[m bytes
+ .../properties/professional-team-workspace.webp    |  Bin [31m0[m -> [32m65454[m bytes
+ .../properties/residential-development-plot.webp   |  Bin [31m0[m -> [32m327488[m bytes
+ .../properties/shaded-garden-bungalow-1.webp       |  Bin [31m0[m -> [32m44058[m bytes
+ .../properties/spacious-four-bedroom-villa.webp    |  Bin [31m0[m -> [32m36428[m bytes
+ .../properties/spacious-residential-land.webp      |  Bin [31m0[m -> [32m327488[m bytes
+ .../three-bedroom-apartment-residence.webp         |  Bin [31m0[m -> [32m211658[m bytes
+ .../properties/urban-enterprise-premises.webp      |  Bin [31m0[m -> [32m95172[m bytes
+ client/public/images/property-guidance.webp        |  Bin [31m0[m -> [32m45590[m bytes
+ client/public/images/steel-sections.webp           |  Bin [31m0[m -> [32m81810[m bytes
+ client/public/media/library/image-001.webp         |  Bin [31m0[m -> [32m35026[m bytes
+ client/public/media/library/image-002.webp         |  Bin [31m0[m -> [32m93498[m bytes
+ client/public/media/library/image-003.webp         |  Bin [31m0[m -> [32m83306[m bytes
+ client/public/media/library/image-004.webp         |  Bin [31m0[m -> [32m55848[m bytes
+ client/public/media/library/image-005.webp         |  Bin [31m0[m -> [32m44624[m bytes
+ client/public/media/library/image-006.webp         |  Bin [31m0[m -> [32m202338[m bytes
+ client/public/media/library/image-007.webp         |  Bin [31m0[m -> [32m98526[m bytes
+ client/public/media/library/image-008.webp         |  Bin [31m0[m -> [32m43408[m bytes
+ client/public/media/library/image-009.webp         |  Bin [31m0[m -> [32m43128[m bytes
+ client/public/media/library/image-010.webp         |  Bin [31m0[m -> [32m119466[m bytes
+ client/public/media/library/image-011.webp         |  Bin [31m0[m -> [32m17496[m bytes
+ client/public/media/library/image-012.webp         |  Bin [31m0[m -> [32m90988[m bytes
+ client/public/media/library/image-013.webp         |  Bin [31m0[m -> [32m110606[m bytes
+ client/public/media/library/image-014.webp         |  Bin [31m0[m -> [32m119164[m bytes
+ client/public/media/library/image-015.webp         |  Bin [31m0[m -> [32m42152[m bytes
+ client/public/media/library/image-016.webp         |  Bin [31m0[m -> [32m75244[m bytes
+ client/public/media/library/image-017.webp         |  Bin [31m0[m -> [32m88176[m bytes
+ client/public/media/library/image-018.webp         |  Bin [31m0[m -> [32m76858[m bytes
+ client/public/media/library/image-019.webp         |  Bin [31m0[m -> [32m41478[m bytes
+ client/public/media/library/image-020.webp         |  Bin [31m0[m -> [32m96938[m bytes
+ client/public/media/library/image-021.webp         |  Bin [31m0[m -> [32m101240[m bytes
+ client/public/media/library/image-022.webp         |  Bin [31m0[m -> [32m77170[m bytes
+ client/public/media/library/image-023.webp         |  Bin [31m0[m -> [32m140760[m bytes
+ client/public/media/library/image-024.webp         |  Bin [31m0[m -> [32m48570[m bytes
+ client/public/media/library/image-025.webp         |  Bin [31m0[m -> [32m150746[m bytes
+ client/public/media/library/image-026.webp         |  Bin [31m0[m -> [32m41390[m bytes
+ client/public/media/library/image-027.webp         |  Bin [31m0[m -> [32m30742[m bytes
+ client/public/media/library/image-028.webp         |  Bin [31m0[m -> [32m77902[m bytes
+ client/public/media/library/image-029.webp         |  Bin [31m0[m -> [32m38914[m bytes
+ client/public/media/library/image-030.webp         |  Bin [31m0[m -> [32m51796[m bytes
+ client/public/media/library/image-031.webp         |  Bin [31m0[m -> [32m64576[m bytes
+ client/public/media/library/image-032.webp         |  Bin [31m0[m -> [32m16852[m bytes
+ client/public/media/library/image-033.webp         |  Bin [31m0[m -> [32m44088[m bytes
+ client/public/media/library/image-034.webp         |  Bin [31m0[m -> [32m183368[m bytes
+ client/public/media/library/image-035.webp         |  Bin [31m0[m -> [32m272532[m bytes
+ client/public/media/library/image-036.webp         |  Bin [31m0[m -> [32m45178[m bytes
+ client/public/media/library/image-037.webp         |  Bin [31m0[m -> [32m100018[m bytes
+ client/public/media/library/image-038.webp         |  Bin [31m0[m -> [32m25538[m bytes
+ client/public/media/library/image-039.webp         |  Bin [31m0[m -> [32m165540[m bytes
+ client/public/media/library/image-040.webp         |  Bin [31m0[m -> [32m380162[m bytes
+ client/public/media/library/image-041.webp         |  Bin [31m0[m -> [32m70966[m bytes
+ client/public/media/library/image-042.webp         |  Bin [31m0[m -> [32m101876[m bytes
+ client/public/media/library/image-043.webp         |  Bin [31m0[m -> [32m141770[m bytes
+ client/public/media/library/image-044.webp         |  Bin [31m0[m -> [32m127472[m bytes
+ client/public/media/library/image-045.webp         |  Bin [31m0[m -> [32m67344[m bytes
+ client/public/media/library/image-046.webp         |  Bin [31m0[m -> [32m154676[m bytes
+ client/public/media/library/image-047.webp         |  Bin [31m0[m -> [32m93480[m bytes
+ client/public/media/library/image-048.webp         |  Bin [31m0[m -> [32m85428[m bytes
+ client/public/media/library/image-049.webp         |  Bin [31m0[m -> [32m116340[m bytes
+ client/public/media/library/image-050.webp         |  Bin [31m0[m -> [32m156460[m bytes
+ client/public/media/library/image-051.webp         |  Bin [31m0[m -> [32m76232[m bytes
+ client/public/media/library/image-052.webp         |  Bin [31m0[m -> [32m56512[m bytes
+ client/public/media/library/image-053.webp         |  Bin [31m0[m -> [32m70638[m bytes
+ client/public/media/library/image-054.webp         |  Bin [31m0[m -> [32m91062[m bytes
+ client/public/media/library/image-055.webp         |  Bin [31m0[m -> [32m95560[m bytes
+ client/public/media/library/image-056.webp         |  Bin [31m0[m -> [32m48226[m bytes
+ client/public/media/library/image-057.webp         |  Bin [31m0[m -> [32m47792[m bytes
+ client/public/media/library/image-058.webp         |  Bin [31m0[m -> [32m143748[m bytes
+ client/public/media/library/image-059.webp         |  Bin [31m0[m -> [32m154420[m bytes
+ client/public/media/library/image-060.webp         |  Bin [31m0[m -> [32m64118[m bytes
+ client/public/media/library/image-061.webp         |  Bin [31m0[m -> [32m111578[m bytes
+ client/public/media/library/image-062.webp         |  Bin [31m0[m -> [32m33956[m bytes
+ client/public/media/library/image-063.webp         |  Bin [31m0[m -> [32m104740[m bytes
+ client/public/media/library/image-064.webp         |  Bin [31m0[m -> [32m296126[m bytes
+ client/public/media/library/image-065.webp         |  Bin [31m0[m -> [32m372578[m bytes
+ client/public/media/library/image-066.webp         |  Bin [31m0[m -> [32m114422[m bytes
+ client/public/media/library/image-067.webp         |  Bin [31m0[m -> [32m75398[m bytes
+ client/public/media/library/image-068.webp         |  Bin [31m0[m -> [32m91758[m bytes
+ client/public/media/library/image-069.webp         |  Bin [31m0[m -> [32m80004[m bytes
+ client/public/media/library/image-070.webp         |  Bin [31m0[m -> [32m187466[m bytes
+ client/public/media/library/image-071.webp         |  Bin [31m0[m -> [32m55700[m bytes
+ client/public/media/library/image-072.webp         |  Bin [31m0[m -> [32m78726[m bytes
+ client/public/media/library/image-073.webp         |  Bin [31m0[m -> [32m37216[m bytes
+ client/public/media/library/image-074.webp         |  Bin [31m0[m -> [32m127858[m bytes
+ client/public/media/library/image-075.webp         |  Bin [31m0[m -> [32m86952[m bytes
+ client/public/media/library/image-076.webp         |  Bin [31m0[m -> [32m53144[m bytes
+ client/public/media/library/image-077.webp         |  Bin [31m0[m -> [32m20092[m bytes
+ client/public/media/library/image-078.webp         |  Bin [31m0[m -> [32m174916[m bytes
+ client/public/media/library/image-079.webp         |  Bin [31m0[m -> [32m63508[m bytes
+ client/public/media/library/image-080.webp         |  Bin [31m0[m -> [32m50492[m bytes
+ client/public/media/library/image-081.webp         |  Bin [31m0[m -> [32m53016[m bytes
+ client/public/media/library/image-082.webp         |  Bin [31m0[m -> [32m145286[m bytes
+ client/public/media/library/image-083.webp         |  Bin [31m0[m -> [32m138718[m bytes
+ client/public/media/library/image-084.webp         |  Bin [31m0[m -> [32m92294[m bytes
+ client/public/media/library/image-085.webp         |  Bin [31m0[m -> [32m65674[m bytes
+ client/public/media/library/image-086.webp         |  Bin [31m0[m -> [32m255372[m bytes
+ client/public/media/library/image-087.webp         |  Bin [31m0[m -> [32m281370[m bytes
+ client/public/media/library/image-088.webp         |  Bin [31m0[m -> [32m56560[m bytes
+ client/public/media/library/image-089.webp         |  Bin [31m0[m -> [32m21576[m bytes
+ client/public/media/library/image-090.webp         |  Bin [31m0[m -> [32m27404[m bytes
+ client/public/media/library/image-091.webp         |  Bin [31m0[m -> [32m67224[m bytes
+ client/public/media/library/image-092.webp         |  Bin [31m0[m -> [32m86754[m bytes
+ client/public/media/library/image-093.webp         |  Bin [31m0[m -> [32m313948[m bytes
+ client/public/media/library/image-094.webp         |  Bin [31m0[m -> [32m147730[m bytes
+ client/public/media/library/image-095.webp         |  Bin [31m0[m -> [32m30472[m bytes
+ client/public/media/library/image-096.webp         |  Bin [31m0[m -> [32m31984[m bytes
+ client/public/media/library/image-097.webp         |  Bin [31m0[m -> [32m64750[m bytes
+ client/public/media/library/image-098.webp         |  Bin [31m0[m -> [32m81272[m bytes
+ client/public/media/library/image-099.webp         |  Bin [31m0[m -> [32m176792[m bytes
+ client/public/media/library/image-100.webp         |  Bin [31m0[m -> [32m112734[m bytes
+ client/public/media/library/image-101.webp         |  Bin [31m0[m -> [32m249586[m bytes
+ client/public/media/library/image-102.webp         |  Bin [31m0[m -> [32m128130[m bytes
+ client/public/media/library/image-103.webp         |  Bin [31m0[m -> [32m139666[m bytes
+ client/public/media/library/image-104.webp         |  Bin [31m0[m -> [32m122752[m bytes
+ client/public/media/library/image-105.webp         |  Bin [31m0[m -> [32m71040[m bytes
+ client/public/media/library/image-106.webp         |  Bin [31m0[m -> [32m45520[m bytes
+ client/public/media/library/image-107.webp         |  Bin [31m0[m -> [32m239710[m bytes
+ client/public/media/library/image-108.webp         |  Bin [31m0[m -> [32m44146[m bytes
+ client/public/media/library/image-109.webp         |  Bin [31m0[m -> [32m73208[m bytes
+ client/public/media/library/image-110.webp         |  Bin [31m0[m -> [32m87614[m bytes
+ client/public/media/library/image-111.webp         |  Bin [31m0[m -> [32m75994[m bytes
+ client/public/media/library/image-112.webp         |  Bin [31m0[m -> [32m180762[m bytes
+ client/public/media/library/image-113.webp         |  Bin [31m0[m -> [32m181078[m bytes
+ client/public/media/library/image-114.webp         |  Bin [31m0[m -> [32m65292[m bytes
+ client/public/media/library/image-115.webp         |  Bin [31m0[m -> [32m84856[m bytes
+ client/public/media/library/image-116.webp         |  Bin [31m0[m -> [32m269184[m bytes
+ client/public/media/library/image-117.webp         |  Bin [31m0[m -> [32m271870[m bytes
+ client/public/media/library/image-118.webp         |  Bin [31m0[m -> [32m135622[m bytes
+ client/public/media/library/image-119.webp         |  Bin [31m0[m -> [32m209512[m bytes
+ client/public/media/library/image-120.webp         |  Bin [31m0[m -> [32m224906[m bytes
+ client/public/media/library/image-121.webp         |  Bin [31m0[m -> [32m103332[m bytes
+ client/public/media/library/image-122.webp         |  Bin [31m0[m -> [32m178438[m bytes
+ client/public/media/library/image-123.webp         |  Bin [31m0[m -> [32m91028[m bytes
+ client/public/media/library/image-124.webp         |  Bin [31m0[m -> [32m283498[m bytes
+ client/public/media/library/image-125.webp         |  Bin [31m0[m -> [32m65050[m bytes
+ client/public/media/library/image-126.webp         |  Bin [31m0[m -> [32m62462[m bytes
+ client/public/media/library/image-127.webp         |  Bin [31m0[m -> [32m231352[m bytes
+ client/public/media/library/image-128.webp         |  Bin [31m0[m -> [32m130322[m bytes
+ client/public/media/library/image-129.webp         |  Bin [31m0[m -> [32m178744[m bytes
+ client/public/media/library/image-130.webp         |  Bin [31m0[m -> [32m80456[m bytes
+ client/public/media/library/image-131.webp         |  Bin [31m0[m -> [32m119934[m bytes
+ client/public/media/library/image-132.webp         |  Bin [31m0[m -> [32m197224[m bytes
+ client/public/media/library/image-133.webp         |  Bin [31m0[m -> [32m97158[m bytes
+ client/public/media/library/image-134.webp         |  Bin [31m0[m -> [32m214858[m bytes
+ client/public/media/library/image-135.webp         |  Bin [31m0[m -> [32m260974[m bytes
+ client/public/media/library/image-136.webp         |  Bin [31m0[m -> [32m46938[m bytes
+ client/public/media/library/image-137.webp         |  Bin [31m0[m -> [32m181346[m bytes
+ client/public/media/library/image-138.webp         |  Bin [31m0[m -> [32m85822[m bytes
+ client/public/media/library/image-139.webp         |  Bin [31m0[m -> [32m53718[m bytes
+ client/public/media/library/image-140.webp         |  Bin [31m0[m -> [32m61372[m bytes
+ client/public/media/library/image-141.webp         |  Bin [31m0[m -> [32m61670[m bytes
+ client/public/media/library/image-142.webp         |  Bin [31m0[m -> [32m41820[m bytes
+ client/public/media/library/image-143.webp         |  Bin [31m0[m -> [32m108124[m bytes
+ client/public/media/library/image-144.webp         |  Bin [31m0[m -> [32m106790[m bytes
+ client/public/media/library/image-145.webp         |  Bin [31m0[m -> [32m34516[m bytes
+ client/public/media/library/image-146.webp         |  Bin [31m0[m -> [32m74606[m bytes
+ client/public/media/library/image-147.webp         |  Bin [31m0[m -> [32m55400[m bytes
+ client/public/media/library/image-148.webp         |  Bin [31m0[m -> [32m62880[m bytes
+ client/public/media/library/image-149.webp         |  Bin [31m0[m -> [32m99954[m bytes
+ client/public/media/library/image-150.webp         |  Bin [31m0[m -> [32m154312[m bytes
+ client/public/media/library/image-151.webp         |  Bin [31m0[m -> [32m202310[m bytes
+ client/public/media/library/image-152.webp         |  Bin [31m0[m -> [32m99330[m bytes
+ client/public/media/library/image-153.webp         |  Bin [31m0[m -> [32m339870[m bytes
+ client/public/media/library/image-154.webp         |  Bin [31m0[m -> [32m199196[m bytes
+ client/public/media/library/image-155.webp         |  Bin [31m0[m -> [32m43428[m bytes
+ client/public/media/library/image-156.webp         |  Bin [31m0[m -> [32m53032[m bytes
+ client/public/media/library/image-157.webp         |  Bin [31m0[m -> [32m201812[m bytes
+ client/public/media/library/image-158.webp         |  Bin [31m0[m -> [32m89322[m bytes
+ client/public/media/library/image-159.webp         |  Bin [31m0[m -> [32m74586[m bytes
+ client/public/media/library/image-160.webp         |  Bin [31m0[m -> [32m193100[m bytes
+ client/public/media/library/image-161.webp         |  Bin [31m0[m -> [32m139810[m bytes
+ client/public/media/library/image-162.webp         |  Bin [31m0[m -> [32m136330[m bytes
+ client/public/media/library/image-163.webp         |  Bin [31m0[m -> [32m276886[m bytes
+ client/public/media/library/image-164.webp         |  Bin [31m0[m -> [32m220638[m bytes
+ client/public/media/library/image-165.webp         |  Bin [31m0[m -> [32m235186[m bytes
+ client/public/media/library/image-166.webp         |  Bin [31m0[m -> [32m226854[m bytes
+ client/public/media/library/image-167.webp         |  Bin [31m0[m -> [32m25626[m bytes
+ client/public/media/library/image-168.webp         |  Bin [31m0[m -> [32m194512[m bytes
+ client/public/media/library/image-169.webp         |  Bin [31m0[m -> [32m293332[m bytes
+ client/public/media/library/image-170.webp         |  Bin [31m0[m -> [32m100268[m bytes
+ client/public/media/library/image-171.webp         |  Bin [31m0[m -> [32m60376[m bytes
+ client/public/media/library/image-172.webp         |  Bin [31m0[m -> [32m98082[m bytes
+ client/public/media/library/image-173.webp         |  Bin [31m0[m -> [32m94630[m bytes
+ client/public/media/library/image-174.webp         |  Bin [31m0[m -> [32m91312[m bytes
+ client/public/media/library/image-175.webp         |  Bin [31m0[m -> [32m52004[m bytes
+ client/public/media/library/image-176.webp         |  Bin [31m0[m -> [32m82946[m bytes
+ client/public/media/library/image-177.webp         |  Bin [31m0[m -> [32m143898[m bytes
+ client/public/media/library/image-178.webp         |  Bin [31m0[m -> [32m58284[m bytes
+ client/public/media/library/image-179.webp         |  Bin [31m0[m -> [32m213828[m bytes
+ client/public/media/library/image-180.webp         |  Bin [31m0[m -> [32m191662[m bytes
+ client/public/media/library/image-181.webp         |  Bin [31m0[m -> [32m221016[m bytes
+ client/public/media/library/image-182.webp         |  Bin [31m0[m -> [32m274226[m bytes
+ client/public/media/library/image-183.webp         |  Bin [31m0[m -> [32m115244[m bytes
+ client/public/media/library/image-184.webp         |  Bin [31m0[m -> [32m136726[m bytes
+ client/public/media/library/image-185.webp         |  Bin [31m0[m -> [32m146408[m bytes
+ client/public/media/library/image-186.webp         |  Bin [31m0[m -> [32m69748[m bytes
+ client/public/media/library/image-187.webp         |  Bin [31m0[m -> [32m166120[m bytes
+ client/public/media/library/image-188.webp         |  Bin [31m0[m -> [32m302530[m bytes
+ client/public/media/library/image-189.webp         |  Bin [31m0[m -> [32m34026[m bytes
+ client/public/media/library/image-190.webp         |  Bin [31m0[m -> [32m51584[m bytes
+ client/public/media/library/image-191.webp         |  Bin [31m0[m -> [32m118308[m bytes
+ client/public/media/library/image-192.webp         |  Bin [31m0[m -> [32m47116[m bytes
+ client/public/media/library/image-193.webp         |  Bin [31m0[m -> [32m32942[m bytes
+ client/public/media/library/image-194.webp         |  Bin [31m0[m -> [32m39254[m bytes
+ client/public/media/library/image-195.webp         |  Bin [31m0[m -> [32m32434[m bytes
+ client/public/media/library/image-196.webp         |  Bin [31m0[m -> [32m234122[m bytes
+ client/public/media/library/image-197.webp         |  Bin [31m0[m -> [32m41772[m bytes
+ client/public/media/library/image-198.webp         |  Bin [31m0[m -> [32m52274[m bytes
+ client/public/media/library/image-199.webp         |  Bin [31m0[m -> [32m26912[m bytes
+ client/public/media/library/image-200.webp         |  Bin [31m0[m -> [32m50058[m bytes
+ client/public/media/library/video-001-poster.webp  |  Bin [31m0[m -> [32m42620[m bytes
+ client/public/media/library/video-001.mp4          |    3 [32m+[m
+ client/public/media/library/video-002-poster.webp  |  Bin [31m0[m -> [32m45276[m bytes
+ client/public/media/library/video-002.mp4          |    3 [32m+[m
+ client/public/media/library/video-003-poster.webp  |  Bin [31m0[m -> [32m35890[m bytes
+ client/public/media/library/video-003.mp4          |    3 [32m+[m
+ client/public/media/library/video-004-poster.webp  |  Bin [31m0[m -> [32m26998[m bytes
+ client/public/media/library/video-004.mp4          |    3 [32m+[m
+ client/public/media/library/video-005-poster.webp  |  Bin [31m0[m -> [32m17142[m bytes
+ client/public/media/library/video-005.mp4          |    3 [32m+[m
+ client/public/media/library/video-006-poster.webp  |  Bin [31m0[m -> [32m10918[m bytes
+ client/public/media/library/video-006.mp4          |    3 [32m+[m
+ client/public/media/library/video-007-poster.webp  |  Bin [31m0[m -> [32m14904[m bytes
+ client/public/media/library/video-007.mp4          |    3 [32m+[m
+ client/public/media/library/video-008-poster.webp  |  Bin [31m0[m -> [32m12710[m bytes
+ client/public/media/library/video-008.mp4          |    3 [32m+[m
+ client/public/media/library/video-009-poster.webp  |  Bin [31m0[m -> [32m69494[m bytes
+ client/public/media/library/video-009.mp4          |    3 [32m+[m
+ client/public/media/library/video-010-poster.webp  |  Bin [31m0[m -> [32m48848[m bytes
+ client/public/media/library/video-010.mp4          |    3 [32m+[m
+ client/public/media/library/video-011-poster.webp  |  Bin [31m0[m -> [32m48362[m bytes
+ client/public/media/library/video-011.mp4          |    3 [32m+[m
+ client/public/media/library/video-012-poster.webp  |  Bin [31m0[m -> [32m24498[m bytes
+ client/public/media/library/video-012.mp4          |    3 [32m+[m
+ client/public/media/library/video-013-poster.webp  |  Bin [31m0[m -> [32m22380[m bytes
+ client/public/media/library/video-013.mp4          |    3 [32m+[m
+ client/public/media/library/video-014-poster.webp  |  Bin [31m0[m -> [32m31916[m bytes
+ client/public/media/library/video-014.mp4          |    3 [32m+[m
+ client/public/media/library/video-015-poster.webp  |  Bin [31m0[m -> [32m43884[m bytes
+ client/public/media/library/video-015.mp4          |    3 [32m+[m
+ client/public/media/library/video-016-poster.webp  |  Bin [31m0[m -> [32m53204[m bytes
+ client/public/media/library/video-016.mp4          |    3 [32m+[m
+ client/public/media/library/video-017-poster.webp  |  Bin [31m0[m -> [32m19648[m bytes
+ client/public/media/library/video-017.mp4          |    3 [32m+[m
+ client/public/media/library/video-018-poster.webp  |  Bin [31m0[m -> [32m50142[m bytes
+ client/public/media/library/video-018.mp4          |    3 [32m+[m
+ client/public/media/library/video-019-poster.webp  |  Bin [31m0[m -> [32m57320[m bytes
+ client/public/media/library/video-019.mp4          |    3 [32m+[m
+ client/public/media/library/video-020-poster.webp  |  Bin [31m0[m -> [32m54678[m bytes
+ client/public/media/library/video-020.mp4          |    3 [32m+[m
+ client/public/media/library/video-021-poster.webp  |  Bin [31m0[m -> [32m67028[m bytes
+ client/public/media/library/video-021.mp4          |    3 [32m+[m
+ client/public/media/library/video-022-poster.webp  |  Bin [31m0[m -> [32m41048[m bytes
+ client/public/media/library/video-022.mp4          |    3 [32m+[m
+ client/public/media/library/video-023-poster.webp  |  Bin [31m0[m -> [32m49348[m bytes
+ client/public/media/library/video-023.mp4          |    3 [32m+[m
+ client/public/media/library/video-024-poster.webp  |  Bin [31m0[m -> [32m38036[m bytes
+ client/public/media/library/video-024.mp4          |    3 [32m+[m
+ client/public/media/library/video-025-poster.webp  |  Bin [31m0[m -> [32m38264[m bytes
+ client/public/media/library/video-025.mp4          |    3 [32m+[m
+ client/public/media/library/video-026-poster.webp  |  Bin [31m0[m -> [32m52614[m bytes
+ client/public/media/library/video-026.mp4          |    3 [32m+[m
+ client/public/media/library/video-027-poster.webp  |  Bin [31m0[m -> [32m36262[m bytes
+ client/public/media/library/video-027.mp4          |    3 [32m+[m
+ client/public/media/library/video-028-poster.webp  |  Bin [31m0[m -> [32m45648[m bytes
+ client/public/media/library/video-028.mp4          |    3 [32m+[m
+ client/public/media/library/video-029-poster.webp  |  Bin [31m0[m -> [32m60422[m bytes
+ client/public/media/library/video-029.mp4          |    3 [32m+[m
+ client/public/media/library/video-030-poster.webp  |  Bin [31m0[m -> [32m52462[m bytes
+ client/public/media/library/video-030.mp4          |    3 [32m+[m
+ client/public/media/library/video-031-poster.webp  |  Bin [31m0[m -> [32m37822[m bytes
+ client/public/media/library/video-031.mp4          |    3 [32m+[m
+ client/public/media/library/video-032-poster.webp  |  Bin [31m0[m -> [32m52178[m bytes
+ client/public/media/library/video-032.mp4          |    3 [32m+[m
+ client/public/media/library/video-033-poster.webp  |  Bin [31m0[m -> [32m50054[m bytes
+ client/public/media/library/video-033.mp4          |    3 [32m+[m
+ client/public/media/library/video-034-poster.webp  |  Bin [31m0[m -> [32m44604[m bytes
+ client/public/media/library/video-034.mp4          |    3 [32m+[m
+ client/public/media/library/video-035-poster.webp  |  Bin [31m0[m -> [32m77892[m bytes
+ client/public/media/library/video-035.mp4          |    3 [32m+[m
+ client/public/media/library/video-036-poster.webp  |  Bin [31m0[m -> [32m49790[m bytes
+ client/public/media/library/video-036.mp4          |    3 [32m+[m
+ client/public/media/library/video-037-poster.webp  |  Bin [31m0[m -> [32m33828[m bytes
+ client/public/media/library/video-037.mp4          |    3 [32m+[m
+ client/public/media/library/video-038-poster.webp  |  Bin [31m0[m -> [32m20026[m bytes
+ client/public/media/library/video-038.mp4          |    3 [32m+[m
+ client/public/media/library/video-039-poster.webp  |  Bin [31m0[m -> [32m31570[m bytes
+ client/public/media/library/video-039.mp4          |    3 [32m+[m
+ client/public/media/library/video-040-poster.webp  |  Bin [31m0[m -> [32m43856[m bytes
+ client/public/media/library/video-040.mp4          |    3 [32m+[m
+ client/public/media/library/video-041-poster.webp  |  Bin [31m0[m -> [32m49638[m bytes
+ client/public/media/library/video-041.mp4          |    3 [32m+[m
+ client/public/media/library/video-042-poster.webp  |  Bin [31m0[m -> [32m21550[m bytes
+ client/public/media/library/video-042.mp4          |    3 [32m+[m
+ client/public/media/library/video-043-poster.webp  |  Bin [31m0[m -> [32m57370[m bytes
+ client/public/media/library/video-043.mp4          |    3 [32m+[m
+ client/public/media/library/video-044-poster.webp  |  Bin [31m0[m -> [32m28186[m bytes
+ client/public/media/library/video-044.mp4          |    3 [32m+[m
+ client/public/media/library/video-045-poster.webp  |  Bin [31m0[m -> [32m17518[m bytes
+ client/public/media/library/video-045.mp4          |    3 [32m+[m
+ client/public/media/library/video-046-poster.webp  |  Bin [31m0[m -> [32m52068[m bytes
+ client/public/media/library/video-046.mp4          |    3 [32m+[m
+ client/public/media/library/video-047-poster.webp  |  Bin [31m0[m -> [32m70792[m bytes
+ client/public/media/library/video-047.mp4          |    3 [32m+[m
+ client/public/media/library/video-048-poster.webp  |  Bin [31m0[m -> [32m48440[m bytes
+ client/public/media/library/video-048.mp4          |    3 [32m+[m
+ client/public/media/library/video-049-poster.webp  |  Bin [31m0[m -> [32m66854[m bytes
+ client/public/media/library/video-049.mp4          |    3 [32m+[m
+ client/public/media/library/video-050-poster.webp  |  Bin [31m0[m -> [32m43910[m bytes
+ client/public/media/library/video-050.mp4          |    3 [32m+[m
+ client/public/media/library/video-051-poster.webp  |  Bin [31m0[m -> [32m37020[m bytes
+ client/public/media/library/video-051.mp4          |    3 [32m+[m
+ client/public/media/library/video-052-poster.webp  |  Bin [31m0[m -> [32m38374[m bytes
+ client/public/media/library/video-052.mp4          |    3 [32m+[m
+ client/public/media/library/video-053-poster.webp  |  Bin [31m0[m -> [32m25250[m bytes
+ client/public/media/library/video-053.mp4          |    3 [32m+[m
+ client/public/media/library/video-054-poster.webp  |  Bin [31m0[m -> [32m85070[m bytes
+ client/public/media/library/video-054.mp4          |    3 [32m+[m
+ client/public/media/library/video-055-poster.webp  |  Bin [31m0[m -> [32m83846[m bytes
+ client/public/media/library/video-055.mp4          |    3 [32m+[m
+ client/public/media/library/video-056-poster.webp  |  Bin [31m0[m -> [32m47636[m bytes
+ client/public/media/library/video-056.mp4          |    3 [32m+[m
+ client/public/media/library/video-057-poster.webp  |  Bin [31m0[m -> [32m28926[m bytes
+ client/public/media/library/video-057.mp4          |    3 [32m+[m
+ client/public/media/library/video-058-poster.webp  |  Bin [31m0[m -> [32m20764[m bytes
+ client/public/media/library/video-058.mp4          |    3 [32m+[m
+ client/public/media/library/video-059-poster.webp  |  Bin [31m0[m -> [32m48750[m bytes
+ client/public/media/library/video-059.mp4          |    3 [32m+[m
+ client/public/media/library/video-060-poster.webp  |  Bin [31m0[m -> [32m16186[m bytes
+ client/public/media/library/video-060.mp4          |    3 [32m+[m
+ client/public/media/library/video-061-poster.webp  |  Bin [31m0[m -> [32m14292[m bytes
+ client/public/media/library/video-061.mp4          |    3 [32m+[m
+ client/public/media/library/video-062-poster.webp  |  Bin [31m0[m -> [32m33070[m bytes
+ client/public/media/library/video-062.mp4          |    3 [32m+[m
+ client/public/media/library/video-063-poster.webp  |  Bin [31m0[m -> [32m45364[m bytes
+ client/public/media/library/video-063.mp4          |    3 [32m+[m
+ client/public/media/library/video-064-poster.webp  |  Bin [31m0[m -> [32m12862[m bytes
+ client/public/media/library/video-064.mp4          |    3 [32m+[m
+ client/public/media/library/video-065-poster.webp  |  Bin [31m0[m -> [32m7936[m bytes
+ client/public/media/library/video-065.mp4          |    3 [32m+[m
+ client/public/media/library/video-066-poster.webp  |  Bin [31m0[m -> [32m61164[m bytes
+ client/public/media/library/video-066.mp4          |    3 [32m+[m
+ client/public/media/library/video-067-poster.webp  |  Bin [31m0[m -> [32m26860[m bytes
+ client/public/media/library/video-067.mp4          |    3 [32m+[m
+ client/public/media/library/video-068-poster.webp  |  Bin [31m0[m -> [32m60366[m bytes
+ client/public/media/library/video-068.mp4          |    3 [32m+[m
+ client/public/media/library/video-069-poster.webp  |  Bin [31m0[m -> [32m62478[m bytes
+ client/public/media/library/video-069.mp4          |    3 [32m+[m
+ client/public/media/library/video-070-poster.webp  |  Bin [31m0[m -> [32m29784[m bytes
+ client/public/media/library/video-070.mp4          |    3 [32m+[m
+ client/public/media/library/video-071-poster.webp  |  Bin [31m0[m -> [32m26370[m bytes
+ client/public/media/library/video-071.mp4          |    3 [32m+[m
+ client/public/media/library/video-072-poster.webp  |  Bin [31m0[m -> [32m51126[m bytes
+ client/public/media/library/video-072.mp4          |    3 [32m+[m
+ client/public/media/library/video-073-poster.webp  |  Bin [31m0[m -> [32m26508[m bytes
+ client/public/media/library/video-073.mp4          |    3 [32m+[m
+ client/public/media/library/video-074-poster.webp  |  Bin [31m0[m -> [32m15364[m bytes
+ client/public/media/library/video-074.mp4          |    3 [32m+[m
+ client/public/media/library/video-075-poster.webp  |  Bin [31m0[m -> [32m10244[m bytes
+ client/public/media/library/video-075.mp4          |    3 [32m+[m
+ client/public/media/library/video-076-poster.webp  |  Bin [31m0[m -> [32m14506[m bytes
+ client/public/media/library/video-076.mp4          |    3 [32m+[m
+ client/public/media/library/video-077-poster.webp  |  Bin [31m0[m -> [32m14904[m bytes
+ client/public/media/library/video-077.mp4          |    3 [32m+[m
+ client/public/media/library/video-078-poster.webp  |  Bin [31m0[m -> [32m39434[m bytes
+ client/public/media/library/video-078.mp4          |    3 [32m+[m
+ client/public/media/library/video-079-poster.webp  |  Bin [31m0[m -> [32m11762[m bytes
+ client/public/media/library/video-079.mp4          |    3 [32m+[m
+ client/public/media/library/video-080-poster.webp  |  Bin [31m0[m -> [32m14012[m bytes
+ client/public/media/library/video-080.mp4          |    3 [32m+[m
+ client/public/media/library/video-081-poster.webp  |  Bin [31m0[m -> [32m11376[m bytes
+ client/public/media/library/video-081.mp4          |    3 [32m+[m
+ client/public/media/library/video-082-poster.webp  |  Bin [31m0[m -> [32m26550[m bytes
+ client/public/media/library/video-082.mp4          |    3 [32m+[m
+ client/public/media/library/video-083-poster.webp  |  Bin [31m0[m -> [32m15404[m bytes
+ client/public/media/library/video-083.mp4          |    3 [32m+[m
+ client/public/media/library/video-084-poster.webp  |  Bin [31m0[m -> [32m26190[m bytes
+ client/public/media/library/video-084.mp4          |    3 [32m+[m
+ client/public/media/library/video-085-poster.webp  |  Bin [31m0[m -> [32m24764[m bytes
+ client/public/media/library/video-085.mp4          |    3 [32m+[m
+ client/public/media/library/video-086-poster.webp  |  Bin [31m0[m -> [32m34040[m bytes
+ client/public/media/library/video-086.mp4          |    3 [32m+[m
+ client/public/media/library/video-087-poster.webp  |  Bin [31m0[m -> [32m25786[m bytes
+ client/public/media/library/video-087.mp4          |    3 [32m+[m
+ client/public/media/library/video-088-poster.webp  |  Bin [31m0[m -> [32m36222[m bytes
+ client/public/media/library/video-088.mp4          |    3 [32m+[m
+ client/public/media/library/video-089-poster.webp  |  Bin [31m0[m -> [32m22356[m bytes
+ client/public/media/library/video-089.mp4          |    3 [32m+[m
+ client/public/media/library/video-090-poster.webp  |  Bin [31m0[m -> [32m5838[m bytes
+ client/public/media/library/video-090.mp4          |    3 [32m+[m
+ client/public/media/library/video-091-poster.webp  |  Bin [31m0[m -> [32m8532[m bytes
+ client/public/media/library/video-091.mp4          |    3 [32m+[m
+ client/public/media/library/video-092-poster.webp  |  Bin [31m0[m -> [32m8696[m bytes
+ client/public/media/library/video-092.mp4          |    3 [32m+[m
+ client/public/media/library/video-093-poster.webp  |  Bin [31m0[m -> [32m14014[m bytes
+ client/public/media/library/video-093.mp4          |    3 [32m+[m
+ client/public/media/library/video-094-poster.webp  |  Bin [31m0[m -> [32m18656[m bytes
+ client/public/media/library/video-094.mp4          |    3 [32m+[m
+ client/public/media/library/video-095-poster.webp  |  Bin [31m0[m -> [32m12214[m bytes
+ client/public/media/library/video-095.mp4          |    3 [32m+[m
+ client/public/media/library/video-096-poster.webp  |  Bin [31m0[m -> [32m11586[m bytes
+ client/public/media/library/video-096.mp4          |    3 [32m+[m
+ client/public/media/library/video-097-poster.webp  |  Bin [31m0[m -> [32m17764[m bytes
+ client/public/media/library/video-097.mp4          |    3 [32m+[m
+ client/public/media/library/video-098-poster.webp  |  Bin [31m0[m -> [32m15466[m bytes
+ client/public/media/library/video-098.mp4          |    3 [32m+[m
+ client/public/media/library/video-099-poster.webp  |  Bin [31m0[m -> [32m14500[m bytes
+ client/public/media/library/video-099.mp4          |    3 [32m+[m
+ client/public/media/library/video-100-poster.webp  |  Bin [31m0[m -> [32m18126[m bytes
+ client/public/media/library/video-100.mp4          |    3 [32m+[m
+ client/public/media/library/video-101-poster.webp  |  Bin [31m0[m -> [32m8366[m bytes
+ client/public/media/library/video-101.mp4          |    3 [32m+[m
+ client/public/media/library/video-102-poster.webp  |  Bin [31m0[m -> [32m11082[m bytes
+ client/public/media/library/video-102.mp4          |    3 [32m+[m
+ client/public/media/library/video-103-poster.webp  |  Bin [31m0[m -> [32m19896[m bytes
+ client/public/media/library/video-103.mp4          |    3 [32m+[m
+ client/public/media/library/video-104-poster.webp  |  Bin [31m0[m -> [32m17954[m bytes
+ client/public/media/library/video-104.mp4          |    3 [32m+[m
+ client/public/media/library/video-105-poster.webp  |  Bin [31m0[m -> [32m21020[m bytes
+ client/public/media/library/video-105.mp4          |    3 [32m+[m
+ client/public/media/library/video-106-poster.webp  |  Bin [31m0[m -> [32m20002[m bytes
+ client/public/media/library/video-106.mp4          |    3 [32m+[m
+ client/public/media/library/video-107-poster.webp  |  Bin [31m0[m -> [32m16344[m bytes
+ client/public/media/library/video-107.mp4          |    3 [32m+[m
+ client/public/media/library/video-108-poster.webp  |  Bin [31m0[m -> [32m35226[m bytes
+ client/public/media/library/video-108.mp4          |    3 [32m+[m
+ client/public/media/library/video-109-poster.webp  |  Bin [31m0[m -> [32m10010[m bytes
+ client/public/media/library/video-109.mp4          |    3 [32m+[m
+ client/public/media/library/video-110-poster.webp  |  Bin [31m0[m -> [32m10434[m bytes
+ client/public/media/library/video-110.mp4          |    3 [32m+[m
+ client/public/media/library/video-111-poster.webp  |  Bin [31m0[m -> [32m5246[m bytes
+ client/public/media/library/video-111.mp4          |    3 [32m+[m
+ client/public/media/library/video-112-poster.webp  |  Bin [31m0[m -> [32m18006[m bytes
+ client/public/media/library/video-112.mp4          |    3 [32m+[m
+ client/public/media/library/video-113-poster.webp  |  Bin [31m0[m -> [32m15062[m bytes
+ client/public/media/library/video-113.mp4          |    3 [32m+[m
+ client/public/media/library/video-114-poster.webp  |  Bin [31m0[m -> [32m14668[m bytes
+ client/public/media/library/video-114.mp4          |    3 [32m+[m
+ client/public/media/library/video-115-poster.webp  |  Bin [31m0[m -> [32m11984[m bytes
+ client/public/media/library/video-115.mp4          |    3 [32m+[m
+ client/public/media/library/video-116-poster.webp  |  Bin [31m0[m -> [32m8096[m bytes
+ client/public/media/library/video-116.mp4          |    3 [32m+[m
+ client/public/media/library/video-117-poster.webp  |  Bin [31m0[m -> [32m24034[m bytes
+ client/public/media/library/video-117.mp4          |    3 [32m+[m
+ client/public/videos/construction-inspiration.mp4  |    3 [32m+[m
+ client/public/videos/design-inspiration.mp4        |    3 [32m+[m
+ client/src/Admin.tsx                               |   15 [32m+[m[31m-[m
+ client/src/App.tsx                                 |   61 [32m+[m[31m-[m
+ client/src/Inspiration.tsx                         |   69 [32m+[m
+ client/src/MediaGallery.test.tsx                   |   44 [32m+[m
+ client/src/MediaGallery.tsx                        |  113 [32m+[m
+ client/src/PageContent.tsx                         |  164 [32m++[m
+ client/src/Public.test.tsx                         |  269 [32m+[m[31m-[m
+ client/src/Public.tsx                              |  464 [32m++[m[31m-[m
+ client/src/ServicePageGuide.tsx                    |  359 [32m+++[m
+ client/src/main.tsx                                |   26 [32m+[m[31m-[m
+ client/src/styles.css                              |  776 [32m++++[m[31m-[m
+ client/src/visualMedia.tsx                         |   72 [32m+[m
+ docs/DEMO_PROPERTIES.md                            |   19 [32m+[m
+ docs/HANDOVER.md                                   |    2 [32m+[m[31m-[m
+ docs/MASTER_REQUIREMENTS.md                        |    2 [32m+[m[31m-[m
+ docs/VISUAL_MEDIA.md                               |   13 [32m+[m
+ docs/inspiration-media.json                        |   12 [32m+[m
+ docs/media-curation.json                           | 1755 [32m++++++++++++[m
+ docs/media-library.json                            | 2996 [32m++++++++++++++++++++[m
+ package-lock.json                                  |   10 [32m+[m
+ scripts/prepare-assets.mjs                         |    6 [32m+[m[31m-[m
+ scripts/prepare-media-library.mjs                  |  172 [32m++[m
+ scripts/publish-demo-category-properties.mjs       |  252 [32m++[m
+ scripts/publish-demo-portfolio.mjs                 |  379 [32m+++[m
+ scripts/publish-demo-properties.mjs                |  317 [32m+++[m
+ scripts/publish-media-library.mjs                  |   70 [32m+[m
+ server/prisma/blog-articles.json                   |  252 [32m++[m
+ server/prisma/publish-blog.ts                      |  120 [32m+[m
+ server/prisma/seed.ts                              |    2 [32m+[m[31m-[m
+ server/src/app.ts                                  |    6 [32m+[m
+ server/src/index.ts                                |   27 [32m+[m[31m-[m
+ server/src/media-library.test.ts                   |   54 [32m+[m
+ server/src/render.ts                               |   10 [32m+[m[31m-[m
+ 533 files changed, 9093 insertions(+), 174 deletions(-)

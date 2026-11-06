@@ -17,6 +17,8 @@ import {
   MapPin,
   ChevronDown,
   Mail,
+  Facebook,
+  MessageCircle,
 } from "lucide-react";
 import { api, type Company } from "./api";
 import Analytics from "./Analytics";
@@ -258,6 +260,19 @@ function Header() {
 }
 function Footer() {
   const c = useCompany();
+  const socialLinks = [
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61595990293990",
+      icon: Facebook,
+    },
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/${(c?.whatsappNumber || c?.phone || "+211924265999").replace(/\D/g, "")}`,
+      icon: MessageCircle,
+    },
+  ];
+
   return (
     <footer className="footer">
       <div className="container footer-top">
@@ -303,16 +318,34 @@ function Footer() {
             {c?.address ||
               "Juba Town, opposite Gabat Primary School, Juba, South Sudan"}
           </p>
-          {c?.socialLinks.map((s) => (
-            <a
-              key={s.url}
-              href={s.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {s.label} <ArrowUpRight size={12} />
-            </a>
-          ))}
+          <div className="social-links" aria-label="Social media links">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                className="social-link"
+                href={href}
+                rel="noopener noreferrer"
+                target="_blank"
+                title={label}
+                aria-label={`Visit K&M Real Estate on ${label}`}
+                style={
+                  label === "Facebook"
+                    ? {
+                        background:
+                          "linear-gradient(135deg, #1877f2 0%, #0d5ed7 100%)",
+                        borderColor: "rgba(255,255,255,0.25)",
+                      }
+                    : {
+                        background:
+                          "linear-gradient(135deg, #25d366 0%, #1da851 100%)",
+                        borderColor: "rgba(255,255,255,0.25)",
+                      }
+                }
+              >
+                <Icon size={18} strokeWidth={2.2} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="container footer-bottom">

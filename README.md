@@ -35,6 +35,8 @@ Development frontend: http://localhost:5173. API: http://localhost:4000. Staff a
 
 The seed is idempotent and preserves edited records. It loads company information and the complete approved service and supply catalogue. No active properties, company projects, team profiles, articles or testimonials are fabricated.
 
+Render hosting: [deployment instructions](docs/RENDER.md) and the root `render.yaml` Blueprint.
+
 ## Commands
 
 | Command                         | Purpose                                                                                     |
