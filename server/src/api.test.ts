@@ -118,6 +118,8 @@ run("PostgreSQL API workflows", () => {
   it("accepts the local hostname alias but rejects other ports", async () => {
     if (config.production) return;
     const alias = new URL(config.origin);
+    // A deployed HTTPS origin must never authorize localhost as an alias.
+    if (!["localhost", "127.0.0.1"].includes(alias.hostname)) return;
     alias.hostname = alias.hostname === "localhost" ? "127.0.0.1" : "localhost";
     const accepted = await request(app)
       .post("/api/auth/login")
@@ -258,6 +260,28 @@ run("PostgreSQL API workflows", () => {
     expect(updated.status).toBe(200);
     expect(updated.body.notes).toBe("Integration follow-up");
   });
+  it.each(["CONTACT", "QUOTATION", "CONSULTATION"])(
+    "persists %s submissions from the configured frontend origin",
+    async (kind) => {
+      const response = await request(app)
+        .post("/api/requests")
+        .set("Origin", config.origin)
+        .send({
+          kind,
+          name: "Integration Customer",
+          email: `customer-${suffix}@example.test`,
+          phone: "+211924265999",
+          message: "Website integration verification; not a customer enquiry.",
+          consent: true,
+        });
+      expect(response.status).toBe(201);
+      const saved = await db.customerRequest.findUnique({
+        where: { id: response.body.id },
+      });
+      expect(saved?.kind).toBe(kind);
+      expect(saved?.email).toBe(`customer-${suffix}@example.test`);
+    },
+  );
   it("exports requests, rejects invalid requests and reports missing storage", async () => {
     const r = await admin.get("/api/admin/requests/export?kind=VIEWING");
     expect(r.status).toBe(200);
