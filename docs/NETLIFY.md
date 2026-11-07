@@ -9,7 +9,7 @@ records from the public website and disables staff sign-in and submissions.
 `/api/*` proxy to `https://km-real-estate-oregon.onrender.com/api/:splat` must
 precede the React route fallback. Media remains served by Netlify; browser API
 requests and secure session cookies remain on the Netlify origin. Render's
-`APP_ORIGIN` and `SITE_URL` must both be `https://k-and-m-realestate.netlify.app`.
+`APP_ORIGIN` and `SITE_URL` must both be `https://k-m-realestate.netlify.app`.
 Publish and edit production content at that site's `/admin` address.
 
 The bundled company/service catalogue remains available as an optional preview

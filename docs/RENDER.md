@@ -3,7 +3,7 @@
 The root `render.yaml` provisions a containerized Node API and PostgreSQL database in
 Oregon, matching the existing `km-real-estate-db` database. The active backend is
 `km-real-estate-oregon` at `https://km-real-estate-oregon.onrender.com`.
-The frontend is hosted at `https://k-and-m-realestate.netlify.app`.
+The frontend is hosted at `https://k-m-realestate.netlify.app`.
 Netlify proxies `/api/*` to Render before its SPA fallback and serves the media
 from its existing static deployment. The backend-only image excludes the 5 GB
 frontend media collection; originals are preserved. `server/Dockerfile.render`
@@ -64,7 +64,7 @@ under the ignored `.local/render-cli/migration-backups` directory; their keys ar
 protected by the Windows account that created them. Do not commit these files.
 Browser sessions and password reset tokens should not be copied between hosts.
 
-Publish future content through `https://k-and-m-realestate.netlify.app/admin`.
+Publish future content through `https://k-m-realestate.netlify.app/admin`.
 Local database edits do not automatically synchronize with production. Existing
 records with `specs.demo=true` retain their illustrative/concept labels; copying
 them does not verify availability or establish completed company work.
@@ -81,7 +81,7 @@ so the default SMTP configuration will not work. Email needs a supported provide
 connection on an allowed port or a separate HTTPS email integration.
 
 The Netlify configuration must be deployed along with this Blueprint. Verify
-`https://k-and-m-realestate.netlify.app/api/health` returns JSON after deployment.
+`https://k-m-realestate.netlify.app/api/health` returns JSON after deployment.
 Do not set `VITE_STANDALONE=true` in Netlify environment overrides. A sleeping
 free Render instance can take longer to wake than Netlify's 26-second proxy
 timeout; the first request after inactivity may fail and need a retry.

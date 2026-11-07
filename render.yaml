@@ -25,9 +25,9 @@ services:
           name: km-real-estate-db
           property: connectionString
       - key: APP_ORIGIN
-        value: https://k-and-m-realestate.netlify.app
+        value: https://k-m-realestate.netlify.app
       - key: SITE_URL
-        value: https://k-and-m-realestate.netlify.app
+        value: https://k-m-realestate.netlify.app
 
 databases:
   - name: km-real-estate-db
