@@ -1,7 +1,8 @@
 # SEO and Google Search Console
 
-The intended public origin is https://kmrealestatecompany.com. These repository
-changes require deployment; they do not verify ownership or submit anything to Google.
+The public origin is https://kmrealestatecompany.com. SEO deployment and public
+verification were completed on 9 November 2026; see [SEO_RELEASE.md](SEO_RELEASE.md).
+Search Console account verification and submission remain owner actions.
 
 ## Deployment order
 
@@ -26,9 +27,10 @@ changes require deployment; they do not verify ownership or submit anything to G
 
 The free Render backend can sleep. Proxy timeouts can affect both visitors and
 crawlers; monitor live responses before submitting URLs. No paid plan is enabled
-by these changes. No Lighthouse score or Google indexing is claimed.
+by these changes. Measured Lighthouse results are in the release report. Google
+indexing and ranking are not controlled by deployment.
 
-## Verify the Domain property
+## Complete HTML-tag verification and indexing
 
 The owner chose HTML-tag verification for the HTTPS URL-prefix property.
 The exact owner-provided verification tag is retained in `client/index.html`
@@ -37,22 +39,18 @@ and survives both Vite builds and server rendering. In Search Console, verify
 indexing using the steps below. Verification success is visible only in the
 owner's Search Console account. Keep the tag after verification.
 
-Domain-property verification through DNS remains an optional alternative:
-
 1. Sign in at https://search.google.com/search-console/ using the owner's Google account.
-2. Add property, choose Domain, enter `kmrealestatecompany.com` without https or paths.
-3. Copy the exact `google-site-verification=...` TXT value Google provides.
-4. In Netlify Team dashboard > DNS > kmrealestatecompany.com, add a TXT record
-   for the root domain (use the root hostname field convention shown by Netlify).
-   Paste Google's value unchanged and save. Keep all existing records.
-5. Return to Search Console and click Verify. DNS changes may need time; leave
-   this record in place after successful verification.
-6. In Sitemaps submit `https://kmrealestatecompany.com/sitemap.xml` after confirming
-   the live endpoint serves XML successfully.
-7. Use URL Inspection for `https://kmrealestatecompany.com/`, run Test Live URL,
+2. Select the URL-prefix property `https://kmrealestatecompany.com/`.
+3. Choose HTML tag and click Verify if this has not already succeeded. The
+   owner-provided tag is live. Keep it in place after verification.
+4. Open Sitemaps and submit `https://kmrealestatecompany.com/sitemap.xml`.
+5. Use URL Inspection for `https://kmrealestatecompany.com/`, run Test Live URL,
    review crawl/indexing eligibility and choose Request indexing if eligible.
-8. Monitor Page indexing and sitemap processing. Requesting indexing does not
+6. Monitor Page indexing and sitemap processing. Requesting indexing does not
    guarantee inclusion, ranking or a specific timeline.
+
+DNS verification of a Domain property is an optional alternative; the current
+HTML-tag method does not require another DNS change.
 
 Only genuine published company records should enter search results. Review any
 illustrative/demo inventory in the administration interface before publication.
