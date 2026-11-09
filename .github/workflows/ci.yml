@@ -27,7 +27,9 @@ jobs:
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci --ignore-scripts
+      # esbuild's install script supplies the platform binary when a lockfile
+      # produced on Windows does not contain the Linux optional package.
+      - run: npm ci --include=dev --include=optional
       - run: npm run db:generate
       - run: npm run db:migrate
       - run: npm run db:seed
