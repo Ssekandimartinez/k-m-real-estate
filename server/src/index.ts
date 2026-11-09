@@ -18,7 +18,7 @@ app.get("/robots.txt", (_req, res) =>
   res
     .type("text")
     .send(
-      `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${config.siteUrl}/sitemap.xml\n`,
+      `User-agent: *\nAllow: /\nDisallow: /api/admin\nDisallow: /api/auth\nSitemap: ${config.siteUrl}/sitemap.xml\n`,
     ),
 );
 app.get("/sitemap.xml", async (_req, res) => {

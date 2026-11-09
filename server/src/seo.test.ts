@@ -53,6 +53,7 @@ describe("crawler responses", () => {
     expect(robots.text).toContain(
       "Sitemap: https://kmrealestatecompany.com/sitemap.xml",
     );
+    expect(robots.text).not.toContain("Disallow: /api/\n");
     const sitemap = await request(app).get("/sitemap.xml");
     expect(sitemap.headers["content-type"]).toContain("xml");
     expect(sitemap.text).toContain(
