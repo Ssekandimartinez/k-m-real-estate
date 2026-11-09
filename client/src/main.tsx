@@ -17,7 +17,6 @@ const queryClient = new QueryClient({
 });
 if (standalone) {
   queryClient.setQueryData(["company"], publicContent.company);
-  queryClient.setQueryData(["visual-media"], publicContent.visualMedia);
 }
 const bootstrap = standalone ? null : document.getElementById("km-company");
 if (bootstrap?.textContent) {
@@ -25,14 +24,6 @@ if (bootstrap?.textContent) {
     queryClient.setQueryData(["company"], JSON.parse(bootstrap.textContent));
   } catch {
     /* Fetch live settings when bootstrap is unavailable. */
-  }
-}
-const visuals = standalone ? null : document.getElementById("km-visual-media");
-if (visuals?.textContent) {
-  try {
-    queryClient.setQueryData(["visual-media"], JSON.parse(visuals.textContent));
-  } catch {
-    /* Fetch the current library through the API. */
   }
 }
 const detail = standalone ? null : document.getElementById("km-detail");

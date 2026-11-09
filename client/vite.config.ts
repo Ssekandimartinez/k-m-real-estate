@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
         transformIndexHtml() {
           return standalone
             ? []
-            : ["/api/settings", "/api/visual-media"].map((href) => ({
+            : ["/api/settings"].map((href) => ({
                 tag: "link",
                 attrs: {
                   rel: "preload",

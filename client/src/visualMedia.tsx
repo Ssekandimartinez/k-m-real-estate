@@ -1,6 +1,5 @@
 import ResponsiveImage from "./ResponsiveImage";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "./api";
+import { publicContent } from "./staticContent";
 import { useEffect, useRef, useState } from "react";
 
 export type VisualAsset = {
@@ -13,11 +12,8 @@ export type VisualAsset = {
   category: string;
 };
 export function useVisualMedia() {
-  return useQuery({
-    queryKey: ["visual-media"],
-    queryFn: () => api<{ assets: VisualAsset[] }>("/visual-media"),
-    staleTime: 300000,
-  });
+  // Curated media ships with the frontend, so it must not wait for the API.
+  return { data: publicContent.visualMedia, error: null };
 }
 export function useVisual(slot: string) {
   return useVisualMedia().data?.assets.find(

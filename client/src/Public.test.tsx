@@ -20,6 +20,7 @@ import {
   Card,
 } from "./Public";
 import type { Entry } from "./api";
+import { publicContent } from "./staticContent";
 afterEach(() => {
   cleanup();
   vi.useRealTimers();
@@ -67,36 +68,30 @@ it.each([
   },
 );
 describe("Customer request flow", () => {
-  it("downloads hero slides only when they are first needed", async () => {
+  it("downloads hero slides only when needed without waiting for the backend", () => {
     vi.stubGlobal(
       "fetch",
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: async () => ({
-          assets: [0, 1, 2].map((i) => ({
-            id: String(i),
-            placement: `home-hero-${i}`,
-            url: `/images/slide-${i}.webp`,
-            type: "image",
-            alt: "",
-            category: "",
-          })),
-        }),
-      }),
+      vi.fn(() => new Promise(() => {})),
     );
     const { container } = wrap(<HeroSlideshow />);
-    await waitFor(() =>
-      expect(container.querySelectorAll(".hero-slide")[0]).toHaveAttribute(
-        "src",
-        "/images/slide-0.webp",
-      ),
+    expect(container.querySelectorAll(".hero-slide")[0]).toHaveAttribute(
+      "src",
+      publicContent.visualMedia.assets.find(
+        (a) => a.placement === "home-hero-0",
+      )!.url,
     );
     const images = container.querySelectorAll(".hero-slide");
     expect(images[1]).not.toHaveAttribute("src");
     expect(images[2]).not.toHaveAttribute("src");
     fireEvent.click(screen.getByRole("button", { name: "Next slide" }));
-    expect(images[1]).toHaveAttribute("src", "/images/slide-1.webp");
+    expect(images[1]).toHaveAttribute(
+      "src",
+      publicContent.visualMedia.assets.find(
+        (a) => a.placement === "home-hero-1",
+      )!.url,
+    );
     expect(images[2]).not.toHaveAttribute("src");
+    expect(fetch).not.toHaveBeenCalled();
   });
   it("automatically changes slide content and can pause and resume", () => {
     vi.useFakeTimers();
