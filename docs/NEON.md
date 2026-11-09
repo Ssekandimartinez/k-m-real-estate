@@ -40,3 +40,28 @@ data before a rollback. Do not delete the original database as part of migration
 References: [Neon plans](https://neon.com/docs/introduction/plans),
 [Render migration guide](https://neon.com/docs/import/migrate-from-render),
 [Render environment variables](https://render.com/docs/configure-environment-variables).
+
+## Verified migration: 9 November 2026
+
+The deployment of `d13f20f` is live on Render and uses Neon PostgreSQL 18.
+Encrypted snapshots were created before the transfer. Full row comparisons
+passed again after startup for all 28 categories, 15 media records, 1 staff
+account, 195 content entries, 207 entry images, 2 settings, 9 customer requests
+and 59 audit records. The source had no intervening business-data changes.
+Unrelated service environment values were preserved, and the original source
+network rules were restored. The Neon password disclosed during setup was
+rotated before configuring production.
+
+Live checks passed for database health, authenticated staff sessions, admin
+statistics, customer request retrieval and published content counts through
+Render and the Netlify proxy. A temporary session created only in Neon proved
+the live backend was using the new database; that session was removed. The
+frontend's independent media bundle and hero image were also verified live.
+
+Enquiry persistence passed through a local instance of the production Express
+application connected to Neon, with email disabled: the API returned 201 and
+database readback matched. The test enquiry was removed. Live enquiry validation
+returned 400 for an empty submission. No email delivery or owner-password login
+was tested; staff password hashes were preserved exactly and staff must sign in
+again. Twelve relevant unit/asset tests, both application typechecks, server
+compilation, lint and Render Blueprint validation passed.
