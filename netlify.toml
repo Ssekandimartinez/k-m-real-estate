@@ -22,6 +22,18 @@
     Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[redirects]]
+  from = "https://www.kmrealestatecompany.com/*"
+  to = "https://kmrealestatecompany.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://k-m-realestate.netlify.app/*"
+  to = "https://kmrealestatecompany.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/api/*"
   to = "https://km-real-estate-oregon.onrender.com/api/:splat"
   status = 200
@@ -33,6 +45,24 @@
   status = 404
 
 [[redirects]]
+  from = "/assets/*"
+  to = "https://km-real-estate-oregon.onrender.com/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "https://km-real-estate-oregon.onrender.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "https://km-real-estate-oregon.onrender.com/:splat"
   status = 200
