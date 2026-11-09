@@ -1,5 +1,10 @@
 # Render deployment
 
+For the Neon database migration and current external database configuration, see
+[NEON.md](NEON.md). The Render database provisioning details below describe the
+legacy source retained for recovery. Production `DATABASE_URL` is now an
+externally supplied secret; the Blueprint no longer links it to that source.
+
 The root `render.yaml` provisions a containerized Node API and PostgreSQL database in
 Oregon, matching the existing `km-real-estate-db` database. The active backend is
 `km-real-estate-oregon` at `https://km-real-estate-oregon.onrender.com`.

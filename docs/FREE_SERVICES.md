@@ -56,6 +56,7 @@ SMTP connection settings: [Brevo documentation](https://developers.brevo.com/doc
 
 ## Database retention
 
-The current free Render database expires on 28 November 2026. Keep encrypted
-exports and arrange a continuing database before that date; do not assume the
-free Render database is permanent. See [RENDER.md](RENDER.md) for operations.
+The production data was transferred to Neon PostgreSQL on 9 November 2026.
+The original free Render database is retained for recovery and expires on
+28 November 2026. Preserve encrypted exports and monitor Neon's free storage
+and compute allowances. See [NEON.md](NEON.md) for operations and recovery.
