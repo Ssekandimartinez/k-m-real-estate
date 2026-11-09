@@ -7,9 +7,9 @@ records from the public website and disables staff sign-in and submissions.
 
 `netlify.toml` builds the client workspace and publishes `client/dist`. The
 `/api/*` proxy to `https://km-real-estate-oregon.onrender.com/api/:splat` must
-precede the React route fallback. Media remains served by Netlify; browser API
+precede the public page proxy. Public HTML, discovery documents and matching bundles are served by Express; media remains served by Netlify. Browser API
 requests and secure session cookies remain on the Netlify origin. Render's
-`APP_ORIGIN` and `SITE_URL` must both be `https://k-m-realestate.netlify.app`.
+`APP_ORIGIN` and `SITE_URL` must both be `https://kmrealestatecompany.com`.
 Publish and edit production content at that site's `/admin` address.
 
 The bundled company/service catalogue remains available as an optional preview
@@ -39,7 +39,7 @@ than Netlify's proxy timeout; a first request after inactivity can require retry
 
 ## Moving to another Netlify account or site address
 
-The current public origin is `https://k-m-realestate.netlify.app`. Keep the
+The current public origin is `https://kmrealestatecompany.com`. Keep the
 existing API proxy and `VITE_STANDALONE=false` when deploying from another account.
 On the Render service that owns the existing database connection, set both
 `APP_ORIGIN` and `SITE_URL` to this exact HTTPS origin, without a trailing slash,

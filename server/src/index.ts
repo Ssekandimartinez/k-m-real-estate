@@ -1,3 +1,4 @@
+import { paths, descriptions } from "./seo-content.js";
 import express from "express";
 import path from "node:path";
 import { readFile } from "node:fs/promises";
@@ -13,25 +14,11 @@ const escape = (s: unknown) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-const paths: Record<string, { title: string; kind?: string }> = {
-  "/": { title: "Real Estate. Real Results." },
-  "/about": { title: "About K&M" },
-  "/gallery": { title: "Photos & Videos" },
-  "/properties": { title: "Properties in Juba", kind: "property" },
-  "/services": { title: "Our Services", kind: "service" },
-  "/catalogue": { title: "Materials & Supply Catalogue", kind: "product" },
-  "/projects": { title: "Projects & Portfolio", kind: "project" },
-  "/blog": { title: "Blog & Insights", kind: "post" },
-  "/contact": { title: "Contact Us" },
-  "/quote": { title: "Request a Quote" },
-  "/privacy": { title: "Privacy Policy" },
-  "/terms": { title: "Terms of Service" },
-};
 app.get("/robots.txt", (_req, res) =>
   res
     .type("text")
     .send(
-      `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/admin\nSitemap: ${config.siteUrl}/sitemap.xml\n`,
+      `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${config.siteUrl}/sitemap.xml\n`,
     ),
 );
 app.get("/sitemap.xml", async (_req, res) => {
@@ -40,7 +27,7 @@ app.get("/sitemap.xml", async (_req, res) => {
       status: "PUBLISHED",
       kind: { in: ["property", "service", "product", "project", "post"] },
     },
-    select: { kind: true, slug: true, updatedAt: true },
+    select: { kind: true, slug: true, updatedAt: true, specs: true },
   });
   const base: Record<string, string> = {
     property: "properties",
@@ -54,19 +41,25 @@ app.get("/sitemap.xml", async (_req, res) => {
       paths,
     )
       .map((p) => `<url><loc>${escape(config.siteUrl + p)}</loc></url>`)
-      .join(
-        "",
-      )}${items.map((v) => `<url><loc>${escape(config.siteUrl + "/" + base[v.kind] + "/" + v.slug)}</loc><lastmod>${v.updatedAt.toISOString()}</lastmod></url>`).join("")}</urlset>`,
+      .join("")}${items
+      .filter((v) => !(v.specs as Record<string, unknown>)?.demo)
+      .map(
+        (v) =>
+          `<url><loc>${escape(config.siteUrl + "/" + base[v.kind] + "/" + encodeURIComponent(v.slug))}</loc><lastmod>${v.updatedAt.toISOString()}</lastmod></url>`,
+      )
+      .join("")}</urlset>`,
   );
 });
 app.use(
   "/assets",
   express.static(path.join(root, "assets"), { maxAge: "1y", immutable: true }),
 );
-app.use(express.static(root, { index: false, maxAge: "7d" }));
+// Only bundles are served here. Public media stays on Netlify; never expose the
+// unrendered index.html or build-only content snapshot through Express.
 // Server renders crawlable public content and metadata on every route; React
 // mounts the interactive interface. No browser-only SEO metadata dependency.
 app.get("/{*path}", async (req, res) => {
+  const pathname = req.path.replace(/\/+$/, "") || "/";
   let template: string;
   try {
     template = await readFile(path.join(root, "index.html"), "utf8");
@@ -88,8 +81,8 @@ app.get("/{*path}", async (req, res) => {
       ?.url ||
     company?.heroImage ||
     "/images/architecture.webp";
-  const route = paths[req.path],
-    parts = req.path.split("/").filter(Boolean),
+  const route = paths[pathname],
+    parts = pathname.split("/").filter(Boolean),
     base: Record<string, string> = {
       properties: "property",
       services: "service",
@@ -97,12 +90,16 @@ app.get("/{*path}", async (req, res) => {
       projects: "project",
       blog: "post",
     };
-  let title = route?.title || "Page not found",
+  let title =
+      route?.title ||
+      (pathname.startsWith("/admin") ? "Staff access" : "Page not found"),
     description =
-      company?.seoDescription || "K&M Real Estate, Juba, South Sudan.",
+      descriptions[pathname] ||
+      company?.seoDescription ||
+      "K&M Real Estate, Juba, South Sudan.",
     image = company?.heroImage || "/images/architecture.webp",
     content = "",
-    found = Boolean(route) || req.path.startsWith("/admin");
+    found = Boolean(route) || pathname.startsWith("/admin");
   let initialEntry: any = null;
   if (parts.length === 2 && base[parts[0]]) {
     const entry = await db.entry.findFirst({
@@ -119,8 +116,8 @@ app.get("/{*path}", async (req, res) => {
     }
   }
   if (route) {
-    content = `<h1>${escape(title)}</h1><p>${escape(req.path === "/" ? company?.heroDescription : description)}</p>`;
-    if (req.path === "/about")
+    content = `<h1>${escape(title)}</h1><p>${escape(pathname === "/" ? company?.heroDescription : description)}</p>`;
+    if (pathname === "/about")
       content += `<p>${escape(company?.overview)}</p><h2>Mission</h2><p>${escape(company?.mission)}</p><h2>Vision</h2><p>${escape(company?.vision)}</p>`;
     if (route.kind) {
       const entries = await db.entry.findMany({
@@ -132,18 +129,24 @@ app.get("/{*path}", async (req, res) => {
         ? entries
             .map(
               (v) =>
-                `<article><h2><a href="${req.path}/${escape(v.slug)}">${escape(v.title)}</a></h2><p>${escape(v.summary)}</p></article>`,
+                `<article><h2><a href="${pathname}/${escape(v.slug)}">${escape(v.title)}</a></h2>${(v.specs as Record<string, unknown>)?.demo ? "<p>Illustrative content; contact our team for genuine availability and project information.</p>" : ""}<p>${escape(v.summary)}</p></article>`,
             )
             .join("")
         : "<p>No published records yet. Contact our team to discuss your requirements.</p>";
     }
   }
-  const url = config.siteUrl + req.path;
+  const noindex =
+    !found ||
+    pathname.startsWith("/admin") ||
+    Boolean(initialEntry?.specs?.demo);
+  const url = config.siteUrl + pathname;
   const schema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     name: "K&M Real Estate",
+    "@id": `${config.siteUrl}/#company`,
     url: config.siteUrl,
+    logo: new URL(company?.logo || "/branding/logo.webp", config.siteUrl).href,
     telephone: company?.phone,
     email: company?.email,
     address: {
@@ -154,17 +157,56 @@ app.get("/{*path}", async (req, res) => {
     },
   };
   const preload =
-    req.path === "/"
+    pathname === "/"
       ? `<link rel="preload" as="image" href="${escape(homeImage)}" fetchpriority="high"/>`
       : "";
-  const meta = `${preload}<link rel="canonical" href="${escape(url)}"/><meta property="og:title" content="${escape(title)} | K&amp;M Real Estate"/><meta property="og:description" content="${escape(description)}"/><meta property="og:type" content="website"/><meta property="og:url" content="${escape(url)}"/><meta property="og:image" content="${escape(new URL(image, config.siteUrl).href)}"/><meta name="twitter:card" content="summary_large_image"/>${req.path.startsWith("/admin") ? '<meta name="robots" content="noindex,nofollow"/>' : ""}<script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script>`;
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${config.siteUrl}/#website`,
+    name: "K&M Real Estate",
+    url: config.siteUrl,
+    publisher: { "@id": `${config.siteUrl}/#company` },
+  };
+  const breadcrumbs =
+    pathname !== "/" && found && !noindex
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: config.siteUrl + "/",
+            },
+            ...(initialEntry
+              ? [
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: paths["/" + parts[0]].title,
+                    item: config.siteUrl + "/" + parts[0],
+                  },
+                ]
+              : []),
+            {
+              "@type": "ListItem",
+              position: initialEntry ? 3 : 2,
+              name: title,
+              item: url,
+            },
+          ],
+        }
+      : null;
+  const meta = `${preload}<link rel="canonical" href="${escape(url)}"/><meta property="og:site_name" content="K&amp;M Real Estate"/><meta property="og:title" content="${escape(title)} | K&amp;M Real Estate"/><meta property="og:description" content="${escape(description)}"/><meta property="og:type" content="website"/><meta property="og:url" content="${escape(url)}"/><meta property="og:image" content="${escape(new URL(image, config.siteUrl).href)}"/><meta name="twitter:card" content="summary_large_image"/>${noindex ? '<meta name="robots" content="noindex,nofollow"/>' : ""}<script type="application/ld+json">${JSON.stringify([schema, website, ...(breadcrumbs ? [breadcrumbs] : [])]).replaceAll("<", "\\u003c")}</script>`;
   const initialMarkup =
-    req.path === "/"
+    pathname === "/"
       ? renderHome({ ...company, heroImage: homeImage })
       : initialEntry
         ? renderDetail(company, initialEntry)
         : `<header><a href="/">K&amp;M Real Estate</a></header><main>${content}</main>`;
-  const bootstrap = `<script id="km-visual-media" type="application/json">${JSON.stringify(visualLibrary || { assets: [] }).replaceAll("<", "\\u003c")}</script><script id="km-company" type="application/json">${JSON.stringify(company).replaceAll("<", "\\u003c")}</script>${initialEntry ? `<script id="km-detail" type="application/json">${JSON.stringify(initialEntry).replaceAll("<", "\\u003c")}</script>` : ""}`;
+  const bootstrap = `<script id="km-visual-media" type="application/json">${JSON.stringify(visualLibrary || { assets: [] }).replaceAll("<", "\\u003c")}</script><script id="km-company" type="application/json">${JSON.stringify(company ?? null).replaceAll("<", "\\u003c")}</script>${initialEntry ? `<script id="km-detail" type="application/json">${JSON.stringify(initialEntry).replaceAll("<", "\\u003c")}</script>` : ""}`;
   template = template
     .replace(
       /<title>.*?<\/title>/,
@@ -179,6 +221,8 @@ app.get("/{*path}", async (req, res) => {
       '<div id="root"></div>',
       `<div id="root">${initialMarkup}</div>${bootstrap}`,
     );
+  res.setHeader("Cache-Control", "no-store");
+  if (noindex) res.setHeader("X-Robots-Tag", "noindex, nofollow");
   res
     .status(found ? 200 : 404)
     .type("html")

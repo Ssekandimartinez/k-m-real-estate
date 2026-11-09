@@ -76,6 +76,7 @@ app.use(
 // Origin enforcement also protects unauthenticated login/reset endpoints.
 app.use("/api", (req, res, next) => {
   res.set("Cache-Control", "no-store");
+  res.set("X-Robots-Tag", "noindex, nofollow");
   if (
     !["GET", "HEAD", "OPTIONS"].includes(req.method) &&
     !allowedOrigins.has(req.get("origin") || "")

@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => {
   const standalone =
     (process.env.VITE_STANDALONE ?? env.VITE_STANDALONE) === "true";
   return {
+    publicDir: process.env.KM_BUILD_WITHOUT_MEDIA === "true" ? false : "public",
     plugins: [
       react(),
       tailwindcss(),

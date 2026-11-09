@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { api, type Company } from "./api";
 import Analytics from "./Analytics";
+import Seo from "./Seo";
 import { standalone } from "./staticContent";
 const MediaGallery = lazy(() => import("./MediaGallery"));
 import {
@@ -53,6 +54,7 @@ export default function App() {
   }, [location.pathname]);
   return (
     <CompanyContext.Provider value={data || null}>
+      <Seo company={data || null} />
       {location.pathname.startsWith("/admin") ? (
         standalone ? (
           <main className="section container">

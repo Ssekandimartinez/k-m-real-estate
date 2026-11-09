@@ -813,9 +813,6 @@ export function PageHero({
 }) {
   const { pathname } = useLocation();
   const visual = useVisual(`page-${pathname}`);
-  useEffect(() => {
-    document.title = `${title} | K&M Real Estate`;
-  }, [title]);
   return (
     <section className="page-hero">
       {(visual || image) && (

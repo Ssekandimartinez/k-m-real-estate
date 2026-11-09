@@ -112,9 +112,12 @@ export function buildStaticContent(root: string) {
         (annotation: { id: string }) => annotation.id === item.id,
       ),
     };
-    for (const url of [asset.url, asset.poster].filter(Boolean)) {
-      accessSync(path.join(root, "client/public", url));
-    }
+    // Render builds matching HTML/bundles without copying the Netlify media library.
+    // The normal Netlify build continues to validate every referenced media file.
+    if (process.env.KM_BUILD_WITHOUT_MEDIA !== "true")
+      for (const url of [asset.url, asset.poster].filter(Boolean)) {
+        accessSync(path.join(root, "client/public", url));
+      }
     const { id, type, url, poster, alt, placement, category } = asset;
     return {
       id,

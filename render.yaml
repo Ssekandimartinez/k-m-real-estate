@@ -25,9 +25,9 @@ services:
         # New Blueprint installations must supply a Neon PostgreSQL connection URL.
         sync: false
       - key: APP_ORIGIN
-        value: https://k-m-realestate.netlify.app
+        value: https://kmrealestatecompany.com
       - key: SITE_URL
-        value: https://k-m-realestate.netlify.app
+        value: https://kmrealestatecompany.com
 
 databases:
   # Legacy source retained for migration recovery; not used by the migrated API.
