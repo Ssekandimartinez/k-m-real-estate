@@ -22,6 +22,10 @@ app.get("/robots.txt", (_req, res) =>
     ),
 );
 app.get("/sitemap.xml", async (_req, res) => {
+  const categories = await db.category.findMany({
+    where: { kind: { in: ["service", "product"] } },
+    select: { slug: true, updatedAt: true },
+  });
   const items = await db.entry.findMany({
     where: {
       status: "PUBLISHED",
@@ -41,7 +45,9 @@ app.get("/sitemap.xml", async (_req, res) => {
       paths,
     )
       .map((p) => `<url><loc>${escape(config.siteUrl + p)}</loc></url>`)
-      .join("")}${items
+      .join(
+        "",
+      )}${categories.map((category) => `<url><loc>${escape(config.siteUrl + "/services/category/" + encodeURIComponent(category.slug))}</loc><lastmod>${category.updatedAt.toISOString()}</lastmod></url>`).join("")}${items
       .filter((v) => !(v.specs as Record<string, unknown>)?.demo)
       .map(
         (v) =>
@@ -101,6 +107,27 @@ app.get("/{*path}", async (req, res) => {
     content = "",
     found = Boolean(route) || pathname.startsWith("/admin");
   let initialEntry: any = null;
+  if (
+    parts.length === 3 &&
+    parts[0] === "services" &&
+    parts[1] === "category"
+  ) {
+    const category = await db.category.findFirst({
+      where: { slug: parts[2], kind: { in: ["service", "product"] } },
+    });
+    if (category) {
+      found = true;
+      title = category.name;
+      description = category.description;
+      image = category.image || image;
+      const entries = await db.entry.findMany({
+        where: { categoryId: category.id, status: "PUBLISHED" },
+        orderBy: { title: "asc" },
+      });
+      const section = category.kind === "product" ? "catalogue" : "services";
+      content = `<h1>${escape(title)}</h1><p>${escape(description)}</p><a href="/services">All services</a>${entries.map((entry) => `<article><h2><a href="/${section}/${escape(entry.slug)}">${escape(entry.title)}</a></h2><p>${escape(entry.summary)}</p></article>`).join("")}<a href="/quote?service=${escape(encodeURIComponent(title))}">Discuss your requirements</a>`;
+    }
+  }
   if (parts.length === 2 && base[parts[0]]) {
     const entry = await db.entry.findFirst({
       where: { kind: base[parts[0]], slug: parts[1], status: "PUBLISHED" },

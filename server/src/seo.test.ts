@@ -25,6 +25,10 @@ vi.mock("node:fs/promises", async (original) => ({
 }));
 vi.mock("./db.js", () => ({
   db: {
+    category: {
+      findMany: vi.fn().mockResolvedValue([]),
+      findFirst: vi.fn().mockResolvedValue(null),
+    },
     setting: { findUnique: vi.fn().mockResolvedValue(null) },
     entry: {
       findMany: vi.fn().mockResolvedValue([]),
@@ -116,5 +120,27 @@ describe("crawler responses", () => {
     );
     expect(res.text).toContain("<h1>Design &amp; Build</h1>");
     expect(res.headers["x-robots-tag"]).toContain("noindex");
+  });
+  it("renders service category landing pages and includes them in the sitemap", async () => {
+    vi.mocked(db.category.findFirst).mockResolvedValueOnce({
+      id: "design",
+      slug: "construction-and-design",
+      kind: "service",
+      name: "Construction & Design",
+      description: "Discuss your building plans.",
+    } as never);
+    const page = await request(app).get(
+      "/services/category/construction-and-design",
+    );
+    expect(page.status).toBe(200);
+    expect(page.text).toContain("<h1>Construction &amp; Design</h1>");
+    expect(page.headers["x-robots-tag"]).toBeUndefined();
+    vi.mocked(db.category.findMany).mockResolvedValueOnce([
+      { slug: "construction-and-design", updatedAt: new Date() },
+    ] as never);
+    const sitemap = await request(app).get("/sitemap.xml");
+    expect(sitemap.text).toContain(
+      "https://kmrealestatecompany.com/services/category/construction-and-design",
+    );
   });
 });

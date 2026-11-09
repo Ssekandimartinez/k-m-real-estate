@@ -2,7 +2,13 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { paths, descriptions } from "../../server/src/seo-content";
-import { api, destinations, type Company, type Entry } from "./api";
+import {
+  api,
+  destinations,
+  type Company,
+  type Entry,
+  type Category,
+} from "./api";
 
 const origin = "https://kmrealestatecompany.com";
 function meta(attribute: "name" | "property", name: string, value: string) {
@@ -26,6 +32,23 @@ export default function Seo({ company }: { company: Company | null }) {
     (key) => destinations[key] === parts[0],
   );
   const detail = parts.length === 2 && Boolean(kind);
+  const categoryPage =
+    parts.length === 3 && parts[0] === "services" && parts[1] === "category";
+  const { data: services } = useQuery({
+    queryKey: ["services", "categories"],
+    queryFn: () => api<Category[]>("/categories?kind=service"),
+    enabled: categoryPage,
+  });
+  const { data: products } = useQuery({
+    queryKey: ["products", "categories"],
+    queryFn: () => api<Category[]>("/categories?kind=product"),
+    enabled: categoryPage,
+  });
+  const category = categoryPage
+    ? [...(services || []), ...(products || [])].find(
+        (item) => item.slug === parts[2],
+      )
+    : undefined;
   const { data: entry, error } = useQuery({
     queryKey: ["detail", kind, parts[1]],
     queryFn: () => api<Entry>(`/content/${kind}/${parts[1]}`),
@@ -34,15 +57,24 @@ export default function Seo({ company }: { company: Company | null }) {
   useEffect(() => {
     const route = paths[path];
     const title =
-      (detail ? entry?.seoTitle || entry?.title : route?.title) ||
+      (detail
+        ? entry?.seoTitle || entry?.title
+        : categoryPage
+          ? category?.name
+          : route?.title) ||
       (path.startsWith("/admin") ? "Staff access" : "Page not found");
     const description =
-      (detail ? entry?.seoDescription || entry?.summary : descriptions[path]) ||
+      (detail
+        ? entry?.seoDescription || entry?.summary
+        : categoryPage
+          ? category?.description
+          : descriptions[path]) ||
       company?.seoDescription ||
       "K&M Real Estate, Juba, South Sudan.";
     const noindex =
       path.startsWith("/admin") ||
-      (!route && !detail) ||
+      (!route && !detail && !categoryPage) ||
+      (categoryPage && !category) ||
       (detail && (Boolean(error) || !entry || Boolean(entry.specs?.demo)));
     const url = origin + path;
     document.title = `${title} | K&M Real Estate`;
@@ -56,6 +88,7 @@ export default function Seo({ company }: { company: Company | null }) {
       "og:site_name": "K&M Real Estate",
       "og:image": new URL(
         entry?.images[0]?.url ||
+          category?.image ||
           company?.heroImage ||
           "/images/architecture.webp",
         origin,
@@ -72,20 +105,51 @@ export default function Seo({ company }: { company: Company | null }) {
       document.head.append(canonical);
     }
     canonical.href = url;
-    // Server-generated breadcrumbs describe the initial URL only.
+    // Keep breadcrumbs accurate after navigation as well as in the initial HTML.
     document.head
       .querySelectorAll('script[type="application/ld+json"]')
       .forEach((element) => {
         try {
           const data = JSON.parse(element.textContent || "null");
-          if (Array.isArray(data))
-            element.textContent = JSON.stringify(
-              data.filter((item) => item["@type"] !== "BreadcrumbList"),
+          if (Array.isArray(data)) {
+            const updated = data.filter(
+              (item) => item["@type"] !== "BreadcrumbList",
             );
+            if (!noindex && path !== "/")
+              updated.push({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: origin + "/",
+                  },
+                  ...(detail || categoryPage
+                    ? [
+                        {
+                          "@type": "ListItem",
+                          position: 2,
+                          name: paths["/" + parts[0]]?.title || "Services",
+                          item: origin + "/" + parts[0],
+                        },
+                      ]
+                    : []),
+                  {
+                    "@type": "ListItem",
+                    position: detail || categoryPage ? 3 : 2,
+                    name: title,
+                    item: url,
+                  },
+                ],
+              });
+            element.textContent = JSON.stringify(updated);
+          }
         } catch {
           /* Leave unrelated structured data intact. */
         }
       });
-  }, [path, detail, entry, error, company]);
+  }, [path, detail, entry, error, company, categoryPage, category]);
   return null;
 }
